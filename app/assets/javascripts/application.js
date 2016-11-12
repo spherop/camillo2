@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+// require turbolinks
 //= require_tree .
+
+// app specific stuff
+//= require bootstrap-sprockets
+//= require summernote

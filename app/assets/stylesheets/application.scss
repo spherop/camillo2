@@ -1,0 +1,55 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* app specific stuff */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "summernote";
+
+
+// font-family: 'Palanquin Dark', sans-serif;
+// font-family: 'Source Sans Pro', sans-serif;
+// font-family: 'Tinos', serif;
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container{
+      max-width: 1270px;
+  }
+}
+$sans: 'Palanquin Dark';
+$serif: 'Tinos';
+h2 {
+  font-family: $sans;
+  font-size: 50px;
+}
+body {
+  font-family: $serif;
+  font-size: 16px;
+}

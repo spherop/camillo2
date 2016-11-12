@@ -1,0 +1,33 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.posts {
+  background: #000;
+  h1 {
+    color: #fff;
+  }
+  .post-editor {
+    .note-editor .note-editing-area {
+      font-size: 24px;
+      border: solid 1px #ddd;
+      padding: 20px;
+      min-height: 400px;
+      background: #fff;
+    }
+    
+    .form-control.title {
+      font-size: 34px;
+      padding: 15px;
+      height: 64px;
+    }
+  }
+  
+  textarea {
+    min-height: 500px;
+    font-size: 30px;
+  }
+  #summernote {
+    font-size: 30px;
+  }
+}
