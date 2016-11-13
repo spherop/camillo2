@@ -3,17 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .posts {
-  background: #000;
   h1 {
-    color: #fff;
+    color: #444;
+    font-size: 20px;
   }
   .post-editor {
-    .note-editor .note-editing-area {
-      font-size: 24px;
-      border: solid 1px #ddd;
-      padding: 20px;
-      min-height: 400px;
-      background: #fff;
+
+    .note-editor {
+      .note-editing-area {
+        font-size: 24px;
+        border: solid 1px #ddd;
+        padding: 20px;
+        
+        background: #fff;
+      }
+      .note-editable {
+        min-height: 400px;
+      }  
     }
     
     .form-control.title {

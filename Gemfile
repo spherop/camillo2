@@ -5,10 +5,15 @@ source 'https://rubygems.org'
 gem 'simple_form', '~> 3.2'
 gem 'summernote-rails'
 gem 'bootstrap-sass'
+# gem 'react_webpack_rails'
+
+gem 'react-rails'
+gem 'devise'
 
 group :development do
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'rack-livereload'
+  
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
