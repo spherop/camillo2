@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  console.log("ready doc")
   $('#summernote').summernote({
     height: 500,
     airMode: true,

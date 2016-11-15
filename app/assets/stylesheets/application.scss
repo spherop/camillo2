@@ -43,13 +43,64 @@
       max-width: 1270px;
   }
 }
-$sans: 'Palanquin Dark';
-$serif: 'Tinos';
-h2 {
-  font-family: $sans;
-  font-size: 50px;
+$sans: 'Bungee Shade';
+$sans2: 'Unica One';
+$sans3: 'Arimo';
+$serif: 'Georgia';
+
+$dark-grey1: #182026;
+$dark-grey2: #202B33;
+$dark-grey3: #293742;
+
+$lightgrey1: #CED9E0;
+$lightgrey2: #E1E8ED;
+$lightgrey3: #F5F8FA;
+
+$blue: #106BA3;
+$steel: rgb(108, 159, 161);
+$beige: rgb(255, 227, 159);
+$orange: rgb(216, 135, 66);
+$red: rgb(158, 43, 14);
+
+a {
+  color: $blue;
 }
+
+h1 {
+  font-family: $sans;
+  font-size: 30px;
+}
+h2 {
+  font-family: $sans2;
+  font-size: 28px;
+}
+h3 {
+  background: #333;
+  color: #e6e6e6;
+  font-family: $sans3;
+  font-size: 13px;
+  letter-spacing: 1px;
+  padding: 14px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 body {
-  font-family: $serif;
+  font-family: $sans3;
   font-size: 16px;
+}
+.navbar-default {
+  background-color: #fff;
+  border-bottom: dotted 1px #999;
+  border: none;
+  padding-bottom: 15px;
+  text-align: center;
+  .main-nav {
+    a {
+      padding: 4px 10px;
+      text-transform: uppercase;
+    }
+  }
+  
 }

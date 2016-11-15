@@ -2,20 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "application";
+
+$borderColor: "#ddd";
+
 .posts {
+  .post {
+    p {
+      font-size: 22px;
+    }
+  }
+  .new-post-link {
+    background: $blue;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 5px 10px;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+  }
   h1 {
     color: #444;
     font-size: 20px;
   }
   .post-editor {
-
     .note-editor {
       .note-editing-area {
         font-size: 24px;
-        border: solid 1px #ddd;
+        border: solid 1px $borderColor;
         padding: 20px;
-        
         background: #fff;
+        border-radius: 20px;
       }
       .note-editable {
         min-height: 400px;
@@ -23,9 +40,16 @@
     }
     
     .form-control.title {
-      font-size: 34px;
-      padding: 15px;
+      font-size: 24px;
+      padding: 15px 30px;
       height: 64px;
+      border-radius: 0;
+      border: none;
+      background: #fff;
+      border-bottom: dashed 1px #999;
+      &:focus {
+        background: #f7f7f7;
+      }
     }
   }
   
@@ -35,5 +59,19 @@
   }
   #summernote {
     font-size: 30px;
+  }
+  .btn-default {
+    background: #f5f5f5;
+    color: #656565;
+    border-radius: 30px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 30px;
+  }
+  .post-actions {
+    border-top: solit 1px #999;
+    margin-top: 10px;
+    padding-top: 10px;
   }
 }
