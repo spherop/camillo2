@@ -7,10 +7,33 @@
 $borderColor: "#ddd";
 
 .posts {
+  h4 {
+    a {
+      background: $beige;
+      color: $darkgrey1;
+      font-size: 12px;
+      padding: 5px 9px;
+      opacity: .7;
+      // border-bottom: solid 1px #888;
+      transition: opacity 100ms linear;
+      
+      &:hover {
+        opacity: 1;
+      }
+    }    
+  }
   .post {
     p {
       font-size: 22px;
     }
+  }
+  .post-date {
+    color: $lightgrey1;
+    font-size: 14px;
+  }
+  .post-delete {
+    font-size: 12px;
+    color: $lightgrey1;
   }
   .new-post-link {
     background: $blue;

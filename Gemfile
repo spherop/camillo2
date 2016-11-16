@@ -10,6 +10,7 @@ gem 'bootstrap-sass'
 gem 'react-rails'
 gem 'devise'
 gem 'jquery-turbolinks'
+gem 'acts-as-taggable-on', '~> 4.0'
 
 group :development do
   gem 'guard-livereload', '~> 2.5', require: false

@@ -38,19 +38,19 @@
 }
 
 /* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
+@media (min-width: 900px) {
   .container{
-      max-width: 1270px;
+      max-width: 970px;
   }
 }
 $sans: 'Bungee Shade';
-$sans2: 'Unica One';
+$sans2: 'Exo 2'; // 'Unica One';
 $sans3: 'Arimo';
 $serif: 'Georgia';
 
-$dark-grey1: #182026;
-$dark-grey2: #202B33;
-$dark-grey3: #293742;
+$darkgrey1: #182026;
+$darkgrey2: #202B33;
+$darkgrey3: #293742;
 
 $lightgrey1: #CED9E0;
 $lightgrey2: #E1E8ED;
@@ -61,6 +61,19 @@ $steel: rgb(108, 159, 161);
 $beige: rgb(255, 227, 159);
 $orange: rgb(216, 135, 66);
 $red: rgb(158, 43, 14);
+
+.steel { color: $steel; }
+.beige { color: $beige; }
+.blue { color: $blue; }
+.red { color: $red; }
+
+.darkgrey1 { color: $darkgrey1; }
+.darkgrey2 { color: $darkgrey2; }
+.darkgrey3 { color: $darkgrey3; }
+
+.lightgrey1 { color: $lightgrey1; }
+.lightgrey2 { color: $lightgrey2; }
+.lightgrey3 { color: $lightgrey3; }
 
 a {
   color: $blue;
@@ -85,17 +98,18 @@ h3 {
   text-align: center;
   text-transform: uppercase;
 }
-
+h5 {
+  color: $lightgrey1;
+}
 body {
   font-family: $sans3;
   font-size: 16px;
 }
 .navbar-default {
   background-color: #fff;
-  border-bottom: dotted 1px #999;
   border: none;
-  padding-bottom: 15px;
   text-align: center;
+  margin-bottom: 0;
   .main-nav {
     a {
       padding: 4px 10px;

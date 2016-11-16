@@ -7,16 +7,17 @@
   <% @posts.each do |post| %>
     <div class="post row">
       <div>
-        <h2><%= link_to post.title, post_path(post) %></h2>
-        <h6><%= post.created_at.strftime('%b %d, %Y') %></h6>
+        <h2>
+          <span class="post-date">
+            <%= post.created_at.strftime('%m•%d•%y') %> 
+          </span>
+          <%= link_to post.title, post_path(post), class: "darkgrey1" %>
+          <%= link_to 'X', post_path(post), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "post-delete pull-right" if user_signed_in? && post.user_id == current_user.id%>
+        </h2>
+        <h4><%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %></h4>
       </div>
       <div>
-        <%= raw(strip_tags(post.body)).truncate(358) %>
-      </div>
-      <div>
-        <% if user_signed_in? && post.user_id == current_user.id %>
-          <%= link_to 'Delete', post_path(post), data: {:confirm => 'Are you sure?'}, :method => :delete %>
-        <% end %>
+        
       </div>
       <br>
     </div>
