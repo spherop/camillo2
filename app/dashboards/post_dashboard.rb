@@ -9,10 +9,7 @@ class PostDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     user: Field::BelongsTo,
-    taggings: Field::HasMany.with_options(class_name: "::ActsAsTaggableOn::Tagging"),
-    base_tags: Field::HasMany.with_options(class_name: "::ActsAsTaggableOn::Tag"),
-    tag_taggings: Field::HasMany.with_options(class_name: "ActsAsTaggableOn::Tagging"),
-    tags: Field::HasMany.with_options(class_name: "ActsAsTaggableOn::Tag"),
+    element: Field::BelongsTo,
     id: Field::Number,
     title: Field::String,
     body: Field::Text,
@@ -27,19 +24,16 @@ class PostDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :user,
-    :taggings,
-    :base_tags,
-    :tag_taggings,
+    :element,
+    :id,
+    :title,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :user,
-    :taggings,
-    :base_tags,
-    :tag_taggings,
-    :tags,
+    :element,
     :id,
     :title,
     :body,
@@ -52,10 +46,7 @@ class PostDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :user,
-    :taggings,
-    :base_tags,
-    :tag_taggings,
-    :tags,
+    :element,
     :title,
     :body,
   ].freeze

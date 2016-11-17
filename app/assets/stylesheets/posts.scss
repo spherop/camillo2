@@ -70,9 +70,8 @@ $borderColor: "#ddd";
       padding: 15px 30px;
       height: 64px;
       border-radius: 0;
-      border: none;
+      border: solid 1px #eee;
       background: #fff;
-      border-bottom: dashed 1px #999;
       &:focus {
         background: #f7f7f7;
       }
