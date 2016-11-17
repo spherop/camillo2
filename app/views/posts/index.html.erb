@@ -1,7 +1,7 @@
 
 <div class="container posts">
   <div class="row">
-    <h3>Latest Posts <%= link_to "New", new_post_path, class: "new-post-link" %></h3>
+    <%= link_to "New", new_post_path, class: "new-post-link" %>
   </div>
   
   <% @posts.each do |post| %>
@@ -14,7 +14,7 @@
           <%= link_to post.title, post_path(post), class: "darkgrey1" %>
           <%= link_to 'X', post_path(post), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "post-delete pull-right" if user_signed_in? && post.user_id == current_user.id%>
         </h2>
-        <h4><%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %></h4>
+        <div class="post-tags"><%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(' ') %></div>
       </div>
       <div>
         
