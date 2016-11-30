@@ -1,12 +1,17 @@
 <div class="posts">
-  <div class="col-xs-12 post">
-    <%= link_to "Edit", edit_post_path(@post), class: "edit-post-link" %>
-    <h2><%= @post.title %></h2>
-    <h5><%= @post.created_at.strftime('%b %d, %Y') %></h5>
-    <div><%= raw @post.body %></div>
+  <%= link_to "Edit", edit_post_path(@post), class: "post-link" %>
+  
+
+  <div class=" col-sm-6 col-sm-offset-3 post">
+    <div class="text-center post-header">
+      <h2 class="text"><%= @post.title %></h2>
+      <div class="post-author">
+        by Dan Newman
+      </div>
+    </div>
+    <div class="post-summary"><%= raw @post.summary %></div>
+    <div class="post-body"><%= raw @post.body %></div>
     
-    <div>
-      <em>Element:</em>
-      <h4><%= @post.element.name %></h4></div>
+    <a class="all-posts-link" href="/timeline">See All Posts</a>
   </div>
 </div>

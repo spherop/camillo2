@@ -38,15 +38,19 @@
 }
 
 /* Large devices (large desktops, 1200px and up) */
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
   .container{
-      max-width: 970px;
+    max-width: 1270px;
   }
 }
 $sans: 'Bungee Shade';
-$sans2: 'Exo 2'; // 'Unica One';
+$sans2: 'Passion One'; // 'Unica One';
 $sans3: 'Arimo';
-$serif: 'Georgia';
+$textSans: 'Montserrat';
+$titleSans: 'Passion One';
+$serif: 'Crimson Text';
+
+//Bungee+Shade|Unica+One|Arimo|Bree+Serif|Passion+One|Exo+2:500,600|Crimson+Text
 
 $darkgrey1: #182026;
 $darkgrey2: #202B33;
@@ -55,6 +59,10 @@ $darkgrey3: #293742;
 $lightgrey1: #CED9E0;
 $lightgrey2: #E1E8ED;
 $lightgrey3: #F5F8FA;
+$linkGrey: #98a1a7;
+$panelGrey: #eee;
+
+$textColor: #666;
 
 $blue: #106BA3;
 $steel: rgb(108, 159, 161);
@@ -75,18 +83,11 @@ $red: rgb(158, 43, 14);
 .lightgrey2 { color: $lightgrey2; }
 .lightgrey3 { color: $lightgrey3; }
 
+
 a {
-  color: $blue;
+  color: $linkGrey;
 }
 
-h1 {
-  font-family: $sans;
-  font-size: 30px;
-}
-h2 {
-  font-family: $sans2;
-  font-size: 28px;
-}
 h3 {
   background: #333;
   color: #e6e6e6;
@@ -108,13 +109,30 @@ body {
 .navbar-default {
   background-color: #fff;
   border: none;
+  border-radius: 0;
   text-align: center;
   margin-bottom: 0;
-  .main-nav {
-    a {
-      padding: 4px 10px;
-      text-transform: uppercase;
-    }
+  h6 {
+    letter-spacing: 5px;
   }
-  
+}
+.header {
+  margin-top: 10px;
+  h1 {
+    font-family: $sans;
+    font-size: 22px;
+    margin-top: 5px;
+    padding-top: 5px;
+    letter-spacing: 9px;
+  }
+
+}
+.footer {
+  margin: 45px 0 70px;
+  a {
+    padding: 4px 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 11px;
+  }
 }

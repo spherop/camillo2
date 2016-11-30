@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  # devise_for :users
-  resources :posts do
-  end
-  # resources :elements do
-  # end
+  resources :posts
+  
+  resources :elements
+  
 
   root "posts#index"
 
   get '/about', to: 'pages#about'
+  get '/timeline', to: 'posts#timeline'
 
 end

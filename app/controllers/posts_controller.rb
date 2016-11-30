@@ -1,9 +1,29 @@
 class PostsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
-
+	before_action :get_elements, except: [:new, :edit]
 
 	def index
-		@posts = Post.all.order('created_at DESC')
+		# @element = params[:element]
+		# element_id = Element.find_by_name(@element)
+		# if element_id
+		# 	@posts = Post.where(:element_id => element_id).order('created_at DESC')
+		# else 
+		# 	@post = Post.first
+		# end
+		@post = Post.first
+		
+		respond_to do |format|
+	    format.html {
+				render :show
+			}
+	    format.json {
+	      render :json => @post.to_json
+	    }
+		end
+	end
+	
+	def timeline
+		@posts = Post.all
 	end
 
 	def new
@@ -12,6 +32,7 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
+		@element = @post.element ? @post.element.name : ""
 	end
 
 	def create
@@ -30,7 +51,7 @@ class PostsController < ApplicationController
 	def update
 		@post = Post.find(params[:id])
 
-		if @post.update(params[:post].permit(:title, :body, :element_id))
+		if @post.update(params[:post].permit(:title, :body, :element_id, :summary))
 			redirect_to @post
 		else
 			render 'edit'
@@ -42,11 +63,14 @@ class PostsController < ApplicationController
 		@post.destroy
 		redirect_to posts_path
 	end
+	
+	def get_elements
+		@elements ||= Element.all
+	end
 
 	private
 
 	def post_params
-		params.require(:post).permit(:title, :body, :element_id)
-		
+		params.require(:post).permit(:title, :body, :element_id, :summary)
 	end
 end

@@ -1,0 +1,5 @@
+<div class="elements-list">
+  <% @elements.each_with_index do |element, index| %>
+    <%= render "elements/form", :element => element %>
+  <% end %>
+</div>

@@ -1,0 +1,28 @@
+
+<div class="container posts">
+  
+  <div class="col-xs-2">
+    <%#= render :partial => "partials/action_panel" %>
+  </div>
+  <div class="col-xs-8 post">
+
+    <% @posts.each_with_index do |post, index| %>
+      <div class="row">
+        <h2>
+          <%= link_to post.title, post_path(post), class: "darkgrey1" %>
+          <%= link_to 'X', post_path(post), data: {:confirm => 'Are you sure?'}, :method => :delete, class: "post-delete pull-right" if user_signed_in? && post.user_id == current_user.id %>
+        </h2>
+        <span class="post-date">
+          <%= post.created_at.strftime('%m•%d•%y') %> 
+        </span>
+        <% if @element %>
+        <div>
+          <%= raw post.body %>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-xs-2">
+  </div>
+</div>

@@ -18,7 +18,7 @@ gem 'bourbon' # for administrate https://github.com/thoughtbot/administrate/issu
 group :development do
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'rack-livereload'
-  
+  gem 'pry'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

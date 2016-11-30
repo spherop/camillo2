@@ -3,18 +3,19 @@
   <head>
     <title>Camillo</title>
     <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Unica+One|Arimo|Bree+Serif|Passion+One|Exo+2:500,600|Crimson+Text" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Unica+One|Arimo|Bree+Serif|Passion+One|Exo+2:500,600|Crimson+Text|Montserrat" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body class="container">
-    <div>
+  <body class="posts-layout">
+    <%#= render :partial => "partials/elements_nav" %>
+    <div style="display: none">
       <p class=""><%= notice %></p>
       <p class=""><%= alert %></p>
     </div>
-
     <%= render "partials/header" %>
     <%= yield %>
+    <%= render "partials/footer" %>
   </body>
 </html>

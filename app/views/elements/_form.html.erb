@@ -1,0 +1,10 @@
+<%= simple_form_for element do |f| %>
+  <div class="">
+    <div class="form-group name">
+      <%= f.input :name,  input_html: { class: "name" }, placeholder: "Element name", label: false, autofocus: true %>
+    </div>
+    <div class="form-group">
+      <%= f.button :submit, :class => "btn" %>
+    </div>
+  </div>
+<% end %>

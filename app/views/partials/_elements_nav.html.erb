@@ -1,0 +1,7 @@
+<% if @elements %>
+  <div class="elements-nav">
+    <% @elements.each do |elem| %>
+      <%= link_to elem.name, (posts_path + "?element=" + elem.name), class: "elem" %>
+    <% end %>
+  </div>
+<% end %>

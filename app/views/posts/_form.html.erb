@@ -1,4 +1,4 @@
-<div class="post-editor">
+<div class="post-editor col-sm-8 col-sm-offset-3">
   <%= simple_form_for @post do |f| %>
     <% if @post.errors.any? %>
       <div id="error_explanation">
@@ -15,12 +15,15 @@
       </div>
     <% end %>
     
-    <div class="form-group elements">
+    <div class="form-group elements-edit">
       <%= f.association :element, as: :radio_buttons %>
     </div>
 
     <div class="form-group title">
       <%= f.input :title,  input_html: { class: "title" }, placeholder: "Article title", label: false, autofocus: true %>
+    </div>
+    <div class="form-group summary">
+      <%= f.input :summary,  input_html: { class: "summary" }, placeholder: "Article summary", label: false %>
     </div>
 
     <div class="form-group">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117030941) do
+ActiveRecord::Schema.define(version: 20161120211649) do
 
   create_table "elements", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20161117030941) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "element_id"
+    t.text     "summary"
   end
 
   create_table "taggings", force: :cascade do |t|
