@@ -1,6 +1,10 @@
-<nav class="navbar navbar-default header text-center">
-  <h1>
-    <a class="logo" href="/">Camillo</a>
-  </h1>
-  <h6 class="text-center lightgrey1">The Creativity Framework</h6>
+<nav class="navbar navbar-default navbar-fixed-top header navbar-inverse">
+  <div class="container">
+    <a class="logo navbar-brand" href="/">Camillo</a>
+    <% if user_signed_in? %>
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "navbar-right") %>        
+    <% else %>
+      <%= link_to('Login', new_user_session_path, class: "navbar-right")  %>  
+    <% end %>
+  </div>
 </nav>

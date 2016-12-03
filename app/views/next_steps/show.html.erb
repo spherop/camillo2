@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @next_step.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @next_step.description %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @next_step.notes %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @next_step.user_id %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= @next_step.due_date %>
+</p>
+
+<%= link_to 'Edit', edit_next_step_path(@next_step) %> |
+<%= link_to 'Back', next_steps_path %>

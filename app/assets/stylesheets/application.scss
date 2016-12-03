@@ -17,6 +17,7 @@
 /* app specific stuff */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap/theme";
 @import "summernote";
 
 
@@ -105,6 +106,7 @@ h5 {
 body {
   font-family: $sans3;
   font-size: 16px;
+  margin-top: 70px;
 }
 .navbar-default {
   background-color: #fff;
@@ -117,7 +119,6 @@ body {
   }
 }
 .header {
-  margin-top: 10px;
   h1 {
     font-family: $sans;
     font-size: 22px;
@@ -135,4 +136,14 @@ body {
     letter-spacing: 3px;
     font-size: 11px;
   }
+}
+.bg-panel {
+  background: $darkgrey2;
+}
+table {
+  width: 100%;
+}
+th, td {
+  padding: 10px;
+  background: $lightgrey3;
 }

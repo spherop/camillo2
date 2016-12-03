@@ -10,11 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120211649) do
+ActiveRecord::Schema.define(version: 20161130055033) do
+
+  create_table "actions", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.text     "notes"
+    t.integer  "user_id"
+    t.datetime "action_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "creative_actions", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.text     "notes"
+    t.integer  "user_id"
+    t.datetime "action_date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "elements", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "goals", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.text     "notes"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "ideas", force: :cascade do |t|
+    t.string   "title"
+    t.text     "notes"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "next_steps", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.text     "notes"
+    t.integer  "user_id"
+    t.datetime "due_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -27,6 +74,22 @@ ActiveRecord::Schema.define(version: 20161120211649) do
     t.integer  "user_id"
     t.integer  "element_id"
     t.text     "summary"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.text     "notes"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "content"
+    t.string   "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", force: :cascade do |t|

@@ -1,0 +1,2 @@
+class CreativeAction < ApplicationRecord
+end

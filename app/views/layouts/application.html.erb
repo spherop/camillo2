@@ -8,13 +8,45 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body class="container">
+  <body>
     <div>
       <p class=""><%= notice %></p>
       <p class=""><%= alert %></p>
     </div>
-
     <%= render "partials/header" %>
-    <%= yield %>
+      <div class="row">
+        <div class="col-md-3 bg-panel">
+          <ul class="nav nav-pills nav-stacked">
+            <li role="presentation">
+              <%= link_to "Projects", projects_path %>
+            </li>
+            <li role="presentation">
+              <%= link_to "Ideas", ideas_path %>
+            </li>
+            <li role="presentation">
+              <%= link_to "Goals", goals_path %>
+            </li>
+            <li role="presentation">
+              <%= link_to "Next Steps", next_steps_path %>
+            </li>
+            <li role="presentation">
+              <%= link_to "Questions", questions_path %>
+            </li>
+            <li role="presentation">
+              <%= link_to "Creative Actions", creative_actions_path %>
+            </li>
+            <li role="presentation">
+              <%= link_to "New Article", new_post_path %>
+            </li>
+
+          </ul>
+        </div>
+      
+        <div class="col-md-9">
+          <%= yield %>
+        </div>
+      </div>
+    
+    <%= render "partials/footer" %>
   </body>
 </html>

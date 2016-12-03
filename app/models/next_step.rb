@@ -1,0 +1,2 @@
+class NextStep < ApplicationRecord
+end

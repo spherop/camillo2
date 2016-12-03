@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :next_steps
+  resources :projects
+  resources :goals
+  resources :creative_actions
+  resources :actions
+  resources :ideas
+  resources :questions
   namespace :admin do
     resources :users
     resources :posts
