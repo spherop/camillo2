@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @idea.title %>
-</p>
+<article>
+  <header class="f3">
+    <strong>Title:</strong>
+    <%= @idea.title %>
+  </header>
 
-<p>
-  <strong>Notes:</strong>
-  <%= @idea.notes %>
-</p>
+  <section>
+    <p>
+      <%= @idea.notes.html_safe %>
+    </p>
+  </section>
+</article>  
 
-<p>
-  <strong>User:</strong>
-  <%= @idea.user_id %>
-</p>
+<%= link_to 'Delete', @idea, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
 
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <%= link_to 'Back', ideas_path %>

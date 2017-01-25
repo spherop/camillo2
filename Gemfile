@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 
 # app specific gems
 gem 'simple_form', '~> 3.2'
-gem 'summernote-rails'
-gem 'bootstrap-sass'
+# gem 'bootstrap-sass'
 # gem 'react_webpack_rails'
 
 gem 'react-rails'
@@ -13,6 +12,8 @@ gem 'jquery-turbolinks'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'administrate'
 gem 'bourbon' # for administrate https://github.com/thoughtbot/administrate/issues/615  
+
+gem 'medium-editor-rails'
 
 
 group :development do

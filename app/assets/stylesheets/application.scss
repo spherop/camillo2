@@ -11,39 +11,17 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require medium-editor/medium-editor
+ *= require medium-editor/themes/flat
  *= require_self
  */
 
 /* app specific stuff */
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "bootstrap/theme";
-@import "summernote";
+// @import "bootstrap-sprockets";
+// @import "bootstrap";
+// @import "bootstrap/theme";
+// @import "summernote";
 
-
-// font-family: 'Palanquin Dark', sans-serif;
-// font-family: 'Source Sans Pro', sans-serif;
-// font-family: 'Tinos', serif;
-
-/* Extra small devices (phones, less than 768px) */
-/* No media query since this is the default in Bootstrap */
-
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  
-}
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
-
-}
-
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1000px) {
-  .container{
-    max-width: 1270px;
-  }
-}
 $sans: 'Bungee Shade';
 $sans2: 'Passion One'; // 'Unica One';
 $sans3: 'Arimo';
@@ -86,64 +64,96 @@ $red: rgb(158, 43, 14);
 
 
 a {
-  color: $linkGrey;
-}
-
-h3 {
-  background: #333;
-  color: #e6e6e6;
-  font-family: $sans3;
-  font-size: 13px;
-  letter-spacing: 1px;
-  padding: 14px;
-  position: relative;
-  text-align: center;
-  text-transform: uppercase;
-}
-h5 {
+  text-decoration: none;
   color: $lightgrey1;
 }
-body {
-  font-family: $sans3;
-  font-size: 16px;
-  margin-top: 70px;
-}
-.navbar-default {
-  background-color: #fff;
-  border: none;
-  border-radius: 0;
-  text-align: center;
-  margin-bottom: 0;
-  h6 {
-    letter-spacing: 5px;
-  }
-}
-.header {
-  h1 {
-    font-family: $sans;
-    font-size: 22px;
-    margin-top: 5px;
-    padding-top: 5px;
-    letter-spacing: 9px;
-  }
 
+body {
+  font-size: 16px;
+  // margin-top: 70px;
 }
-.footer {
-  margin: 45px 0 70px;
-  a {
-    padding: 4px 10px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    font-size: 11px;
-  }
-}
-.bg-panel {
-  background: $darkgrey2;
-}
+
 table {
   width: 100%;
+  padding: 5rem;
+  background: #ddd;
 }
 th, td {
   padding: 10px;
   background: $lightgrey3;
+}
+h1 {
+  display: inline-block;
+  float: left;
+  padding: 2rem;
+  background: #ccc;
+}
+form {
+  // background: #777;
+  color: #333;
+  padding: 2rem;
+  width: 960px;
+  .form-group {
+    margin: 10px;
+    // text-align: right;
+    label {
+      // display: inline-block;
+      width: 5rem;
+      margin-right: 1rem;
+      display: none;
+    }
+    input[type="text"] {
+      padding: 1rem 1.5rem;
+      border: none;
+      border-radius: .1rem;
+      width: 500px;
+      background: #eee;
+      color: #888;
+      width: 100%;
+    }
+    textarea {
+      width: 100%;
+      padding: 1rem;
+      background: $lightgrey1;
+      color: $darkgrey1;
+    }
+  }
+  input[type="submit"] {
+    border-radius: .5rem;
+    background: $darkgrey2;
+    color: $lightgrey1;
+    border: none;
+    padding: 1rem 2rem;
+    float: right;
+  }
+}
+
+// MOVE ELSEWHERE
+.ca-items {
+  font-size: 30px;
+  font-family: $serif;
+  color: #aaa;
+  a {
+    font-weight: bold;
+    color: #333;
+  }
+}
+.ca-items-footer {
+  margin-top: 20px;
+}
+.ca-button {
+  background: #ddd;
+  padding: 30px;
+  color: #333;
+  display: block;
+}
+.ca-post {
+  font-size: 30px;
+  font-family: $serif;
+}
+.ca-logo {
+  border-radius: 30px;
+  width: 35px;
+  display: inline-block;
+  text-align: center;
 }

@@ -1,31 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Ideas</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Notes</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ideas.each do |idea| %>
-      <tr>
-        <td><%= idea.title %></td>
-        <td><%= idea.notes %></td>
-        <td><%= idea.user_id %></td>
-        <td><%= link_to 'Show', idea, class: "btn btn-default" %></td>
-        <td><%= link_to 'Edit', edit_idea_path(idea), class: "btn btn-default" %></td>
-        <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Idea', new_idea_path, class: "btn btn-default"%>
+<h2>Ideas</h2>
+<%= render partial: "partials/items", locals: {items: @ideas} %>
+<div class="ca-items-footer">
+  <%= link_to 'New Idea', new_idea_path, class: "ca-button grow"  %>
+</div>

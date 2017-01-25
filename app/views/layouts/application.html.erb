@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Camillo</title>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.5.5/css/tachyons.min.css"/>
     <%= csrf_meta_tags %>
     <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Unica+One|Arimo|Bree+Serif|Passion+One|Exo+2:500,600|Crimson+Text" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -9,44 +10,10 @@
   </head>
 
   <body>
-    <div>
-      <p class=""><%= notice %></p>
-      <p class=""><%= alert %></p>
-    </div>
     <%= render "partials/header" %>
-      <div class="row">
-        <div class="col-md-3 bg-panel">
-          <ul class="nav nav-pills nav-stacked">
-            <li role="presentation">
-              <%= link_to "Projects", projects_path %>
-            </li>
-            <li role="presentation">
-              <%= link_to "Ideas", ideas_path %>
-            </li>
-            <li role="presentation">
-              <%= link_to "Goals", goals_path %>
-            </li>
-            <li role="presentation">
-              <%= link_to "Next Steps", next_steps_path %>
-            </li>
-            <li role="presentation">
-              <%= link_to "Questions", questions_path %>
-            </li>
-            <li role="presentation">
-              <%= link_to "Creative Actions", creative_actions_path %>
-            </li>
-            <li role="presentation">
-              <%= link_to "New Article", new_post_path %>
-            </li>
-
-          </ul>
-        </div>
-      
-        <div class="col-md-9">
-          <%= yield %>
-        </div>
-      </div>
-    
-    <%= render "partials/footer" %>
+    <%= render :partial => "/partials/nav_buttons" %>
+    <div class="mw6 mw8-ns center b1 pa3 ph5-ns mt4">
+      <%= yield %>
+    </div>
   </body>
 </html>

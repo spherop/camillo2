@@ -18,5 +18,6 @@
 //= require_tree .
 
 // app specific stuff
-//= require bootstrap-sprockets
-//= require summernote
+// require bootstrap-sprockets
+// require summernote
+//= require medium-editor

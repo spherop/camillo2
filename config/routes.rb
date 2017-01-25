@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :next_steps
   resources :projects
   resources :goals
+  resources :items
+  resources :posts
   resources :creative_actions
   resources :actions
   resources :ideas

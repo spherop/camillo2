@@ -10,14 +10,14 @@ class PostsController < ApplicationController
 		# else 
 		# 	@post = Post.first
 		# end
-		@post = Post.first
+		# @post = Post.first
 		
 		respond_to do |format|
 	    format.html {
-				render :show
+				@posts = Post.all
 			}
 	    format.json {
-	      render :json => @post.to_json
+	      # render :json => @post.to_json
 	    }
 		end
 	end
@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
-		@element = @post.element ? @post.element.name : ""
+		# @element = @post.element ? @post.element.name : ""
 	end
 
 	def create

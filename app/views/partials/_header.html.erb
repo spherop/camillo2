@@ -1,10 +1,13 @@
-<nav class="navbar navbar-default navbar-fixed-top header navbar-inverse">
-  <div class="container">
-    <a class="logo navbar-brand" href="/">Camillo</a>
+<header class="w-100 bg-black-80 pa3">
+  <a class="ca-logo pa1 bg-light-silver black f2" href="/">C</a>
+  <%= link_to "Posts", posts_path, class: "ma4 f3" %>
+  <%= link_to "Projects", projects_path, class: "ma4 f3" %>
+  
+  <div class="absolute right-1 top-1">
     <% if user_signed_in? %>
       <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "navbar-right") %>        
     <% else %>
       <%= link_to('Login', new_user_session_path, class: "navbar-right")  %>  
     <% end %>
   </div>
-</nav>
+</header>
