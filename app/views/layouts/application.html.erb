@@ -10,7 +10,9 @@
   </head>
 
   <body>
+    <%= render 'layouts/react_hot_assets' %>
     <%= render "partials/header" %>
+    <%#= react_component('HelloWorld') %>
     <%= render :partial => "/partials/nav_buttons" %>
     <div class="mw6 mw8-ns center b1 pa3 ph5-ns mt4">
       <%= yield %>

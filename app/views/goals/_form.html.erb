@@ -1,11 +1,15 @@
-<%= simple_form_for @goal  do |f| %>
+<%= simple_form_for(@goal) do |f| %>
+  <h3>Goal:</h3>
   <%= f.error_notification %>
+
   <div class="form-inputs">
-    <%= f.input :title, placeholder: "Goal Title" %>
-    <%= f.text_area :notes, class: "rte" %>
+    <%= f.input :title %>
+    <%= f.input :notes, input_html: { class: 'rte' } %>
+    <%= f.input :item_type, collection: Item::ITEM_TYPES, selected: :goal  %>
   </div>
 
-  <div>
+  <div class="form-actions">
     <%= f.button :submit %>
   </div>
 <% end %>
+

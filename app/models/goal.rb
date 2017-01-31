@@ -1,3 +1,3 @@
-class Goal < ApplicationRecord
-  default_scope { order(created_at: :desc) }
+class Goal < Item
+  belongs_to :user
 end

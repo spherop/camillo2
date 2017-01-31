@@ -1,25 +1,5 @@
-<article class="<%= list_design %>">
-  <h1>Goals</h1>
-    <%= render 'form', goal: @goal %>
-    <div class="">
-      <% @goals.each do |goal| %>
-        <section>
-          <div class="<%= item_title %>">
-            <%= goal.title %>
-          </div>
-          <div class="<%= item_notes %>">
-            <%= raw goal.notes %>
-          </div>
-          <nav>
-            <%= link_to 'Show', goal %>
-            <%= link_to 'Edit', edit_goal_path(goal) %>
-            <%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' }  %>
-          </nav>
-        </section>
-      <% end %>
-    </div>
-
-  <br>
-
-  
+<h2>Goals</h2>
+<%= render partial: "partials/items", locals: {items: @goals} %>
+<div class="ca-items-footer">
+  <%= link_to 'New Goal', new_goal_path, class: "ca-button grow"  %>
 </div>

@@ -15,6 +15,7 @@ gem 'bourbon' # for administrate https://github.com/thoughtbot/administrate/issu
 
 gem 'medium-editor-rails'
 
+gem 'react_webpack_rails'
 
 group :development do
   gem 'guard-livereload', '~> 2.5', require: false
@@ -67,3 +68,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'rwr-view_helpers', '~> 0.1.1'

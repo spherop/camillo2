@@ -15,9 +15,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require turbolinks-compatibility
+//= require react_integration
+//= require react_bundle
 //= require_tree .
 
 // app specific stuff
 // require bootstrap-sprockets
 // require summernote
 //= require medium-editor
+
+//= require react_integration
+//= require react_bundle
