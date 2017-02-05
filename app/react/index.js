@@ -1,5 +1,5 @@
 import RWR from 'react-webpack-rails';
 RWR.run();
 
-import HelloWorld from './components/hello-world';
-RWR.registerComponent('HelloWorld', HelloWorld);
+import NavButtons from './components/nav/nav-buttons';
+RWR.registerComponent('NavButtons', NavButtons);

@@ -22,8 +22,8 @@
 // @import "bootstrap/theme";
 // @import "summernote";
 
-$sans: 'Bungee Shade';
-$sans2: 'Passion One'; // 'Unica One';
+$sans: 'Montserrat'; // Bungee Shade
+$sans2: 'Helvetica'; // 'Unica One';
 $sans3: 'Arimo';
 $textSans: 'Montserrat';
 $titleSans: 'Passion One';
@@ -88,6 +88,11 @@ h1 {
   padding: 2rem;
   background: #ccc;
 }
+h2 {
+  font-family: $sans;
+  color: #ccc;
+  margin: 0;
+}
 form {
   // background: #777;
   color: #333;
@@ -108,8 +113,10 @@ form {
       border-radius: .1rem;
       width: 500px;
       background: #eee;
-      color: #888;
+      color: #444;
       width: 100%;
+      font-size: 1.3rem;
+      
     }
     textarea {
       width: 100%;
@@ -133,9 +140,30 @@ form {
   font-size: 30px;
   font-family: $serif;
   color: #aaa;
+  .ca-item {
+    margin-bottom: 15px;
+  }
+  .ca-title {
+    margin-right: 20px;
+    letter-spacing: 1px;
+  }
+  .ca-description {
+    margin-right: 20px;
+    font-family: $sans2;
+    font-size: 19px;
+    margin-top: 10px;
+    color: #bbb;
+    letter-spacing: .4px;
+  }
+  .fa-delete {
+    font-size: .8rem;
+  }
   a {
-    font-weight: bold;
     color: #333;
+  }
+  [data-method = "delete"] {
+    color: #ccc;
+    // font-family: $sans;
   }
 }
 .ca-items-footer {
@@ -156,4 +184,16 @@ form {
   width: 35px;
   display: inline-block;
   text-align: center;
+}
+.rte {
+  padding: 30px;
+  border: solid 2px #ddd;
+  min-height: 300px;
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  p {
+    margin-top: 0;
+  }
 }

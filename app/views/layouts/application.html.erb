@@ -4,7 +4,7 @@
     <title>Camillo</title>
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.5.5/css/tachyons.min.css"/>
     <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Unica+One|Arimo|Bree+Serif|Passion+One|Exo+2:500,600|Crimson+Text" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Unica+One|Montserrat|Bree+Serif|Passion+One|Exo+2:500,600|Crimson+Text" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -12,8 +12,8 @@
   <body>
     <%= render 'layouts/react_hot_assets' %>
     <%= render "partials/header" %>
-    <%#= react_component('HelloWorld') %>
-    <%= render :partial => "/partials/nav_buttons" %>
+    <%= react_component('NavButtons') %>
+    <%#= render :partial => "/partials/nav_buttons" %>
     <div class="mw6 mw8-ns center b1 pa3 ph5-ns mt4">
       <%= yield %>
     </div>

@@ -11,6 +11,7 @@
       <%= @idea.notes.html_safe %>
     </p>
   </section>
+  <h5><%= @idea.item_type %></h5>
 </article>  
 
 <%= link_to 'Delete', @idea, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
