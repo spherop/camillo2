@@ -1,4 +1,3 @@
- cat config/database.yml
 # PostgreSQL. Versions 9.1 and up are supported.
 #
 # Install the pg driver:
@@ -58,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: camillo2_test
+  database: camillo_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -79,8 +78,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: camillo_production
-  username: camillo
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: camillo_production
+#   username: camillo
+#   password: <%= ENV['CAMILLO_DATABASE_PASSWORD'] %>
