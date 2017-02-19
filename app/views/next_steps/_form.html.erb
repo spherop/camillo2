@@ -1,9 +1,8 @@
 <%= simple_form_for(@next_step) do |f| %>
   <%= f.error_notification %>
-
+  <label>New</label>
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= f.input :description %>
     <%= f.input :notes %>
     <%= f.input :due_date %>
   </div>

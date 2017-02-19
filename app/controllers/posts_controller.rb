@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :authenticate_user!, except: [:index, :show]
+	before_action :authenticate_user!, except: [:index, :show, :timeline]
 	before_action :get_elements, except: [:new, :edit]
 
 	def index

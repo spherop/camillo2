@@ -5,7 +5,7 @@ class NavButton extends React.Component {
   render() {
     return(
       <a style={this.props.style} 
-        className="pa-10 dib bg-dark-blue moon-gray w-25 h3 f4 items-center flex flex-row justify-center ma2 grow" 
+        className="" 
         href={this.props.buttonUrl}>
         {this.props.buttonText}
       </a>

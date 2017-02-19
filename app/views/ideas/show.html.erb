@@ -1,20 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<article>
-  <header class="f3">
-    <strong>Title:</strong>
-    <%= @idea.title %>
-  </header>
+  <h5><%= @idea.item_type %></h5>
+  <strong>Title:</strong>
+  <%= @idea.title %>
 
   <section>
     <p>
       <%= @idea.notes.html_safe %>
     </p>
   </section>
-  <h5><%= @idea.item_type %></h5>
-</article>  
+  
 
 <%= link_to 'Delete', @idea, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
-
-<%= link_to 'Edit', edit_idea_path(@idea) %> |
-<%= link_to 'Back', ideas_path %>
+<%= link_to 'Edit', edit_idea_path(@idea) %> 

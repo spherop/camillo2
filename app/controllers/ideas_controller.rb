@@ -5,7 +5,7 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
+    @ideas = current_user.ideas
   end
 
   # GET /ideas/1
@@ -16,6 +16,7 @@ class IdeasController < ApplicationController
   # GET /ideas/new
   def new
     @idea = Idea.new
+    @ideas = current_user.ideas
   end
 
   # GET /ideas/1/edit

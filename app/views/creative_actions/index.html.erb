@@ -1,35 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Creative Actions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Notes</th>
-      <th>User</th>
-      <th>Action date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @creative_actions.each do |creative_action| %>
-      <tr>
-        <td><%= creative_action.title %></td>
-        <td><%= creative_action.description %></td>
-        <td><%= creative_action.notes %></td>
-        <td><%= creative_action.user_id %></td>
-        <td><%= creative_action.action_date %></td>
-        <td><%= link_to 'Show', creative_action, class: "btn btn-default" %></td>
-        <td><%= link_to 'Edit', edit_creative_action_path(creative_action), class: "btn btn-default" %></td>
-        <td><%= link_to 'Destroy', creative_action, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Creative Action', new_creative_action_path, class: "btn btn-default"  %>
+<summary>
+  Creative actions are anything you do where there is flow or creativity involved. 
+  By no means just creative pursuits – no – you want to record more daily and nuanced creative experiences. 
+  Maybe you played an interesting role in a conversation. This can be cooking, or sketching, or full on pursuit. 
+  If you were to take a day and break is down, a creative action is any activity where creativity played a role, 
+  where you brough mindful creative intent.
+</summary>
+<%= render partial: "partials/items", locals: {items: @creative_actions, item_type: "Creative Actions"} %>
+<div class="ca-items-footer">
+  <%= link_to 'New Action', new_creative_action_path, class: "ca-button grow"  %>
+</div>

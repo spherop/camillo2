@@ -3,13 +3,15 @@
     
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div>
     <%= f.input :title %>
-    <%= f.input :notes, input_html: { class: 'rte' } %>
-    <%= f.input :item_type, collection: Item::ITEM_TYPES, selected: :idea  %>
+    <%= f.input :notes, input_html: { class: '' } %>
+    <div class="hide">
+      <%= f.input :item_type, collection: Item::ITEM_TYPES, selected: :idea %>
+    </div>
   </div>
 
-  <div class="form-actions">
+  <div >
     <%= f.button :submit %>
   </div>
 <% end %>

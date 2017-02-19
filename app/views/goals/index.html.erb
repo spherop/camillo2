@@ -1,5 +1,7 @@
-<h2>Goals</h2>
-<%= render partial: "partials/items", locals: {items: @goals} %>
+<summary>
+  Goals are the larger longer term targets we set.
+</summary>
+<%= render partial: "partials/items", locals: {items: @goals, item_type: "Goals"} %>
 <div class="ca-items-footer">
   <%= link_to 'New Goal', new_goal_path, class: "ca-button grow"  %>
 </div>

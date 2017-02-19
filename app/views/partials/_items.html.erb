@@ -1,8 +1,9 @@
 <div class="ca-items">
   <p id="notice"><%= notice %></p>
-  <% items.each do |item| %>
+  <% items.each_with_index do |item, index| %>
     <div class="ca-item">
       <div class = "ca-title">
+        <%= index + 1 %>.
         <%= link_to item.title, item %> 
         <%= link_to 'x',  item,  method: :delete, data: { confirm: 'Are you sure?' }, class: "fa fa-delete" %>
       </div>

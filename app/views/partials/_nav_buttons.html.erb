@@ -1,8 +1,8 @@
-<div class="justify-start flex flex-row">
-  <%= link_to "•", items_path, class: big_nav_button, :style => "width: 50px;" %>
-  <%= link_to "Ideas", ideas_path, class: big_nav_button %>
-  <%= link_to "Goals", goals_path, class: big_nav_button %>
-  <%= link_to "Next Steps", next_steps_path, class: big_nav_button %>
-  <%= link_to "Questions", questions_path, class: big_nav_button %>
-  <%= link_to "Creative Actions", creative_actions_path, class: big_nav_button %>
+<div class="ca-main-buttons">
+  <label>Capture your:</label>
+  <%= link_to "Creative Actions", creative_actions_path, class: params[:controller] == "creative_actions" ? "current" : "" %>
+  <%= link_to "Ideas", ideas_path, class: params[:controller] == "ideas" ? "current" : "" %>
+  <%= link_to "Goals", goals_path, class: params[:controller] == "goals" ? "current" : "" %>
+  <%= link_to "Next Steps", next_steps_path, class: params[:controller] == "next_steps" ? "current" : "" %>
+  
 </div>

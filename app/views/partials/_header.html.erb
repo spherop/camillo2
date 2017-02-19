@@ -1,8 +1,12 @@
-<header class="w-100 bg-black-80 pa3">
-  <a class="ca-logo pa1 bg-light-silver black f2" href="/">C</a>
-  <%= link_to "Posts", posts_path, class: "ma4 f3" %>
-  <%= link_to "Projects", projects_path, class: "ma4 f3" %>
-  
+<header class="ca-top-nav">
+  <a class="ca-logo" href="/">Camillo</a>
+  creativity framework.
+  <span class="ca-center-nav">
+    <%= link_to "Posts", posts_path %>
+    <span class="ca-divider">
+    </span>
+    <%= link_to "Flow", items_path, class: params[:controller] == "items" ? "current" : "" %>
+  </span>
   <div class="absolute right-1 top-1">
     <% if user_signed_in? %>
       <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "navbar-right") %>        

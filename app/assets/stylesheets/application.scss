@@ -27,8 +27,9 @@ $sans2: 'Helvetica'; // 'Unica One';
 $sans3: 'Arimo';
 $textSans: 'Montserrat';
 $titleSans: 'Passion One';
-$serif: 'Crimson Text';
+$serif: 'Georgia';
 
+$ca-pad: 3rem;
 //Bungee+Shade|Unica+One|Arimo|Bree+Serif|Passion+One|Exo+2:500,600|Crimson+Text
 
 $darkgrey1: #182026;
@@ -62,15 +63,23 @@ $red: rgb(158, 43, 14);
 .lightgrey2 { color: $lightgrey2; }
 .lightgrey3 { color: $lightgrey3; }
 
-
+.hide {
+  display: none;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
 a {
   text-decoration: none;
-  color: $lightgrey1;
+  color: #aaa;
 }
 
 body {
   font-size: 16px;
-  // margin-top: 70px;
+  background: #caceca;
 }
 
 table {
@@ -90,62 +99,139 @@ h1 {
 }
 h2 {
   font-family: $sans;
-  color: #ccc;
+  color: #aaa;
   margin: 0;
+}
+h5 {
+  color: #999;
+}
+header {
+  padding: 10px;
+}
+summary {
+  background: #f3f3f3;
+  color: #aaa;
+  padding: 15px 3rem;
+  // margin: 10px 0;
+}
+label {
+  color: #777;
+  margin-right: 20px;
+}
+article {
+  // box-shadow: 0 0 10px #ddd;
+  background: #fff;
+  border: solid 25px #f5f5f5;
+  padding: 0;
+  margin: 60px 0;
+  min-height: 80vh;
+}
+blockquote {
+  background: #f5f5f5;
+  padding: 1rem $ca-pad;
+  color: #636363;
+  margin: 0;
+  line-height: 162%;
+  margin: 20px 68px;
+  font-family: sans-serif;
+  clear: both;
+  font-weight: 100;
+}
+b, strong {
+  font-weight: bold;
 }
 form {
   // background: #777;
   color: #333;
-  padding: 2rem;
-  width: 960px;
-  .form-group {
-    margin: 10px;
-    // text-align: right;
-    label {
-      // display: inline-block;
-      width: 5rem;
-      margin-right: 1rem;
-      display: none;
-    }
-    input[type="text"] {
-      padding: 1rem 1.5rem;
-      border: none;
-      border-radius: .1rem;
-      width: 500px;
-      background: #eee;
-      color: #444;
-      width: 100%;
-      font-size: 1.3rem;
-      
-    }
-    textarea {
-      width: 100%;
-      padding: 1rem;
-      background: $lightgrey1;
-      color: $darkgrey1;
+  width: 100%;
+  margin: 0px 0px 60px;
+  // text-align: right
+  label {
+    // display: inline-block;
+    width: 5rem;
+    margin-right: 1rem;
+    display: none;
+  }
+  input[type="text"] {
+    padding: 1.3rem 1.8rem;
+    border: none;
+    border-radius: .1rem;
+    width: 500px;
+    // background: #eee;
+    color: #444;
+    width: 100%;
+    font-size: 2rem;
+    font-weight: bold;
+    &:focus {
+      outline: none;
+      box-shadow: none;
     }
   }
+  textarea {
+    width: 100%;
+    padding: 1rem;
+    background: $lightgrey1;
+    color: $darkgrey1;
+  }
+
   input[type="submit"] {
-    border-radius: .5rem;
-    background: $darkgrey2;
-    color: $lightgrey1;
-    border: none;
-    padding: 1rem 2rem;
     float: right;
+    margin-top: 15px;
+    border-radius: 30px;
+    border: none;
+    margin: 10px 20px;
+    color: white;
+    background: #ddd;
+    padding: 7px 10px;
   }
 }
 
 // MOVE ELSEWHERE
-.ca-items {
-  font-size: 30px;
+.ca-posts {
   font-family: $serif;
+  padding: 30px;
+  margin-bottom: 50px;
+  .ca-posts-item {
+    font-size: 20px;
+    clear: both;
+    a {
+      color: #999;
+    }
+    .ca-posts-item-title {
+      
+    }
+    .ca-col {
+      width: 50%;
+      float: left;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+  }
+
+}
+.ca-post-actions {
+  clear: both;
+  border-top: solid 1px #ddd;
+  margin-top: 30px;
+  padding: 30px;
+  text-align: center;
+  
+}
+.ca-items {
+  font-size: 20px;
+  font-family: $serif;
+  margin: $ca-pad;
   color: #aaa;
   .ca-item {
     margin-bottom: 15px;
+    a {
+      margin-left: 20px;
+    }
   }
   .ca-title {
     margin-right: 20px;
     letter-spacing: 1px;
+    font-family: $sans;
   }
   .ca-description {
     margin-right: 20px;
@@ -166,29 +252,123 @@ form {
     // font-family: $sans;
   }
 }
+.ca-top-nav {
+  background: #0078ff;
+  box-shadow: 0 0 12px #333;
+}
 .ca-items-footer {
-  margin-top: 20px;
+  text-align: center;
+  margin: $ca-pad 0 20px;
+}
+.ca-show-item {
+  padding: 20px $ca-pad;
 }
 .ca-button {
-  background: #ddd;
-  padding: 30px;
-  color: #333;
-  display: block;
+  background: #2c5b90;
+  padding: 10px 20px;
+  color: #fff;
+  display: inline-block;
+  border-radius: 32px;
+  height: 30px;
+  line-height: 30px;
+  &:hover {
+    background: #888;
+  }
 }
 .ca-post {
-  font-size: 30px;
+  font-size: 22px;
   font-family: $serif;
+  .ca-post-header {
+    padding: $ca-pad $ca-pad 0;
+    h2 {
+      margin-bottom: 15px;
+      color: #ffffff;
+      background: #544646;
+      padding: 20px;
+    }
+    .ca-post-author {
+      color: #999;
+      font-size: .8rem;
+    }
+  }
+  .ca-post-summary {
+    font-style: italic;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+  }
+  .ca-post-body {
+    padding: 2rem $ca-pad;
+    color: #555;
+    font-family: $serif;
+    font-weight: 100;
+  }
+  h3 {
+    font-size: .8rem;
+    padding: 10px;
+    background: #f3f3f3;
+    color: #888;
+    margin: 0;
+    display: inline-block;
+    border-bottom: dashed 1px #aaa;
+    float: right;
+    clear: both;
+    margin-bottom: 14px;
+  }
 }
 .ca-logo {
   border-radius: 30px;
-  width: 35px;
+  // width: 35px;
+  background: #ddd;
+  color: #777;
+  padding: 3px 15px;
   display: inline-block;
   text-align: center;
+  margin-right: 20px;
+}
+.ca-center-nav {
+  position: absolute;
+  left: 50%;
+  a {
+    padding: 0 10px;
+  }
+  .ca-divider {
+    width: 2px;
+    background: #999;
+  }
+}
+.ca-main-buttons {
+  padding: 1.5rem $ca-pad;
+  background: #000;
+  a {
+    background: #0078ff;
+    border-radius: 10px;
+    color: #fff;
+    padding: 5px 12px;
+    margin-right: 10px;
+  }
+  a.current {
+    background: #34d62e;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 20px;
+  }
+  
+}
+.ca-auth {
+  input[type="email"], input[type="password"] {
+    display: block;
+    max-width: 400px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
 }
 .rte {
-  padding: 30px;
+  padding: 4rem;
   border: solid 2px #ddd;
-  min-height: 300px;
+  min-height: 78vh;
+  font-size: 22px;
+  font-family: $serif;
   &:focus {
     box-shadow: none;
     outline: none;
