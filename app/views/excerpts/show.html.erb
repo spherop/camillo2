@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Full text:</strong>
+  <%= @excerpt.full_text %>
+</p>
+
+<p>
+  <strong>Short text:</strong>
+  <%= @excerpt.short_text %>
+</p>
+
+<p>
+  <strong>Book:</strong>
+  <%= @excerpt.book.title %>
+</p>
+
+<p>
+  <strong>Page number:</strong>
+  <%= @excerpt.page_number %>
+</p>
+
+<p>
+  <strong>Commentary:</strong>
+  <%= @excerpt.commentary %>
+</p>
+
+<%= link_to 'Edit', edit_excerpt_path(@excerpt) %> |
+<%= link_to 'Back', excerpts_path %>

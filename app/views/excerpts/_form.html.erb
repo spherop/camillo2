@@ -1,0 +1,15 @@
+<%= simple_form_for(@excerpt) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :full_text %>
+    <%= f.input :short_text %>
+    <%= f.association :book %>
+    <%= f.input :page_number %>
+    <%= f.input :commentary %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

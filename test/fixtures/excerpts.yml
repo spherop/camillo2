@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full_text: MyText
+  short_text: MyText
+  book: one
+  page_number: 1
+  commentary: MyText
+
+two:
+  full_text: MyText
+  short_text: MyText
+  book: two
+  page_number: 1
+  commentary: MyText
