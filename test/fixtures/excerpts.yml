@@ -3,13 +3,13 @@
 one:
   full_text: MyText
   short_text: MyText
-  book: one
+  source: one
   page_number: 1
   commentary: MyText
 
 two:
   full_text: MyText
   short_text: MyText
-  book: two
+  source: two
   page_number: 1
   commentary: MyText

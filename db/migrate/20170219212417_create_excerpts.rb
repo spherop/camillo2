@@ -3,7 +3,7 @@ class CreateExcerpts < ActiveRecord::Migration[5.0]
     create_table :excerpts do |t|
       t.text :full_text
       t.text :short_text
-      t.belongs_to :book, foreign_key: true
+      t.belongs_to :source, foreign_key: true
       t.integer :page_number
       t.text :commentary
 

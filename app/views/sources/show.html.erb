@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @source.title %>
+</p>
+
+<p>
+  <strong>Subtitle:</strong>
+  <%= @source.subtitle %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @source.source_type %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @source.year %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @source.author %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @source.url %>
+</p>
+
+<p>
+  <strong>Publisher:</strong>
+  <%= @source.publisher %>
+</p>
+
+<p>
+  <strong>Summary:</strong>
+  <%= @source.summary %>
+</p>
+
+<%= link_to 'Edit', edit_source_path(@source) %> |
+<%= link_to 'Back', sources_path %>

@@ -1,0 +1,1 @@
+json.array! @source, partial: 'sources/source', as: :source

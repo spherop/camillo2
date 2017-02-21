@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sources</h1>
+
+<ul>
+  <% @sources.each do |source| %>
+    <li>
+      <h3>
+        <%= source.title %>
+      </h3>
+      <h4>
+        <%= source.subtitle %>
+      </h4>
+      <div>
+        <%= source.source_type %>
+        <%= source.year %>
+        <%= source.author %>
+        <%= source.url %>
+        <%= source.publisher %>
+      </div>
+      <summary>
+      <%= source.summary %>
+      </summary>
+      <footer>
+        <%= link_to 'Show', source %>
+        <%= link_to 'Edit', edit_source_path(source) %>
+        <%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </footer>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+
+<%= link_to 'New Source', new_source_path %>

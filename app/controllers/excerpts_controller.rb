@@ -69,6 +69,6 @@ class ExcerptsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def excerpt_params
-      params.require(:excerpt).permit(:full_text, :short_text, :_id, :page_number, :commentary)
+      params.require(:excerpt).permit(:full_text, :short_text, :source_id, :page_number, :time, :commentary)
     end
 end

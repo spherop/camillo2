@@ -2,34 +2,35 @@
 
 <h1>Excerpts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Full text</th>
-      <th>Short text</th>
-      <th>Book</th>
-      <th>Page number</th>
-      <th>Commentary</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+  <ul>
     <% @excerpts.each do |excerpt| %>
-      <tr>
-        <td><%= excerpt.full_text %></td>
-        <td><%= excerpt.short_text %></td>
-        <td><%= excerpt. %></td>
-        <td><%= excerpt.page_number %></td>
-        <td><%= excerpt.commentary %></td>
-        <td><%= link_to 'Show', excerpt %></td>
-        <td><%= link_to 'Edit', edit_excerpt_path(excerpt) %></td>
-        <td><%= link_to 'Destroy', excerpt, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <li>
+        <h3>
+          <%= excerpt.source.title if excerpt.source %>
+        </h3>
+        <blockquote>
+          <%= excerpt.full_text %>
+        </blockquote>
+        <summary>
+          <%= excerpt.short_text %>
+        </summary>
 
+        <em>
+          <%= excerpt.page_number %>
+        </em>
+        <summary>
+          <%= excerpt.commentary %>
+        </summary>
+        <footer>
+          <%= link_to 'Show', excerpt %>
+          <%= link_to 'Edit', edit_excerpt_path(excerpt) %>
+          <%= link_to 'Destroy', excerpt, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'New Excerpt', new_excerpt_path %>
+        </footer>
+      </li>
+    <% end %>
+  </ul>
 <br>
 
-<%= link_to 'New Excerpt', new_excerpt_path %>
+

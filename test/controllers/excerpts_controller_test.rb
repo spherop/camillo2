@@ -17,7 +17,7 @@ class ExcerptsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create excerpt" do
     assert_difference('Excerpt.count') do
-      post excerpts_url, params: { excerpt: { book_id: @excerpt.book_id, commentary: @excerpt.commentary, full_text: @excerpt.full_text, page_number: @excerpt.page_number, short_text: @excerpt.short_text } }
+      post excerpts_url, params: { excerpt: { source_id: @excerpt.source_id, commentary: @excerpt.commentary, full_text: @excerpt.full_text, page_number: @excerpt.page_number, short_text: @excerpt.short_text } }
     end
 
     assert_redirected_to excerpt_url(Excerpt.last)
@@ -34,7 +34,7 @@ class ExcerptsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update excerpt" do
-    patch excerpt_url(@excerpt), params: { excerpt: { book_id: @excerpt.book_id, commentary: @excerpt.commentary, full_text: @excerpt.full_text, page_number: @excerpt.page_number, short_text: @excerpt.short_text } }
+    patch excerpt_url(@excerpt), params: { excerpt: { source_id: @excerpt.source_id, commentary: @excerpt.commentary, full_text: @excerpt.full_text, page_number: @excerpt.page_number, short_text: @excerpt.short_text } }
     assert_redirected_to excerpt_url(@excerpt)
   end
 

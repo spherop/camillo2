@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :excerpts
-  resources :books
+  resources :sources
   get 'react_examples/component', to: 'react_examples#component', as: :component
   resources :next_steps
   resources :projects

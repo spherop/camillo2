@@ -1,3 +1,3 @@
 class Excerpt < ApplicationRecord
-  belongs_to :
+  belongs_to :source
 end

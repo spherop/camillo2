@@ -1,48 +1,48 @@
 require 'test_helper'
 
-class BooksControllerTest < ActionDispatch::IntegrationTest
+class SourcesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @book = books(:one)
+    @source = sources(:one)
   end
 
   test "should get index" do
-    get books_url
+    get sources_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_book_url
+    get new_source_url
     assert_response :success
   end
 
-  test "should create book" do
-    assert_difference('Book.count') do
-      post books_url, params: { book: { author: @book.author, publisher: @book.publisher, subtitle: @book.subtitle, summary: @book.summary, title: @book.title, year: @book.year } }
+  test "should create source" do
+    assert_difference('Source.count') do
+      post sources_url, params: { source: { author: @source.author, publisher: @source.publisher, subtitle: @source.subtitle, summary: @source.summary, title: @source.title, year: @source.year } }
     end
 
-    assert_redirected_to book_url(Book.last)
+    assert_redirected_to source_url(Source.last)
   end
 
-  test "should show book" do
-    get book_url(@book)
+  test "should show source" do
+    get source_url(@source)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_book_url(@book)
+    get edit_source_url(@source)
     assert_response :success
   end
 
-  test "should update book" do
-    patch book_url(@book), params: { book: { author: @book.author, publisher: @book.publisher, subtitle: @book.subtitle, summary: @book.summary, title: @book.title, year: @book.year } }
-    assert_redirected_to book_url(@book)
+  test "should update source" do
+    patch source_url(@source), params: { source: { author: @source.author, publisher: @source.publisher, subtitle: @source.subtitle, summary: @source.summary, title: @source.title, year: @source.year } }
+    assert_redirected_to source_url(@source)
   end
 
-  test "should destroy book" do
-    assert_difference('Book.count', -1) do
-      delete book_url(@book)
+  test "should destroy source" do
+    assert_difference('Source.count', -1) do
+      delete source_url(@source)
     end
 
-    assert_redirected_to books_url
+    assert_redirected_to sources_url
   end
 end
