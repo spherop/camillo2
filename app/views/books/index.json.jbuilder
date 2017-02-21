@@ -1,1 +1,1 @@
-json.array! @books, partial: 'books/book', as: :book
+json.array! @s, partial: 's/', as: :

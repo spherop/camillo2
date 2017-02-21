@@ -16,17 +16,17 @@
   </thead>
 
   <tbody>
-    <% @books.each do |book| %>
+    <% @s.each do || %>
       <tr>
-        <td><%= book.title %></td>
-        <td><%= book.subtitle %></td>
-        <td><%= book.year %></td>
-        <td><%= book.author %></td>
-        <td><%= book.summary %></td>
-        <td><%= book.publisher %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= .title %></td>
+        <td><%= .subtitle %></td>
+        <td><%= .year %></td>
+        <td><%= .author %></td>
+        <td><%= .summary %></td>
+        <td><%= .publisher %></td>
+        <td><%= link_to 'Show',  %></td>
+        <td><%= link_to 'Edit', edit__path() %></td>
+        <td><%= link_to 'Destroy', , method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Book', new_book_path %>
+<%= link_to 'New Book', new__path %>

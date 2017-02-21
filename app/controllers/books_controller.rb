@@ -1,74 +1,74 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_, only: [:show, :edit, :update, :destroy]
 
-  # GET /books
-  # GET /books.json
+  # GET /s
+  # GET /s.json
   def index
-    @books = Book.all
+    @s = Book.all
   end
 
-  # GET /books/1
-  # GET /books/1.json
+  # GET /s/1
+  # GET /s/1.json
   def show
   end
 
-  # GET /books/new
+  # GET /s/new
   def new
-    @book = Book.new
+    @ = Book.new
   end
 
-  # GET /books/1/edit
+  # GET /s/1/edit
   def edit
   end
 
-  # POST /books
-  # POST /books.json
+  # POST /s
+  # POST /s.json
   def create
-    @book = Book.new(book_params)
+    @ = Book.new(_params)
 
     respond_to do |format|
-      if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
-        format.json { render :show, status: :created, location: @book }
+      if @.save
+        format.html { redirect_to @, notice: 'Book was successfully created.' }
+        format.json { render :show, status: :created, location: @ }
       else
         format.html { render :new }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        format.json { render json: @.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /books/1
-  # PATCH/PUT /books/1.json
+  # PATCH/PUT /s/1
+  # PATCH/PUT /s/1.json
   def update
     respond_to do |format|
-      if @book.update(book_params)
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
-        format.json { render :show, status: :ok, location: @book }
+      if @.update(_params)
+        format.html { redirect_to @, notice: 'Book was successfully updated.' }
+        format.json { render :show, status: :ok, location: @ }
       else
         format.html { render :edit }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        format.json { render json: @.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /books/1
-  # DELETE /books/1.json
+  # DELETE /s/1
+  # DELETE /s/1.json
   def destroy
-    @book.destroy
+    @.destroy
     respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
+      format.html { redirect_to s_url, notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_book
-      @book = Book.find(params[:id])
+    def set_
+      @ = Book.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def book_params
-      params.require(:book).permit(:title, :subtitle, :year, :author, :summary, :publisher)
+    def _params
+      params.require(:).permit(:title, :subtitle, :year, :author, :summary, :publisher)
     end
 end
