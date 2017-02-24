@@ -146,7 +146,7 @@ form {
     margin: 10px 0;
     padding-bottom: 7px;
   }
-  input[type="text"] {
+  input[type="text"], input[type="url"], input[type="number"] {
     padding: 15px;
     border: none;
     border-radius: .1rem;
@@ -163,8 +163,12 @@ form {
   textarea {
     width: 600px;
     padding: 1rem;
-    background: $lightgrey1;
+    background: #eee;
     color: $darkgrey1;
+    border-bottom: solid 1px #999;
+    &:focus {
+      outline: none;
+    }
   }
 
   input[type="submit"] {
@@ -310,9 +314,8 @@ form {
 }
 .ca-logo {
   border-radius: 30px;
-  // width: 35px;
-  background: #ddd;
-  color: #777;
+  background: #afa2a2;
+  color: #6b0101;
   padding: 3px 15px;
   display: inline-block;
   text-align: center;
@@ -323,7 +326,10 @@ form {
   left: 50%;
   margin-left: -40px;
   a {
-    padding: 0 10px;
+    padding: 1px 0px;
+    border-bottom: dotted 1px #adadad;
+    margin: 0 10px;
+    color: #ddd;
   }
   .ca-divider {
     width: 2px;

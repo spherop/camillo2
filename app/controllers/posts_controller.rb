@@ -11,10 +11,10 @@ class PostsController < ApplicationController
 		# 	@post = Post.first
 		# end
 		# @post = Post.first
-		
+		@posts = Post.all
 		respond_to do |format|
 	    format.html {
-				@posts = Post.all
+				
 			}
 	    format.json {
 	      # render :json => @post.to_json
