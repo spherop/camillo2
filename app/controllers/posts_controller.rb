@@ -3,14 +3,6 @@ class PostsController < ApplicationController
 	before_action :get_elements, except: [:new, :edit]
 
 	def index
-		# @element = params[:element]
-		# element_id = Element.find_by_name(@element)
-		# if element_id
-		# 	@posts = Post.where(:element_id => element_id).order('created_at DESC')
-		# else 
-		# 	@post = Post.first
-		# end
-		# @post = Post.first
 		@posts = Post.all
 		respond_to do |format|
 	    format.html {
@@ -32,15 +24,25 @@ class PostsController < ApplicationController
 
 	def show
 		@post = Post.find(params[:id])
-		# @element = @post.element ? @post.element.name : ""
 	end
 
 	def create
 		@post = current_user.posts.build(post_params)
-		if @post.save
-			redirect_to @post
-		else
-			render 'new'
+		respond_to do |format|
+	    format.html {
+				if @post.save
+					redirect_to @post
+				else
+					render 'new'
+				end
+			}
+	    format.json {
+				if @post.save
+					render :json => @post.to_json
+				else
+					render :json => @post.errors
+				end
+	    }
 		end
 	end
 
@@ -50,7 +52,6 @@ class PostsController < ApplicationController
 
 	def update
 		@post = Post.find(params[:id])
-
 		if @post.update(params[:post].permit(:title, :body, :element_id, :summary))
 			redirect_to @post
 		else
@@ -61,7 +62,18 @@ class PostsController < ApplicationController
 	def destroy
 		@post = Post.find(params[:id])
 		@post.destroy
-		redirect_to posts_path
+		respond_to do |format|
+	    format.html {
+				redirect_to posts_path
+			}
+	    format.json {
+				if @post.save
+					render :json => @post.to_json # what should we render when successful?
+				else
+					render :json => @post.errors
+				end
+	    }
+		end
 	end
 	
 	def get_elements

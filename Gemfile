@@ -6,7 +6,7 @@ gem 'simple_form', '~> 3.2'
 # gem 'bootstrap-sass'
 # gem 'react_webpack_rails'
 
-gem 'react-rails'
+# gem 'react-rails'
 gem 'devise'
 gem 'jquery-turbolinks'
 gem 'acts-as-taggable-on', '~> 4.0'

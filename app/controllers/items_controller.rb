@@ -2,7 +2,15 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
   def index
-    @items = Item.all
+    @items = current_user.items.all
+		respond_to do |format|
+	    format.html {
+				
+			}
+	    format.json {
+	      # render :json => @post.to_json
+	    }
+		end
   end
   
   def destroy
