@@ -1,7 +1,7 @@
 import RWR from 'react-webpack-rails';
 RWR.run();
 
-import NavButtons from './components/nav/nav-buttons';
-import Feed from './components/feed';
+// import NavButtons from './components/nav/nav-buttons';
+import App from './components/app';
 // RWR.registerComponent('NavButtons', NavButtons);
-RWR.registerComponent('Feed', Feed);
+RWR.registerComponent('App', App);

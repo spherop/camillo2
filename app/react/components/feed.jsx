@@ -11,13 +11,14 @@ class Feed extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      items: [{title: "loading"}]
+      items: [{title: "loading"}],
+      itemsFilter: '/items',
     }
     
   }
   
   getItems = () => {
-    $.getJSON('/items')
+    $.getJSON(this.state.itemsFilter)
     .done((data) => {
       console.log("items", data)
       this.setState({
@@ -47,7 +48,7 @@ class Feed extends React.Component {
       let newItems = this.state.items;
       newItems.unshift(data)
       this.setState( {
-        items: newItems
+        items: newItems,
       })
     })
     .fail(() => {

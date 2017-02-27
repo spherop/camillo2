@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Icon, Row, Col, Tag } from 'antd';
 import moment from 'moment';
+import { Link } from 'react-router'
 
 class FeedItems extends React.Component {
   render () {
@@ -15,7 +16,7 @@ class FeedItems extends React.Component {
               </Tag>
             </Col>
             <Col span={10}>
-              <a className="ca-item-title" href={`/items/${item.id}`}><b>{item.title}</b></a>
+              <Link className="ca-item-title" href={`/items/${item.id}`}><b>{item.title}</b></Link>
             </Col>
             <Col span={4}>
               <span className="ca-item-time">
