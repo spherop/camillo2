@@ -13,6 +13,9 @@ class ItemsController < ApplicationController
 		end
   end
   
+  def show
+  end
+  
   def destroy
     @item.destroy
     respond_to do |format|

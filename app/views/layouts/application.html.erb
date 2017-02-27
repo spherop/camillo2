@@ -15,7 +15,9 @@
     <%#= react_component('NavButtons') %>
     
     <article class="mw6 mw8-ns center">
-      <%= react_component('Feed') %>
+      <%= react_component('App') %>
+      <div id="app">
+      </div>
       <%#= render :partial => "/partials/nav_buttons" if current_user and params[:controller] != "posts" %>
       <%#= yield %>
     </article>
