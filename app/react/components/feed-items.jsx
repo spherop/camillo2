@@ -12,11 +12,11 @@ class FeedItems extends React.Component {
           <Row className="ca-item" key={i}>
             <Col span={2}>
               <Tag>
-                <a className="ca-item-type" href={`/${item.item_type}s`}>{item.item_type && item.item_type.replace(/_/g, " ")}</a>
+                <Link className="ca-item-type" to={`/${item.item_type}s`}>{item.item_type && item.item_type.replace(/_/g, " ")}</Link>
               </Tag>
             </Col>
             <Col span={10}>
-              <Link className="ca-item-title" href={`/items/${item.id}`}><b>{item.title}</b></Link>
+              <Link className="ca-item-title" to={`/items/${item.id}`}><b>{item.title}</b></Link>
             </Col>
             <Col span={4}>
               <span className="ca-item-time">

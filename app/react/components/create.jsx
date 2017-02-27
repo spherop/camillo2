@@ -1,5 +1,8 @@
 import React from 'react';
-import { Button, Modal, Form, Input, Radio, Icon, Select, message } from 'antd';
+import { Button, Modal, Form, Input, Radio, Icon, Select, message, Tag } from 'antd';
+import { Link } from 'react-router'
+
+
 const FormItem = Form.Item;
 
 const CreateForm = Form.create()(
@@ -80,6 +83,8 @@ class Create extends React.Component {
   render() {
     return (
       <div className="ca-create">
+        <Tag><Link to="/">Feed</Link></Tag>
+        
         <Button type="primary" onClick={this.showModal.bind(this, 'idea')}><Icon type="plus-circle" /> Idea</Button>
         <Button type="primary" onClick={this.showModal.bind(this, 'goal')}><Icon type="plus-circle" /> Goal</Button>
         <Button type="primary" onClick={this.showModal.bind(this, 'creative_action')}><Icon type="plus-circle" /> Creative Action</Button>

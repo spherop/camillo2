@@ -4,6 +4,7 @@ import Create from './create';
 import FeedItems from './feed-items';
 import { Layout } from 'antd';
 const { Header, Content } = Layout;
+import { browserHistory } from 'react-router'
 // import update from 'immutability-helper'; // https://github.com/kolodny/immutability-helper - recommended for react mutations
 
 
@@ -14,7 +15,6 @@ class Feed extends React.Component {
       items: [{title: "loading"}],
       itemsFilter: '/items',
     }
-    
   }
   
   getItems = () => {
@@ -33,6 +33,7 @@ class Feed extends React.Component {
   }
   
   componentWillMount() {
+    console.log("feed mount", this.props)
     this.getItems()
   }
   
@@ -75,8 +76,19 @@ class Feed extends React.Component {
     });
   }
   
+  componentWillReceiveProps(nextProps) {
+    if (this.props != nextProps) {
+      console.log("nextProps", nextProps)
+      this.setState({
+        itemsFilter: nextProps.params.type
+      })
+      this.getItems()
+    }
+  }
+  
   render () {
     const items = this.state.items;
+    console.log("render feed", this.props)
     return (
       <Layout className="ca-feed">
         <Header>

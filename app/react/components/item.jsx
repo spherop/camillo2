@@ -36,7 +36,7 @@ class Item extends React.Component {
     return (
       <Layout>
         <Header>
-          <Link to="/">Feed</Link>
+          <Tag><Link to="/">Feed</Link></Tag>
         </Header>
         <Content>
           <Row>
