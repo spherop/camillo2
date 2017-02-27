@@ -53,6 +53,5 @@
   "license": "",
   "engines": {
     "node": ">= 0.10"
-  },
-  "theme": "./theme.js"
+  }
 }

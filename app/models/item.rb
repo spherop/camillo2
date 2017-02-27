@@ -8,6 +8,10 @@ class Item < ApplicationRecord
   
   def create_description
     stripped = ActionController::Base.helpers.strip_tags(self.notes.gsub!('><', '> <'))
-    self.description = stripped.truncate(200) if stripped
+    if stripped
+      self.description = stripped.truncate(200) 
+    elsif self.notes
+      self.description = self.notes.truncate(200)
+    end
   end
 end

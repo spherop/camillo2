@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Icon, Row, Col } from 'antd';
+import { Button, Icon, Row, Col, Tag } from 'antd';
 import moment from 'moment';
 
 class FeedItems extends React.Component {
@@ -9,11 +9,18 @@ class FeedItems extends React.Component {
       <div>
         {items.map((item, i) =>
           <Row className="ca-item" key={i}>
-            <Col span={12}>
-              <a className="ca-item-title" href={`/posts/${item.id}`}><b>{item.title}</b></a>
+            <Col span={2}>
+              <Tag>
+                <a className="ca-item-type" href={`/${item.item_type}s`}>{item.item_type && item.item_type.replace(/_/g, " ")}</a>
+              </Tag>
+            </Col>
+            <Col span={10}>
+              <a className="ca-item-title" href={`/items/${item.id}`}><b>{item.title}</b></a>
             </Col>
             <Col span={4}>
-              {moment(item.created_at).fromNow()}
+              <span className="ca-item-time">
+                {moment(item.created_at).fromNow()}
+              </span>
             </Col>
             <Col span={8}>
               <Icon onClick={this.props.deleteItem.bind(this, item)} className="ca-item-delete" type="close-circle" />

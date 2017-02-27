@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Button, Modal, Form, Input, Radio, Icon, Select, message } from 'antd';
 const FormItem = Form.Item;
 
@@ -21,7 +20,7 @@ const CreateForm = Form.create()(
         <Form vertical>
           <FormItem>
             {getFieldDecorator('item_type', { 
-              initialValue: "idea" 
+              initialValue: props.itemType
             })(
               <Select placeholder="Select a type">
                 <Option value="idea">Idea</Option>
@@ -34,11 +33,11 @@ const CreateForm = Form.create()(
             {getFieldDecorator('title', {
               rules: [{ required: true, message: 'Input title' }],
             })(
-              <Input placeholder="Input title" autoFocus={true} />
+              <Input placeholder="Title..." autoFocus={true} />
             )}
           </FormItem>
           <FormItem>
-            {getFieldDecorator('notes')(<Input type="textarea" />)}
+            {getFieldDecorator('notes')(<Input type="textarea" placeholder="Notes..." />)}
           </FormItem>
         </Form>
       </Modal>
@@ -51,8 +50,8 @@ class Create extends React.Component {
     visible: false,
     itemType: "Idea",
   };
-  showModal = () => {
-    this.setState({ visible: true });
+  showModal = (itemType) => {
+    this.setState({ visible: true, itemType: itemType });
   }
   handleCancel = () => {
     this.setState({ visible: false });
@@ -65,28 +64,25 @@ class Create extends React.Component {
   };
   handleCreate = () => {
     const form = this.form;
-    
     form.validateFields((err, values) => {
       if (err) {
         return;
       }
-
       console.log('Received values of form: ', values);
       form.resetFields();
       this.setState({ visible: false });
       this.props.handleCreateItem(values);
-      
     });
-    
-    
   }
   saveFormRef = (form) => {
     this.form = form;
   }
   render() {
     return (
-      <div>
-        <Button type="primary" onClick={this.showModal}><Icon type="plus-circle" /></Button>
+      <div className="ca-create">
+        <Button type="primary" onClick={this.showModal.bind(this, 'idea')}><Icon type="plus-circle" /> Idea</Button>
+        <Button type="primary" onClick={this.showModal.bind(this, 'goal')}><Icon type="plus-circle" /> Goal</Button>
+        <Button type="primary" onClick={this.showModal.bind(this, 'creative_action')}><Icon type="plus-circle" /> Creative Action</Button>
         <CreateForm
           ref={this.saveFormRef}
           itemType={this.state.itemType}

@@ -221,6 +221,14 @@ form {
   text-align: right;
   margin-right: 1rem;
 }
+.ca-item-time {
+  font-size: .8rem;
+  color: #999;
+}
+.ca-item-type {
+  font-size: .9rem;
+  color: #777;
+}
 .ca-feed {
   font-size: 1.2rem;
   .ca-item-delete {
@@ -228,10 +236,11 @@ form {
     float: right;
     margin-right: 25px;
   }
-  .ca-item {
-
+}
+.ca-create {
+  button {
+    margin: 0 .2rem;
   }
-  
 }
 .ca-items {
   font-size: 20px;

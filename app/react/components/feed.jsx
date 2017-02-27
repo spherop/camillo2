@@ -65,7 +65,7 @@ class Feed extends React.Component {
       const remainder = this.state.items.filter((item) => {
         if(item.id !== deleteItem.id) return item;
       });
-      this.setState( {
+      this.setState({
         items: remainder
       })
     })

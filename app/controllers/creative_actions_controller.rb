@@ -69,6 +69,6 @@ class CreativeActionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def creative_action_params
-      params.require(:creative_action).permit(:title, :description, :notes, :user_id, :action_date)
+      params.require(:creative_action).permit(:title, :description, :notes, :user_id)
     end
 end
