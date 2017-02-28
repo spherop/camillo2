@@ -5,9 +5,12 @@ import FeedItems from './feed-items';
 import { Layout } from 'antd';
 const { Header, Content } = Layout;
 import { browserHistory } from 'react-router'
+import { observer, inject } from 'mobx-react'
+import DevTools from 'mobx-react-devtools';
 // import update from 'immutability-helper'; // https://github.com/kolodny/immutability-helper - recommended for react mutations
 
 
+@inject(["AppStore"]) @observer
 class Feed extends React.Component {
   constructor(props) {
     super(props)
@@ -17,86 +20,55 @@ class Feed extends React.Component {
     }
   }
   
-  getItems = () => {
-    $.getJSON(this.state.itemsFilter)
-    .done((data) => {
-      console.log("items", data)
-      this.setState({
-        items: data
-      });
-    })
-    .fail(() => {
-      // TODO handle errors more gracefully
-      alert("WEAK ASS SHIT");
-    })
-    .always(() => { });
-  }
+  // getItems = () => {
+  //   this.props.AppStore.getItems()
+  //   // $.getJSON(this.state.itemsFilter)
+  //   // .done((data) => {
+  //   //   console.log("items", data)
+  //   //   this.setState({
+  //   //     items: data
+  //   //   });
+  //   // })
+  //   // .fail(() => {
+  //   //   // TODO handle errors more gracefully
+  //   //   alert("WEAK ASS SHIT");
+  //   // })
+  //   // .always(() => { });
+  // }
   
   componentWillMount() {
     console.log("feed mount", this.props)
-    this.getItems()
+    this.props.AppStore.getItems()
+    // this.getItems()
   }
   
   createItem = (values) => {
-    $.ajax({
-      method: "POST",
-      dataType: "json",
-      url: `/${values.item_type}s`,
-      data: { [values.item_type]: values }
-    })
-    .done((data) => {
-      console.log("createItemzz", data)
-      let newItems = this.state.items;
-      newItems.unshift(data)
-      this.setState( {
-        items: newItems,
-      })
-    })
-    .fail(() => {
-      alert("nope")
-    });
+    this.props.AppStore.createItem(values);
   }
   
   deleteItem = (deleteItem) => {
-    $.ajax({
-      method: "DELETE",
-      dataType: "json",
-      url: `/items/${deleteItem.id}`
-    })
-    .done((data) => {
-      const remainder = this.state.items.filter((item) => {
-        if(item.id !== deleteItem.id) return item;
-      });
-      this.setState({
-        items: remainder
-      })
-    })
-    .fail(() => {
-      alert("nope")
-    });
+    this.props.AppStore.deleteItem(deleteItem);
   }
   
   componentWillReceiveProps(nextProps) {
     if (this.props != nextProps) {
-      console.log("nextProps", nextProps)
-      this.setState({
-        itemsFilter: nextProps.params.type
-      })
-      this.getItems()
+      this.props.AppStore.getItems(nextProps.params.type)
     }
   }
   
   render () {
-    const items = this.state.items;
-    console.log("render feed", this.props)
+    const items = this.props.AppStore.items
+    console.log("appstore items", items.length)
+    console.log("AppStore", this.props.AppStore.itemType)
     return (
       <Layout className="ca-feed">
+        {/* <DevTools /> */}
         <Header>
           <Create handleCreateItem={this.createItem} />
         </Header>
         <Content>
           <div className="ca-feed">
-            <FeedItems items={this.state.items} deleteItem={this.deleteItem} />
+            <FeedItems items={items} deleteItem={this.deleteItem} />
           </div>
         </Content>
       </Layout>

@@ -34,7 +34,7 @@ class FeedItems extends React.Component {
 }
 
 FeedItems.propTypes = {
-  items: React.PropTypes.array.isRequired,
+  items: React.PropTypes.object.isRequired,
   deleteItem: React.PropTypes.func.isRequired,
 };
 

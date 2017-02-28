@@ -12,6 +12,7 @@ const CreateForm = Form.create()(
     const Option = Select.Option;
     return (
       <Modal
+        style={{ top: 40 }}
         className="ca-create"
         visible={visible}
         title="Create an item"
@@ -19,6 +20,7 @@ const CreateForm = Form.create()(
         okText="Create"
         onCancel={onCancel}
         onOk={onCreate}
+        width={640}
       >
         <Form vertical>
           <FormItem>
