@@ -3,18 +3,41 @@ import { computed, observable, action, autorun } from 'mobx'
 
 class appStore {
   @observable items = []
-  @observable itemType = 'items'
+  @observable itemType = 'item'
+
   @observable isLoading = true
   @observable isSaving = false
+  @observable createVisible = false
+  @observable createHasFocus= false
+  
+  sing(str) {
+    if (str.slice(-1) === "s") {
+      str = str.slice(0, -1)
+    }
+    return str
+  }
+  
+  plur(str) {
+    if (str.slice(-1) !== "s") {
+      str += "s"
+    }
+    return str
+  }
+  
+  
+  @computed get createItemText() {
+    const typeName = (this.itemType != "item") ? this.itemType : "idea"
+    const cTypeName = typeName.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase()).slice(0, -1);
+    return cTypeName;
+  } 
   
   getItems(itemType = null) {
-    console.log("itemType", itemType)
     if (itemType) {
       this.itemType = itemType
     } else {
-      this.itemType = "items"
+      this.itemType = "item"
     }
-    $.getJSON('/' + this.itemType)
+    $.getJSON('/' + this.plur(this.itemType))
     .done((data) => {
       console.log("items", data)
       this.items = data
@@ -26,16 +49,22 @@ class appStore {
     .always(() => { });
   }
   
+  @action showCreate() {
+    this.createVisible = true;
+  }
+  
   @action createItem(values) {
+    console.log("CREATE", values)
+    values.item_type = this.sing(values.item_type)
     $.ajax({
       method: "POST",
       dataType: "json",
-      url: `/${values.item_type}s`,
+      url: `/${this.plur(values.item_type)}`,
       data: { [values.item_type]: values }
     })
     .done((item) => {
       console.log("createdItem", item)
-      this.itemType = values.item_type + "s"
+      this.itemType = values.item_type
       this.items.unshift(item)
       
       // this.items = this.items.filter((item) => item.item_type === this.itemType);
@@ -71,15 +100,4 @@ class appStore {
 
 const AppStore = new appStore();
 export default AppStore;
-
-// import { computed, observable, action, autorun } from 'mobx';
-// 
-// class CmStore {
-// 	@observable count = 6;
-// 	@computed get currentCount() {
-// 		return this.count + 100;
-// 	}
-// 	increment() {
-// 		this.count++;
-// 	}
-// }
+window.AppStore = AppStore;

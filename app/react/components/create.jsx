@@ -1,72 +1,29 @@
 import React from 'react';
-import { Button, Modal, Form, Input, Radio, Icon, Select, message, Tag } from 'antd';
-import { Link } from 'react-router'
+import { observer, inject } from 'mobx-react'
+import { Button, Icon, Row, Col, Form } from 'antd';
+import CreateForm from './form/create-form'
 
 
-const FormItem = Form.Item;
-
-const CreateForm = Form.create()(
-  (props) => {
-    const { visible, onCancel, onCreate, onSelect, form, itemType } = props;
-    const { getFieldDecorator } = form;
-    const Option = Select.Option;
-    return (
-      <Modal
-        style={{ top: 40 }}
-        className="ca-create"
-        visible={visible}
-        title="Create an item"
-        cancelText="Cancel"
-        okText="Create"
-        onCancel={onCancel}
-        onOk={onCreate}
-        width={640}
-      >
-        <Form vertical>
-          <FormItem>
-            {getFieldDecorator('item_type', { 
-              initialValue: props.itemType
-            })(
-              <Select placeholder="Select a type">
-                <Option value="idea">Idea</Option>
-                <Option value="creative_action">Creative Action</Option>
-                <Option value="goal">Goal</Option>
-              </Select>
-            )}
-          </FormItem>
-          <FormItem>
-            {getFieldDecorator('title', {
-              rules: [{ required: true, message: 'Input title' }],
-            })(
-              <Input placeholder="Title..." autoFocus={true} />
-            )}
-          </FormItem>
-          <FormItem>
-            {getFieldDecorator('notes')(<Input type="textarea" placeholder="Notes..." />)}
-          </FormItem>
-        </Form>
-      </Modal>
-    );
-  }
-);
-
+@inject(["AppStore"]) @observer
 class Create extends React.Component {
   state = {
     visible: false,
-    itemType: "Idea",
+    // itemType: "Idea",
   };
   showModal = (itemType) => {
-    this.setState({ visible: true, itemType: itemType });
+    this.setState({ visible: true });
+    this.focus()
   }
   handleCancel = () => {
     this.setState({ visible: false });
   }
-  handleSelect = ({ key }) => {
-    message.info(`Clicked on item ${key}`);
-    this.setState({
-      itemType: key
-    })
-  };
+  handleFocus = () => {
+    this.props.AppStore.createHasFocus = true;
+  }
+  handleBlur = () => {
+    this.props.AppStore.createHasFocus = false;
+  }
+
   handleCreate = () => {
     const form = this.form;
     form.validateFields((err, values) => {
@@ -83,20 +40,19 @@ class Create extends React.Component {
     this.form = form;
   }
   render() {
+    const createTypeText = this.props.AppStore.createItemText
+    const itemType = this.props.AppStore.itemType
     return (
       <div className="ca-create">
-        <Tag><Link to="/">Feed</Link></Tag>
-        
-        <Button type="primary" onClick={this.showModal.bind(this, 'idea')}><Icon type="plus-circle" /> Idea</Button>
-        <Button type="primary" onClick={this.showModal.bind(this, 'goal')}><Icon type="plus-circle" /> Goal</Button>
-        <Button type="primary" onClick={this.showModal.bind(this, 'creative_action')}><Icon type="plus-circle" /> Creative Action</Button>
         <CreateForm
           ref={this.saveFormRef}
-          itemType={this.state.itemType}
+          itemType={itemType}
           visible={this.state.visible}
           onCancel={this.handleCancel}
           onCreate={this.handleCreate}
           onSelect={this.handleSelect}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur}
         />
       </div>
     );
