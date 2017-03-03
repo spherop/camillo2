@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, browserHistory } from 'react-router'
-import { Layout, Col, Row, Tag } from 'antd';
+import { Layout, Col, Row, Tag, Icon } from 'antd';
 const { Header, Content } = Layout;
 
 class Item extends React.Component {
@@ -34,9 +34,9 @@ class Item extends React.Component {
   render () {
     const item = this.state.item
     return (
-      <Layout>
+      <Layout className="ca-layout-content">
         <Header>
-          <Tag><Link to="/">Feed</Link></Tag>
+          <Link to="/"><Icon type="bars" /></Link>
         </Header>
         <Content>
           <Row>

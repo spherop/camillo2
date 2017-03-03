@@ -11,7 +11,7 @@ const CreateForm = Form.create()(
     return (
           <Form vertical>
             <Row>
-              <Col span={20}>
+              <Col span={23}>
                 <div>
                   {getFieldDecorator('title', {
                     rules: [{ required: true, message: 'Input title' }],
@@ -23,7 +23,7 @@ const CreateForm = Form.create()(
                   {getFieldDecorator('notes')(<Input type="textarea" placeholder="Notes..." />)}
                 </FormItem>
               </Col>
-              <Col span={4}>
+              <Col span={1}>
                 <FormItem>
                   <Button className="ca-create-button" onClick={onCreate}>+</Button>
                 </FormItem>

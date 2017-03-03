@@ -29,7 +29,7 @@ class FeedNav extends React.Component {
             <Link activeClassName="selected" to="/creative_actions">Creative Actions</Link>
           </Col>
           <Col span={4}>
-            <Link activeClassName="selected" to="/excerpts">Excerpts</Link>
+            <Link activeClassName="selected" to="/excerpts">Sources</Link>
           </Col>  
           <Col span={4}>
             <Link activeClassName="selected" to="/next_steps">Next Steps</Link>
