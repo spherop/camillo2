@@ -22,14 +22,11 @@
 // @import "bootstrap/theme";
 // @import "summernote";
 
-//= @import "ant-theme"
+//= @import "ant-theme" /* my css customizations made on top of antd css */
+//= @import "animatons"
 
 $sans: 'Montserrat'; // Bungee Shade
-$sans2: 'Helvetica'; // 'Unica One';
-$sans3: 'Arimo';
-$textSans: 'Montserrat';
-$titleSans: 'Passion One';
-$serif: 'Georgia';
+$serif: 'Crimson Text';
 
 $ca-pad: 3rem;
 //Bungee+Shade|Unica+One|Arimo|Bree+Serif|Passion+One|Exo+2:500,600|Crimson+Text
@@ -74,9 +71,13 @@ $red: rgb(158, 43, 14);
 .text-right {
   text-align: right;
 }
+.text-center {
+  text-align: center;
+}
 a {
   text-decoration: none;
   color: #aaa;
+  font-family: $sans, serif;
 }
 
 body {
@@ -120,7 +121,7 @@ label {
 article {
   // box-shadow: 0 0 10px #ddd;
   background: #fff;
-  border: solid 25px #f5f5f5;
+  border: solid 5px #f5f5f5;
   padding: 0;
   margin: 60px 0;
   min-height: 80vh;
@@ -217,9 +218,9 @@ form {
   
 }
 .ca-item-title {
-  display: block;
-  text-align: right;
-  margin-right: 1rem;
+  font-family: $serif, serif;
+  color: #444;
+  font-size: 1.5rem;
 }
 .ca-item-time {
   font-size: .8rem;
@@ -229,17 +230,18 @@ form {
   font-size: .9rem;
   color: #777;
 }
+.ca-create-button {
+  height: 60px;
+  border-radius: 0 8px 8px 0 !important;
+  background: #f5f5f5 !important;
+  border: none !important;
+}
 .ca-feed {
   font-size: 1.2rem;
   .ca-item-delete {
     cursor: pointer;
     float: right;
     margin-right: 25px;
-  }
-}
-.ca-create {
-  button {
-    margin: 0 .2rem;
   }
 }
 .ca-items {
@@ -260,7 +262,7 @@ form {
   }
   .ca-description {
     margin-right: 20px;
-    font-family: $sans2;
+    font-family: $sans;
     font-size: 19px;
     margin-top: 10px;
     color: #bbb;
@@ -277,11 +279,16 @@ form {
     // font-family: $sans;
   }
 }
+.ca-layout-content {
+  width: 1000px;
+  margin: 0 auto;
+}
 .ca-top-nav {
-  background: #0078ff;
+  background: #3a3a3a;
   box-shadow: 0 0 12px #333;
-  margin: 0 0 2rem;
+  margin: 0 0 .5rem;
   padding: 8px 10px;
+  color: #888;
 }
 .ca-items-footer {
   text-align: center;

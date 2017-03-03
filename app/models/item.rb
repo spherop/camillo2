@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   default_scope { order(created_at: :desc) }
   
   def create_description
+    return if !self.notes
     stripped = ActionController::Base.helpers.strip_tags(self.notes.gsub!('><', '> <'))
     if stripped
       self.description = stripped.truncate(200) 

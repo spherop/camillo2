@@ -4,7 +4,7 @@
     <title>Camillo</title>
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.5.5/css/tachyons.min.css"/>
     <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Unica+One|Montserrat|Bree+Serif|Passion+One|Exo+2:500,600|Crimson+Text" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Crimson+Text" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -14,11 +14,10 @@
     <%= render "partials/header" %>
     <%#= react_component('NavButtons') %>
     
-    <article class="mw6 mw8-ns center">
+    
       <div id="app">
       </div>
       <%#= render :partial => "/partials/nav_buttons" if current_user and params[:controller] != "posts" %>
       <%#= yield %>
-    </article>
   </body>
 </html>

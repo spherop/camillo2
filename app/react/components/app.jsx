@@ -13,8 +13,10 @@ class App extends React.Component {
       <Provider AppStore={this.props.store}>
         <Router history={browserHistory}>
           <Route path="/" component={Feed}>
+            
           </Route>
           <Route path="/:type" component={Feed}/>
+          
           <Route path="/items/:id" component={Item}/>
         </Router>
       </Provider>
