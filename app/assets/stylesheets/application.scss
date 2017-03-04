@@ -23,6 +23,7 @@
 // @import "summernote";
 
 //= @import "ant-theme" /* my css customizations made on top of antd css */
+//= @import "draft"
 //= @import "animatons"
 
 $sans: 'Montserrat'; // Bungee Shade
@@ -77,12 +78,12 @@ $red: rgb(158, 43, 14);
 a {
   text-decoration: none;
   color: #aaa;
-  font-family: $sans, serif;
 }
 
 body {
   font-size: 16px;
   background: #caceca;
+  font-family: $sans, serif;
 }
 
 table {
@@ -186,7 +187,46 @@ form {
   }
 }
 
-// MOVE ELSEWHERE
+.ca-nav {
+  background: #fff !important;
+  padding: 0 !important;
+  transition: all 100ms linear;
+  a {
+    margin-right: 4px;
+    color: #666;
+    border-bottom: solid 1px #ccc;
+    padding-bottom: 2px;
+    background: #f3f3f3;
+    height: 46px;
+    line-height: 46px;
+    display: block;
+    font-size: 1rem;
+    text-align: center;
+    transition: all 120ms ease-in;
+    &:hover {
+      transform: scale(1.02);
+      
+    }
+  }
+  .selected {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  &.dimmed {
+    
+    a {
+      color: #ccc;
+      background: #fff;
+      // transform: scale(.8);
+    }
+    .selected {
+      opacity: 1;
+      transform: scale(1);
+    }
+    
+  }
+}
+
 .ca-posts {
   font-family: $serif;
   padding: 30px;
@@ -232,13 +272,17 @@ form {
 }
 .ca-create-button {
   height: 60px;
-  border-radius: 0 8px 8px 0 !important;
+  border-radius: 10px !important;
   background: #f5f5f5 !important;
   border: none !important;
+  margin-left: 10px;
+}
+.ca-editor-wrapper {
+  height: 600px;
 }
 .ca-feed {
   font-size: 1.2rem;
-  margin-top: 15px;
+  margin-top: 10px;
   .ca-item-delete {
     cursor: pointer;
     float: right;
@@ -287,7 +331,7 @@ form {
 .ca-top-nav {
   background: #3a3a3a;
   box-shadow: 0 0 12px #333;
-  margin: 0 0 .5rem;
+  margin: 0;
   padding: 8px 10px;
   color: #888;
 }
@@ -413,5 +457,25 @@ form {
   }
   p {
     margin-top: 0;
+  }
+}
+
+.ca-create {
+  margin: 15px 0 30px;
+  .ant-form-item {
+    margin-bottom: 0px;
+  }
+}
+.ca-editor {
+  border: solid 1px #aaa;
+  padding: 0;
+  font-size: 1.3rem;
+  line-height: 130%;
+  min-height: 400px;
+  .DraftEditor-root {
+    padding: 1.2rem;
+  }
+  div {
+    margin: 0;
   }
 }
