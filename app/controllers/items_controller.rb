@@ -16,6 +16,24 @@ class ItemsController < ApplicationController
   def show
   end
   
+  def update
+    @item = current_user.items.find(params[:id])
+    if @item.update(params[:item].permit(:title, :notes))
+      respond_to do |format|
+  	    format.html {
+  				redirect_to @item
+  			}
+  	    format.json {
+  	      render :json => @item.to_json
+  	    }
+  		end
+      
+    else
+      render 'edit'
+    end
+  end
+
+  
   def destroy
     @item.destroy
     respond_to do |format|

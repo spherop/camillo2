@@ -1,12 +1,13 @@
 import 'antd/dist/antd.css';
 import React from 'react';
 import Create from './create';
-import FeedItems from './feed-items';
+
 import { Layout, Icon, Row, Col } from 'antd';
 const { Header, Content } = Layout;
 import { Link, browserHistory } from 'react-router'
 import { observer, inject } from 'mobx-react'
 import FeedNav from './feed/feed-nav'
+import FeedItems from './feed/feed-items';
 // import DevTools from 'mobx-react-devtools';
 
 
@@ -20,15 +21,10 @@ class Feed extends React.Component {
     console.log("feed mount", this.props)
     const itemPath = this.props.params.type ? this.props.params.type : "items"
     this.props.AppStore.getItems(itemPath)
-    // this.getItems()
   }
   
   createItem = (values) => {
     this.props.AppStore.createItem(values);
-  }
-  
-  deleteItem = (deleteItem) => {
-    this.props.AppStore.deleteItem(deleteItem);
   }
   
   componentWillReceiveProps(nextProps) {
@@ -53,7 +49,7 @@ class Feed extends React.Component {
           <Row>
             <Col span={24}>
               <div className="ca-feed">
-                <FeedItems items={items} deleteItem={this.deleteItem} />
+                <FeedItems items={items}  />
               </div>
             </Col>
           </Row>

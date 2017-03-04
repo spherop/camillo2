@@ -3,6 +3,7 @@ import { computed, observable, action, autorun } from 'mobx'
 
 class appStore {
   @observable items = []
+  @observable item = {title: "loading", notes: "...", item_type: "..."}
   @observable itemType = 'item'
 
   @observable isLoading = true
@@ -66,6 +67,7 @@ class appStore {
       console.log("createdItem", item)
       this.itemType = values.item_type
       this.items.unshift(item)
+      this.item = item
       
       // this.items = this.items.filter((item) => item.item_type === this.itemType);
       // this.getItems(values.item_type)

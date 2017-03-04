@@ -12,7 +12,7 @@ class FeedNav extends React.Component {
   }
   
   render () {
-    const headerClass = classNames({ 'dimmed': this.props.AppStore.createHasFocus })
+    const headerClass = classNames('ca-nav', { 'dimmed': this.props.AppStore.createHasFocus })
     return (
       <Header className={headerClass}>
         <Row justify="center">

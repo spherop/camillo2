@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221175646) do
+ActiveRecord::Schema.define(version: 20170304181915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20170221175646) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.string   "time",        default: "00:00"
+    t.integer  "user_id"
     t.index ["source_id"], name: "index_excerpts_on_source_id", using: :btree
   end
 
@@ -129,6 +130,7 @@ ActiveRecord::Schema.define(version: 20170221175646) do
     t.datetime "updated_at",                   null: false
     t.string   "source_type", default: "book"
     t.string   "url"
+    t.integer  "user_id"
   end
 
   create_table "taggings", force: :cascade do |t|
