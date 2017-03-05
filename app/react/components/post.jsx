@@ -106,10 +106,7 @@ class Post extends React.Component {
       <Layout className="ca-layout">
         <Header>
           <Row>
-            
             <Col span={2} offset={20}>
-              
-              
             </Col>
             <Col span={2}>
               {post.editMode &&
@@ -132,10 +129,7 @@ class Post extends React.Component {
           {!post.editMode &&
             <Row>
               <Col className="text-center" span={16} offset={4}>
-                <Col span={23}>
-                  <Link to="/posts"><Icon type="bars" /></Link>
-                </Col>
-                <Col span={1}>
+                <Col span={1} offset={23}>
                   {!post.editMode &&
                     <Button>
                       <Link onClick={this.editPost}>Edit</Link>
