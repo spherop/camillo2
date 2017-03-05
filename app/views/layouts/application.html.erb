@@ -4,15 +4,21 @@
     <title>Camillo</title>
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.5.5/css/tachyons.min.css"/>
     <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Crimson+Text" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Crimson+Text:400,400i,700,700i" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
     <%= render 'layouts/react_hot_assets' %>
-    <%= render "partials/header" %>    
-  
+    <%#= render "partials/header" %>    
+    <div id="ca-auth">
+      <% if user_signed_in? %>
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "navbar-right") %>        
+      <% else %>
+        <%= link_to('Login', new_user_session_path, class: "navbar-right")  %>  
+      <% end %>
+    </div>
     <div id="app">
     </div>
   </body>

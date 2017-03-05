@@ -1,23 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Feed from './feed';
+import Posts from './posts';
+import Post from './post';
 import Item from './item';
+import HeaderNav from './header-nav';
 import AppStore from './app-store'
 import { Provider } from 'mobx-react'
-import { Router, Route, Link, browserHistory } from 'react-router'
+import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
 
 class App extends React.Component {
-  
   render () {
     return (
       <Provider AppStore={this.props.store}>
         <Router history={browserHistory}>
-          <Route path="/" component={Feed}>
-            
+          <Route path="/" component={HeaderNav}>
+            <IndexRoute component={Feed} />
+            <Route path="/posts" component={Posts}/>
+            <Route path="/posts/:id" component={Post}/>
+            <Route path="/posts/:id/:mode" component={Post}/>
+            <Route path="/:type" component={Feed}/>
+            <Route path="/items/:id" component={Item}/>
           </Route>
-          <Route path="/:type" component={Feed}/>
-          
-          <Route path="/items/:id" component={Item}/>
         </Router>
       </Provider>
     )

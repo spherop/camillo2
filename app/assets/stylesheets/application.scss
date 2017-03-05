@@ -77,7 +77,7 @@ $red: rgb(158, 43, 14);
 }
 a {
   text-decoration: none;
-  color: #aaa;
+  color: #aaa !important;
 }
 
 body {
@@ -96,7 +96,10 @@ th, td {
 }
 h1 {
   padding: 0 2rem;
-  font-size: 26px;
+  font-size: 26px; 
+  a {
+    color: #333 !important;
+  }
 }
 h2 {
   font-family: $sans;
@@ -105,6 +108,10 @@ h2 {
 }
 h5 {
   color: #999;
+}
+hr {
+  border-top: 1px dotted #9c9b9b;
+  border-bottom: 1px dotted #fff;
 }
 header {
   padding: 10px;
@@ -257,6 +264,15 @@ form {
   text-align: center;
   
 }
+.ca-post-nav {
+  text-align: center;
+  padding: 15px 0;
+  font-size: 1rem;
+  color: #aaa;
+  a {
+    margin: 0 10px;
+  }
+}
 .ca-item-title {
   font-family: $serif, serif;
   color: #444;
@@ -324,16 +340,31 @@ form {
     // font-family: $sans;
   }
 }
+#ca-auth {
+  position: absolute;
+  right: 20px;
+  top: 25px;
+  z-index: 1;
+  a {
+    color: #bbb;
+  }
+}
 .ca-layout-content {
   width: 1000px;
   margin: 0 auto;
 }
 .ca-top-nav {
-  background: #3a3a3a;
-  box-shadow: 0 0 12px #333;
+  background: #fff;
+  box-shadow: 0 0 2px #aaa !important;
   margin: 0;
   padding: 8px 10px;
+  height: 70px;
+  line-height: 52px;
   color: #888;
+  a {
+    color: #999;
+    text-transform: uppercase;
+  }
 }
 .ca-items-footer {
   text-align: center;
@@ -357,8 +388,17 @@ form {
 .ca-post {
   font-size: 22px;
   font-family: $serif;
+  color: #333;
+  .ca-post-title-edit {
+    padding: 10px 15px;
+    font-size: 2.5rem;
+    line-height: 120%;
+    font-weight: bold;
+    height: auto;
+    color: #333;
+  }
   .ca-post-header {
-    padding: $ca-pad $ca-pad 0;
+    padding: 1rem 0 0;
     h2 {
       margin-bottom: 15px;
       color: #ffffff;
@@ -376,8 +416,8 @@ form {
     padding: 1rem 2rem;
   }
   .ca-post-body {
-    padding: 2rem $ca-pad;
-    color: #555;
+    padding: 2rem 0;
+    color: #333;
     font-family: $serif;
     font-weight: 100;
   }

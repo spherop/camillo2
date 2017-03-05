@@ -4,9 +4,12 @@
 // }
 .ant-layout {
   background: #fff !important;
+  margin-top: 10px;
 }
 .ant-layout-header {
   background: #fff !important;
+  font-size: 1.3rem !important;
+  padding: 0 !important;
 }
 .ant-row {
   padding: 1px 25px !important;
@@ -14,9 +17,14 @@
     padding: 0 !important;
   }
 }
+.ant-btn {
+  border: none !important;
+  background: #eee !important;
+}
 .ant-btn-primary {
   background: #888 !important;
 }
+
 .ant-btn-lrg {
   font-size: 14px;
   border-radius: 0;

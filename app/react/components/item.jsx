@@ -99,6 +99,10 @@ class Item extends React.Component {
     this.saveItem()
   }
   
+  componentWillReceiveProps(nextProps) {
+    
+  }
+  
   render () {
     const { editorContent, contentState, editorState } = this.state;
     const toolbar = { options: ['inline', 'fontSize', 'textAlign', 'list'], 

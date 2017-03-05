@@ -1,15 +1,34 @@
 import { computed, observable, action, autorun } from 'mobx'
-
+import { convertFromHTML, convertToRaw, ContentState, EditorState} from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
+import { message } from 'antd'
 
 class appStore {
   @observable items = []
   @observable item = {title: "loading", notes: "...", item_type: "..."}
+  
+  @observable posts = []
+  @observable post = {
+    title: "loading", 
+    body: "...",
+    loading: false,
+    editMode: false,
+    contentState: {},
+    editorContent: undefined,
+    editorState: EditorState.createEmpty()
+  }
+  @observable contentDirty = false
+  // 
+  // @observable editor = {
+  //   
+  // } 
+  // 
   @observable itemType = 'item'
 
   @observable isLoading = true
   @observable isSaving = false
   @observable createVisible = false
-  @observable createHasFocus= false
+  @observable createHasFocus = false
   
   sing(str) {
     if (str.slice(-1) === "s") {
@@ -25,12 +44,103 @@ class appStore {
     return str
   }
   
-  
   @computed get createItemText() {
     const typeName = (this.itemType != "item") ? this.itemType : "idea"
     const cTypeName = typeName.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase()).slice(0, -1);
     return cTypeName;
   } 
+  
+  getPosts() {
+    $.getJSON('/posts')
+    .done((data) => {
+      console.log("posts", data)
+      this.posts = data
+    })
+    .fail(() => {
+      // TODO handle errors more gracefully
+      alert("WEAK ASS SHIT");
+    })
+    .always(() => { });
+  }
+  
+  getPost = (id) => {
+    this.post.loading = true
+    $.getJSON('/posts/' + id)
+    .done((post) => {
+      console.log("get post", post)
+      
+      
+      if (post.body) {
+        this.contentDirty = false
+        const contentBlocks = convertFromHTML(post.body)
+        this.post.contentState = ContentState.createFromBlockArray(contentBlocks);
+        this.post.id = post.id
+        this.post.body = post.body
+        this.post.title = post.title
+        this.post.editorState = EditorState.createWithContent(this.post.contentState)
+      }
+      this.post.loading = false
+      window.post = this.post
+      
+    })
+    .fail(() => {
+      // TODO handle errors more gracefully
+      alert("WEAK ASS SHIT");
+    })
+    .always(() => { });
+  }
+  
+  savePost = () => {
+    if (!this.contentDirty) {
+      return false
+    }
+    console.log("saving")
+    const bodyHTML = draftToHtml(this.post.editorContent, {})
+    $.ajax({
+      method: "PUT",
+      dataType: "json",
+      url: "/posts/" + this.post.id,
+      data: { post: { id: this.post.id, title: this.post.title, body: bodyHTML } }
+    })
+    .done((post) => {
+      console.log("Saved", post)
+      const contentBlocks = convertFromHTML(post.body)
+      this.post.contentState = ContentState.createFromBlockArray(contentBlocks);
+      this.post.id = post.id
+      this.post.body = post.body
+      this.post.title = post.title
+      this.post.editorState = EditorState.createWithContent(this.post.contentState)
+      this.contentDirty = false
+    })
+    .fail(() => {
+      // message.error("Trouble in saving post")
+    });
+    return true
+  }
+  
+  createPost = () => {
+    console.log("creating")
+    $.ajax({
+      method: "POST",
+      dataType: "json",
+      url: "/posts",
+      data: { post: {title: "Untitled Postling"} }
+    })
+    .done((post) => {
+      this.post.id = post.id
+      this.post.body = ""
+      this.post.title = post.title
+      this.post.editorState = null
+      this.contentDirty = false
+    })
+    .fail(() => {
+      // message.error("Trouble in saving post")
+    });
+    return true
+  }
+  
+  
+  
   
   getItems(itemType = null) {
     if (itemType) {
@@ -68,9 +178,6 @@ class appStore {
       this.itemType = values.item_type
       this.items.unshift(item)
       this.item = item
-      
-      // this.items = this.items.filter((item) => item.item_type === this.itemType);
-      // this.getItems(values.item_type)
     })
     .fail(() => {
       alert("FAILED THAT ONE YO!")

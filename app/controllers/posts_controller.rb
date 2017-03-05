@@ -19,11 +19,25 @@ class PostsController < ApplicationController
 	end
 
 	def new
-		@post = Post.new
+		@post = Post.create
+		respond_to do |format|
+			format.html {
+			}
+			format.json {			
+				render :json => @post.to_json
+			}
+		end
 	end
 
 	def show
 		@post = Post.find(params[:id])
+		respond_to do |format|
+			format.html {
+			}
+			format.json {			
+				render :json => @post.to_json
+			}
+		end
 	end
 
 	def create
@@ -53,9 +67,21 @@ class PostsController < ApplicationController
 	def update
 		@post = Post.find(params[:id])
 		if @post.update(params[:post].permit(:title, :body, :element_id, :summary))
-			redirect_to @post
+			respond_to do |format|
+		    format.html {
+					redirect_to @post
+				}
+		    format.json {
+					render :json => @post.to_json
+		    }
+			end
 		else
-			render 'edit'
+			format.html {
+				render "edit"
+			}
+			format.json {
+				render :json => @post.errors.to_json
+			}
 		end
 	end
 
@@ -70,7 +96,7 @@ class PostsController < ApplicationController
 				if @post.save
 					render :json => @post.to_json # what should we render when successful?
 				else
-					render :json => @post.errors
+					render :json => @post.errors.to_json
 				end
 	    }
 		end
