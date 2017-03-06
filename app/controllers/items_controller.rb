@@ -5,10 +5,8 @@ class ItemsController < ApplicationController
     @items = current_user.items.all
 		respond_to do |format|
 	    format.html {
-				
 			}
 	    format.json {
-	      # render :json => @post.to_json
 	    }
 		end
   end

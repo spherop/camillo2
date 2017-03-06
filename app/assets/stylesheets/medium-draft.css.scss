@@ -566,6 +566,7 @@
   font-family: 'Georgia', serif;
   padding: 15px 30px;
   position: relative;
+  // font-size: 1.8em;
   line-height: 1.4em; }
 
 .md-RichEditor-editor {
@@ -762,7 +763,7 @@
   position: relative; }
   .md-RichEditor-controls.md-RichEditor-show-link-input {
     padding: 6px 10px; }
-  .md-RichEditor-controls:last-child {
+  .md-RichEditor-controls:nth-child(2) {
     border-right: none; }
   .md-RichEditor-controls .md-RichEditor-linkButton {
     color: #fff;
@@ -908,3 +909,8 @@ figure.md-block-image {
     top: 0;
     right: 10px;
     cursor: pointer; }
+    
+  // Customizations below
+  .md-editor-toolbar .md-RichEditor-controls:last-child {
+      display: none;
+  }

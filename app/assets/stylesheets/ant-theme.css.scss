@@ -5,6 +5,7 @@
 .ant-layout {
   background: #fff !important;
   margin-top: 10px;
+  font-size: 1.3rem !important;
 }
 .ant-layout-header {
   background: #fff !important;
@@ -60,7 +61,7 @@
   border-radius: 4px;
   &:focus {
     background: #fff;
-    border-bottom: solid 1px #eee;
+    border-bottom: solid 2px #c1c1c1;
     border-radius: 0;
   }
 }

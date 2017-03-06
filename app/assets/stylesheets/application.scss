@@ -290,8 +290,8 @@ $btn-size: 42px;
 }
 .ca-item-title {
   font-family: $serif, serif;
-  color: #444;
-  font-size: 1.5rem;
+  color: #444 !important;
+  font-size: 1.7rem;
 }
 .ca-item-time {
   font-size: .8rem;
@@ -407,7 +407,6 @@ $btn-size: 42px;
   font-family: $serif;
   color: #333;
   .ca-post-title-edit {
-    padding: 10px 30px;
     font-size: 2.5rem;
     line-height: 120%;
     font-weight: bold;
@@ -424,6 +423,14 @@ $btn-size: 42px;
   }
   .ca-post-header {
     padding: 3rem 0 0;
+    font-size: 2.1rem;
+    border-top: solid 1px #999;
+    border-bottom: solid 2px #444;
+    .ca-post-date {
+      font-style: italic;
+      color: #ccc;
+      font-size: 1.2rem;
+    }
     h2 {
       margin-bottom: 15px;
       color: #ffffff;
@@ -445,6 +452,9 @@ $btn-size: 42px;
     color: #333;
     font-family: $serif;
     font-weight: 100;
+    h1,h2,h3,p {
+      margin-bottom: 1rem;
+    }
   }
   h3 {
     // font-size: .8rem;

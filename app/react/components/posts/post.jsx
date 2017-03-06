@@ -15,9 +15,6 @@ import { observer, inject } from 'mobx-react'
 class Post extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      editorState: createEditorState(), // for empty content
-    };
   }
   onEditorStateChange = (editorState) => {
     this.props.PostStore.contentDirty = true
@@ -30,6 +27,7 @@ class Post extends React.Component {
   
   componentWillMount() {
     if (this.props.params.id === "new") {
+      // to do redirect to a new form instead of creating empty post
       this.props.PostStore.createPost()
     } else {
       this.props.PostStore.getPost(this.props.params.id)
@@ -61,9 +59,6 @@ class Post extends React.Component {
   }
   
   render () {
-    const toolbar = { options: ['inline', 'fontSize', 'textAlign', 'list'], 
-      inline: {inDropdown: true}, list: {inDropdown: true}, textAlign: { inDropdown: true }
-    }
     const post = this.props.PostStore.post
     let editorState = post.loading ? null : post.editorState
     if (!editorState) {
@@ -101,18 +96,23 @@ class Post extends React.Component {
                     </Button>
                   }
                 </Col>
-                <hr/>
               </Col>
 
             </Row>
           }
           <Row>
-            <Col span={10} offset={7}>
-              
+            <Col span={14} offset={5}>
               {!post.editMode &&
-                <div>
-                <h1 className="ca-post-header">{post.loading ? "loading ..." : post.title}</h1>
-                <h5>{ moment(post.created_at).fromNow() }</h5>
+                <div className="ca-post-header">
+                  {post.loading && 
+                    <em>Loading...</em>
+                  }
+                  {!post.loading &&
+                    <span>
+                      <h1>{post.title}</h1>
+                      <span className="ca-post-date">{this.props.PostStore.niceDate}</span>
+                    </span>
+                  }
                 </div>
               }
               {post.editMode &&      
@@ -121,13 +121,12 @@ class Post extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col span={10} offset={7}>
+            <Col span={10} offset={5}>
               {post.editMode &&
                 <Editor
                   ref="editor"
                   editorState={editorState}
                   onChange={this.onEditorStateChange} />
-
               }
               {!post.editMode && 
                 <div className="ca-post-body" dangerouslySetInnerHTML={{__html: postBody}}></div>

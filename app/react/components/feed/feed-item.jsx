@@ -10,7 +10,7 @@ class FeedItem extends React.Component {
   constructor(props) {
     super(props)
   }
-  deleteItem(item) {
+  deleteItem(deleteItem) {
     this.props.FeedStore.deleteItem(deleteItem);
   }
   

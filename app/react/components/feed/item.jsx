@@ -5,16 +5,10 @@ const { Header, Content } = Layout;
 
 import moment from 'moment';
 
-// EDITOR based off this example https://github.com/jpuri/react-draft-wysiwyg/blob/master/js/playground/index.js
-import { Editor } from 'react-draft-wysiwyg';
-import draftToHtml from 'draftjs-to-html'; // eslint-disable-line import/no-extraneous-dependencies
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import {
-  convertFromHTML,
-  convertToRaw,
-  ContentState,
-  EditorState,
-} from 'draft-js';
+  Editor,
+  createEditorState,
+} from 'medium-draft';
 
 import { observer, inject } from 'mobx-react'
 
@@ -22,77 +16,21 @@ import { observer, inject } from 'mobx-react'
 class Item extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      contentDirty: false,
-      contentState: {},
-      editorContent: undefined,
-      editorState: EditorState.createEmpty()
-    }
     this.saveItem = this.saveItem.bind(this);
   }
-
-  onEditorChange = (editorContent) => {
-    this.setState({
-      editorContent,
-      contentDirty: true
-    });
-  }
-  
+    
   onEditorStateChange = (editorState) => {
-    this.setState({
-      editorState
-    });
+    this.props.FeedStore.contentDirty = true
+    this.props.FeedStore.item.editorState = editorState
   }
-  
-  onContentStateChange = (contentState) => {
-    console.log('contentState', contentState);
-  }
-  
   
   // todo move to mobx store
   getItem = (itemId) => {
-    $.getJSON('/items/' + itemId)
-    .done((item) => {
-      console.log("get item", item)
-      let contentState = null
-      if (item.notes) {
-        const contentBlocks = convertFromHTML(item.notes)
-        contentState = ContentState.createFromBlockArray(contentBlocks);
-      }
-      const editorState = contentState ? EditorState.createWithContent(contentState) : null
-      this.props.FeedStore.item = item
-      this.setState({
-        // item: item,
-        editorState: editorState, 
-      });
-    })
-    .fail(() => {
-      // TODO handle errors more gracefully
-      alert("couldn't get item");
-    })
-    .always(() => { });
+    this.props.FeedStore.getItem(itemId)
   }
   
   saveItem = () => {
-    if (!this.state.contentDirty) {
-      return false
-    }
-    $.ajax({
-      method: "PUT",
-      dataType: "json",
-      url: "/items/" + this.props.FeedStore.item.id,
-      data: { item: { id: this.props.FeedStore.item.id, notes: draftToHtml(this.state.editorContent, {}) } }
-    })
-    .done((item) => {
-      message.success('Item saved');
-      this.props.FeedStore.item = item
-      this.setState({
-        contentDirty: false
-      })
-    })
-    .fail(() => {
-      alert("FAILED THAT ONE YO!")
-    });
+    this.props.FeedStore.saveItem()
   }
   
   componentWillMount() {
@@ -103,23 +41,20 @@ class Item extends React.Component {
     this.saveItem()
   }
   
-  componentWillReceiveProps(nextProps) {
-    
-  }
   
   render () {
-    const { editorContent, contentState, editorState } = this.state;
-    const toolbar = { options: ['inline', 'fontSize', 'textAlign', 'list'], 
-      inline: {inDropdown: true}, list: {inDropdown: true}, textAlign: { inDropdown: true }
-    }
+    // const { editorContent, contentState, editorState } = this.state;
     const item = this.props.FeedStore.item
+    let editorState = item.loading ? null : item.editorState
+    if (!editorState) {
+      editorState = createEditorState()
+    }
     return (
       <Layout className="ca-layout">
         <Header>
           <Row>
             <Col span={1} offset={6}>
               <Link to="/items"><Icon type="bars" /></Link>
-              
             </Col>
             <Col span={1}>
               <Link to={"/" + item.item_type + "s"}>{item.item_type + "s"}</Link>
@@ -141,15 +76,9 @@ class Item extends React.Component {
           <Row>
             <Col span={12} offset={6}>
               <Editor
-                toolbar={toolbar}
-                toolbarOnFocus={false}
+                ref="editor"
                 editorState={editorState}
-                toolbarClassName="ca-item-toolbar"
-                wrapperClassName="ca-item-wrapper"
-                editorClassName="ca-editor"
-                onEditorStateChange={this.onEditorStateChange}
-                onContentStateChange={this.onEditorChange}
-              />
+                onChange={this.onEditorStateChange} />
             </Col>
           </Row>
         </Content>

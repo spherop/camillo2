@@ -5,7 +5,13 @@ import { message } from 'antd'
 
 class feedStore {
   @observable items = []
-  @observable item = {title: "loading", notes: "...", item_type: "..."}
+  @observable item = {
+    title: "loading", 
+    notes: "...", 
+    loading: false,
+    item_type: "...",
+    editorState: EditorState.createEmpty()
+  }
   @observable itemType = 'item'
   @observable isLoading = true
   @observable isSaving = false
@@ -28,9 +34,33 @@ class feedStore {
     const typeName = (this.itemType != "item") ? this.itemType : "idea"
     const cTypeName = typeName.replace(/_/g, " ").replace(/\b\w/g, l => l.toUpperCase()).slice(0, -1);
     return cTypeName;
-  } 
+  }
+  
+  getItem(id) {
+    this.item.loading = true
+    $.getJSON('/items/' + id)
+    .done((item) => {
+      console.log("get item", item)
+      let contentState = null
+      if (item.notes) {
+        const contentBlocks = convertFromHTML(item.notes)
+        const contentState = ContentState.createFromBlockArray(contentBlocks);
+        this.item.editorState = EditorState.createWithContent(contentState)
+      } else {
+        this.item.editorState = null
+      }
+      this.item.loading = false
+      Object.assign(this.item, item)
+    })
+    .fail(() => {
+      // TODO handle errors more gracefully
+      alert("couldn't get item");
+    })
+    .always(() => { });
+  }
   
   getItems(itemType = null) {
+    this.loading = true
     if (itemType) {
       this.itemType = itemType
     } else {
@@ -40,6 +70,7 @@ class feedStore {
     .done((data) => {
       console.log("items", data)
       this.items = data
+      this.loading = false
     })
     .fail((result) => {
       // TODO handle errors more gracefully
@@ -62,7 +93,24 @@ class feedStore {
       console.log("createdItem", item)
       this.itemType = values.item_type
       this.items.unshift(item)
-      this.item = item
+      Object.assign(this.item, item)
+    })
+    .fail(() => {
+      alert("FAILED THAT ONE YO!")
+    });
+  }
+  
+  @action saveItem() {
+    const notesHTML = mediumDraftExporter(this.item.editorState.getCurrentContent());
+    $.ajax({
+      method: "PUT",
+      dataType: "json",
+      url: "/items/" + this.item.id,
+      data: { item: { id: this.item.id, notes: notesHTML } }
+    })
+    .done((item) => {
+      message.success('Item saved');
+      Object.assign(this.item, item)
     })
     .fail(() => {
       alert("FAILED THAT ONE YO!")
@@ -76,7 +124,7 @@ class feedStore {
       url: `/items/${deleteItem.id}`
     })
     .done((data) => {
-      
+      message.success("Items deleted")
       const remainder = this.items.filter((item) => {
         if(item.id !== deleteItem.id) return item;
       });
