@@ -17,7 +17,7 @@ class FeedNav extends React.Component {
       <Header className={headerClass}>
         <Row justify="center">
           <Col span={1}>
-            <Link activeClassName="selected" to="/"><Icon type="bars" /></Link>
+            <Link activeClassName="selected" to="/items"><Icon type="bars" /></Link>
           </Col>
           <Col span={4}>
             <Link activeClassName="selected" to="/ideas">Ideas</Link>

@@ -58,7 +58,7 @@ class appStore {
     })
     .fail(() => {
       // TODO handle errors more gracefully
-      alert("WEAK ASS SHIT");
+      alert("Could not get posts");
     })
     .always(() => { });
   }
@@ -85,7 +85,7 @@ class appStore {
     })
     .fail(() => {
       // TODO handle errors more gracefully
-      alert("WEAK ASS SHIT");
+      alert("Could not get post");
     })
     .always(() => { });
   }
@@ -139,9 +139,6 @@ class appStore {
     return true
   }
   
-  
-  
-  
   getItems(itemType = null) {
     if (itemType) {
       this.itemType = itemType
@@ -153,9 +150,10 @@ class appStore {
       console.log("items", data)
       this.items = data
     })
-    .fail(() => {
+    .fail((result) => {
       // TODO handle errors more gracefully
-      alert("WEAK ASS SHIT");
+      // alert(result);
+      message.error(result.responseText)
     })
     .always(() => { });
   }

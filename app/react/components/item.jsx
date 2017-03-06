@@ -46,6 +46,8 @@ class Item extends React.Component {
     console.log('contentState', contentState);
   }
   
+  
+  // todo move to mobx store
   getItem = (itemId) => {
     $.getJSON('/items/' + itemId)
     .done((item) => {
@@ -64,7 +66,7 @@ class Item extends React.Component {
     })
     .fail(() => {
       // TODO handle errors more gracefully
-      alert("WEAK ASS SHIT");
+      alert("couldn't get item");
     })
     .always(() => { });
   }
@@ -114,7 +116,7 @@ class Item extends React.Component {
         <Header>
           <Row>
             <Col span={1} offset={6}>
-              <Link to="/"><Icon type="bars" /></Link>
+              <Link to="/items"><Icon type="bars" /></Link>
               
             </Col>
             <Col span={1}>

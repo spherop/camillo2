@@ -110,8 +110,11 @@ h5 {
   color: #999;
 }
 hr {
-  border-top: 1px dotted #9c9b9b;
-  border-bottom: 1px dotted #fff;
+  border-top: 1px solid #bcbbbb;
+  border-bottom: 1px solid #fff;
+}
+abbr[title] {
+  text-decoration: none !important;
 }
 header {
   padding: 10px;
@@ -156,6 +159,9 @@ form {
     display: block;
     margin: 10px 0;
     padding-bottom: 7px;
+  }
+  input[type="radio"], input[type="checkbox"] {
+    margin-right: .5rem !important;
   }
   input[type="text"], input[type="url"], input[type="number"] {
     padding: 15px;
@@ -233,7 +239,21 @@ form {
     
   }
 }
-
+$btn-size: 42px;
+.ca-rnd-btn {
+  width: $btn-size;
+  height: $btn-size;
+  line-height: $btn-size;
+  border-radius: $btn-size;
+  background: #ddd;
+  color: #fff !important;
+  display: inline-block;
+  text-align: center;
+}
+.ca-u-btn {
+  border-bottom: solid 1px #999;
+  padding: 0 1px 6px;
+}
 .ca-posts {
   font-family: $serif;
   padding: 30px;
@@ -287,11 +307,12 @@ form {
   color: #777;
 }
 .ca-create-button {
-  height: 60px;
+  height: 40px;
   border-radius: 10px !important;
   background: #f5f5f5 !important;
   border: none !important;
   margin-left: 10px;
+  margin-top: 8px;
 }
 .ca-editor-wrapper {
   height: 600px;
@@ -342,8 +363,9 @@ form {
 }
 #ca-auth {
   position: absolute;
-  right: 20px;
+  right: 25px;
   top: 25px;
+  text-transform: uppercase;
   z-index: 1;
   a {
     color: #bbb;
@@ -477,12 +499,20 @@ form {
   
 }
 .ca-auth {
+  max-width: 700px;
+  margin: 40px auto;
   input[type="email"], input[type="password"] {
     display: block;
-    max-width: 400px;
     padding: 10px;
     width: 100%;
     margin-bottom: 15px;
+    border: none;
+    border-bottom: solid 1px #ccc;
+    background: #f3f3f3;
+    &:focus {
+      outline: none;
+      background: #ddd;
+    }
   }
 }
 .rte {

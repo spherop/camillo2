@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, browserHistory } from 'react-router'
 import { Col, Row } from 'antd';
+import ReqAuth from './req-auth'
 
 class HeaderNav extends React.Component {  
   render() {
@@ -14,7 +15,9 @@ class HeaderNav extends React.Component {
               <h2><Link to="/posts">TIME</Link></h2>
             </Col>
             <Col span={2}>
-               <Link to="/">Flow</Link>
+              <ReqAuth>
+                <Link className="ca-u-btn" to="/items">Flow</Link>
+              </ReqAuth>
             </Col>
           </Row>
         

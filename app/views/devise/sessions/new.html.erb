@@ -1,18 +1,18 @@
-<h2>Log in</h2>
+<div class="ca-auth">
+  <%= link_to "HOME", "/" %>
+  <h2>Log in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <summary>
-    Log in to the <b>Camillo</b> flow module.
-  </summary>
-  <div class="ca-auth">
-    <%= f.input :email, required: false, autofocus: true, placeholder: "Email" %>
-    <%= f.input :password, required: false, placeholder: "Password" %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="ca-auth">
+      <%= f.input :email, required: false, autofocus: true, placeholder: "Email" %>
+      <%= f.input :password, required: false, placeholder: "Password" %>
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
+    <div class="form-actions">
+      <%= f.button :submit, "Log in" %>
+    </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</div>
