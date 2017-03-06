@@ -1,6 +1,7 @@
 import { computed, observable, action, autorun } from 'mobx'
 import { convertFromHTML, convertToRaw, ContentState, EditorState} from 'draft-js';
-import draftToHtml from 'draftjs-to-html';
+// import draftToHtml from 'draftjs-to-html';
+import mediumDraftExporter from 'medium-draft/lib/exporter';
 import { message } from 'antd'
 
 class appStore {
@@ -18,13 +19,7 @@ class appStore {
     editorState: EditorState.createEmpty()
   }
   @observable contentDirty = false
-  // 
-  // @observable editor = {
-  //   
-  // } 
-  // 
   @observable itemType = 'item'
-
   @observable isLoading = true
   @observable isSaving = false
   @observable createVisible = false
@@ -69,17 +64,17 @@ class appStore {
     .done((post) => {
       console.log("get post", post)
       
-      
-      if (post.body) {
-        this.contentDirty = false
-        const contentBlocks = convertFromHTML(post.body)
-        this.post.contentState = ContentState.createFromBlockArray(contentBlocks);
-        this.post.id = post.id
-        this.post.body = post.body
-        this.post.title = post.title
-        this.post.editorState = EditorState.createWithContent(this.post.contentState)
-      }
+      this.contentDirty = false
+      const contentBlocks = convertFromHTML(post.body)
+      this.post.contentState = ContentState.createFromBlockArray(contentBlocks);
+      this.post.editorState = EditorState.createWithContent(this.post.contentState)
       this.post.loading = false
+      Object.assign(this.post, post)
+      // this.post.id = post.id
+      // this.post.body = post.body
+      // this.post.title = post.title
+      // this.post.created_at = post.created_at
+      
       window.post = this.post
       
     })
@@ -95,7 +90,8 @@ class appStore {
       return false
     }
     console.log("saving")
-    const bodyHTML = draftToHtml(this.post.editorContent, {})
+    // const bodyHTML = draftToHtml(this.post.editorContent, {})
+    const bodyHTML = mediumDraftExporter(this.post.editorState.getCurrentContent());
     $.ajax({
       method: "PUT",
       dataType: "json",

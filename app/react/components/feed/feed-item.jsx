@@ -28,7 +28,7 @@ class FeedItem extends React.Component {
         </Col>
         <Col span={4}>
           <span className="ca-item-time">
-            {moment(item.created_at).fromNow()}
+            {moment(item.updated_at).fromNow()}
           </span>
         </Col>
         <Col span={4}>
