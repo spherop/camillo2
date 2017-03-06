@@ -65,16 +65,15 @@ class appStore {
       console.log("get post", post)
       
       this.contentDirty = false
-      const contentBlocks = convertFromHTML(post.body)
-      this.post.contentState = ContentState.createFromBlockArray(contentBlocks);
-      this.post.editorState = EditorState.createWithContent(this.post.contentState)
+      if (post.body) {
+        const contentBlocks = convertFromHTML(post.body)
+        const contentState = ContentState.createFromBlockArray(contentBlocks);
+        this.post.editorState = EditorState.createWithContent(contentState)
+      } else {
+        this.post.editorState = null
+      }
       this.post.loading = false
-      Object.assign(this.post, post)
-      // this.post.id = post.id
-      // this.post.body = post.body
-      // this.post.title = post.title
-      // this.post.created_at = post.created_at
-      
+      Object.assign(this.post, post)      
       window.post = this.post
       
     })

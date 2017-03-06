@@ -4,8 +4,6 @@ import { Layout, Col, Row, Tag, Icon, Button, message, Input } from 'antd';
 const { Header, Content } = Layout;
 import moment from 'moment';
 
-import 'medium-draft/lib/index.css';
-
 import {
   Editor,
   createEditorState,
@@ -72,7 +70,6 @@ class Post extends React.Component {
       editorState = createEditorState()
     }
     const postBody = post.loading ? null : post.body
-    console.log("POST", post)
     return (
       <Layout className="ca-layout">
         <Header>
