@@ -41,7 +41,7 @@ class Posts extends React.Component {
                 {posts.map((post, i) =>
                   <Row key={i}>
                     <h1><Link to={"/posts/" + post.id}>{post.title}</Link></h1>
-                    <p dangerouslySetInnerHTML={{__html: post.body}}>
+                    <p dangerouslySetInnerHTML={{__html: post.summary}}>
                     </p>
                   </Row>
                 )}

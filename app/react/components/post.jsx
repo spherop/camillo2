@@ -2,17 +2,12 @@ import React from 'react'
 import { Link, browserHistory } from 'react-router'
 import { Layout, Col, Row, Tag, Icon, Button, message, Input } from 'antd';
 const { Header, Content } = Layout;
+import moment from 'moment';
 
-// EDITOR based off this example https://github.com/jpuri/react-draft-wysiwyg/blob/master/js/playground/index.js
-import { Editor } from 'react-draft-wysiwyg';
-import draftToHtml from 'draftjs-to-html'; // eslint-disable-line import/no-extraneous-dependencies
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import {
-  convertFromHTML,
-  convertToRaw,
-  ContentState,
-  EditorState,
-} from 'draft-js';
+  Editor,
+  createEditorState,
+} from 'medium-draft';
 
 import { observer, inject } from 'mobx-react'
 
@@ -21,36 +16,12 @@ class Post extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      contentState: {},
-      editorContent: undefined,
-      editorState: EditorState.createEmpty()
-    }
-    // this.props.AppStore.editor = {
-    //   contentState: {},
-    //   editorContent: undefined,
-    //   editorState: EditorState.createEmpty()
-    // }
-    // this.savePost = this.savePost.bind(this);
+      editorState: createEditorState(), // for empty content
+    };
   }
-
-  onEditorChange = (editorContent) => {
-    this.props.AppStore.post.editorContent = editorContent
-    // this.setState({
-    //   editorContent
-    // });
-    this.props.AppStore.contentDirty = true
-  }
-  
   onEditorStateChange = (editorState) => {
-    // this.setState({
-    //   editorState
-    // });
+    this.props.AppStore.contentDirty = true
     this.props.AppStore.post.editorState = editorState
-  }
-  
-  onContentStateChange = (contentState) => {
-    console.log('contentState', contentState);
-    this.props.AppStore.post.contentState = contentState
   }
   
   getPost = (postId) => {
@@ -63,13 +34,7 @@ class Post extends React.Component {
     } else {
       this.props.AppStore.getPost(this.props.params.id)
     }
-    
     this.props.AppStore.post.editMode = (this.props.params.mode === "edit") ? true : false
-    
-  }
-  
-  componentWillUnmount() {
-    // this.props.AppStore.savePost()
   }
   
   savePost = () => {
@@ -80,12 +45,12 @@ class Post extends React.Component {
     } else {
       message.error("Cannot save")
     }
-    
-    
   }
+  
   editPost = () => { 
     this.props.AppStore.post.editMode = true
   }
+  
   cancelEdit = () => { 
     this.props.AppStore.post.editMode = false
   }
@@ -100,7 +65,10 @@ class Post extends React.Component {
       inline: {inDropdown: true}, list: {inDropdown: true}, textAlign: { inDropdown: true }
     }
     const post = this.props.AppStore.post
-    const editorState = post.loading ? null : post.editorState
+    let editorState = post.loading ? null : post.editorState
+    if (!editorState) {
+      editorState = createEditorState()
+    }
     const postBody = post.loading ? null : post.body
     return (
       <Layout className="ca-layout">
@@ -119,16 +87,13 @@ class Post extends React.Component {
                   </Button>
                 </div>
               }
-
-
             </Col>
           </Row>
-          
         </Header>
         <Content className="ca-post">
           {!post.editMode &&
             <Row>
-              <Col className="text-center" span={16} offset={4}>
+              <Col className="text-center" span={10} offset={7}>
                 <Col span={1} offset={23}>
                   {!post.editMode &&
                     <Button>
@@ -142,10 +107,13 @@ class Post extends React.Component {
             </Row>
           }
           <Row>
-            <Col span={11} offset={6}>
+            <Col span={10} offset={7}>
               
               {!post.editMode &&
+                <div>
                 <h1 className="ca-post-header">{post.loading ? "loading ..." : post.title}</h1>
+                <h5>{ moment(post.created_at).fromNow() }</h5>
+                </div>
               }
               {post.editMode &&      
                 <Input className="ca-post-title-edit" placeholder={`enter post title`} defaultValue={post.title} onChange={this.handleTitleChange} autoComplete="off" /> 
@@ -153,18 +121,13 @@ class Post extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col span={12} offset={6}>
+            <Col span={10} offset={7}>
               {post.editMode &&
                 <Editor
-                  toolbar={toolbar}
-                  toolbarOnFocus={false}
+                  ref="editor"
                   editorState={editorState}
-                  toolbarClassName="ca-post-toolbar"
-                  wrapperClassName="ca-post-wrapper"
-                  editorClassName="ca-editor"
-                  onEditorStateChange={this.onEditorStateChange}
-                  onContentStateChange={this.onEditorChange}
-                />
+                  onChange={this.onEditorStateChange} />
+
               }
               {!post.editMode && 
                 <div className="ca-post-body" dangerouslySetInnerHTML={{__html: postBody}}></div>

@@ -3,6 +3,8 @@ import { Link, browserHistory } from 'react-router'
 import { Layout, Col, Row, Tag, Icon, Button, message } from 'antd';
 const { Header, Content } = Layout;
 
+import moment from 'moment';
+
 // EDITOR based off this example https://github.com/jpuri/react-draft-wysiwyg/blob/master/js/playground/index.js
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html'; // eslint-disable-line import/no-extraneous-dependencies

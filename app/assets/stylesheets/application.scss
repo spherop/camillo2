@@ -16,14 +16,10 @@
  *= require_self
  */
 
-/* app specific stuff */
-// @import "bootstrap-sprockets";
-// @import "bootstrap";
-// @import "bootstrap/theme";
-// @import "summernote";
+
 
 //= @import "ant-theme" /* my css customizations made on top of antd css */
-//= @import "draft"
+//= @import "medium-draft"
 //= @import "animatons"
 
 $sans: 'Montserrat'; // Bungee Shade
@@ -129,6 +125,9 @@ label {
   color: #777;
   margin-right: 20px;
 }
+b, strong {
+  font-weight: bold !important;
+}
 article {
   // box-shadow: 0 0 10px #ddd;
   background: #fff;
@@ -139,14 +138,12 @@ article {
 }
 blockquote {
   background: #f5f5f5;
-  padding: 1rem $ca-pad;
+  padding: 1.5rem 3rem !important;
   color: #636363;
-  margin: 0;
   line-height: 162%;
-  margin: 20px 68px;
+  margin: 20px 0px 20px 0 !important;
   font-family: sans-serif;
-  clear: both;
-  font-weight: 100;
+  border-left: solid 5px #717171;
 }
 b, strong {
   font-weight: bold;
@@ -258,20 +255,18 @@ $btn-size: 42px;
   font-family: $serif;
   padding: 30px;
   margin-bottom: 50px;
+  
+  h1 {
+    height: 44px;
+  }
+  p {
+    margin-bottom: 20px;
+  }
   .ca-posts-item {
     font-size: 20px;
     clear: both;
     a {
       color: #999;
-    }
-    .ca-posts-item-title {
-      
-    }
-    .ca-col {
-      width: 50%;
-      float: left;
-      box-sizing: border-box;
-      padding: 10px;
     }
   }
 
@@ -412,12 +407,20 @@ $btn-size: 42px;
   font-family: $serif;
   color: #333;
   .ca-post-title-edit {
-    padding: 10px 15px;
+    padding: 10px 30px;
     font-size: 2.5rem;
     line-height: 120%;
     font-weight: bold;
     height: auto;
+    border: none;
     color: #333;
+    border-radius: 0 !important;
+    border-bottom: solid 1px #ccc;
+    &:focus {
+      border: none;
+      // border-color: #779;
+      border-bottom: solid 1px #555;
+    }
   }
   .ca-post-header {
     padding: 3rem 0 0;
@@ -444,16 +447,16 @@ $btn-size: 42px;
     font-weight: 100;
   }
   h3 {
-    font-size: .8rem;
-    padding: 10px;
-    background: #f3f3f3;
-    color: #888;
-    margin: 0;
-    display: inline-block;
-    border-bottom: dashed 1px #aaa;
-    float: right;
-    clear: both;
-    margin-bottom: 14px;
+    // font-size: .8rem;
+    // padding: 10px;
+    // background: #f3f3f3;
+    // color: #888;
+    // margin: 0;
+    // display: inline-block;
+    // border-bottom: dashed 1px #aaa;
+    // float: right;
+    // clear: both;
+    // margin-bottom: 14px;
   }
 }
 .ca-logo {
