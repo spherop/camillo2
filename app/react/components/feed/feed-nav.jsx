@@ -5,7 +5,7 @@ import { Link, browserHistory } from 'react-router'
 import { observer, inject } from 'mobx-react'
 import classNames from 'classnames'
 
-@inject(["AppStore"]) @observer
+@inject("FeedStore", "AppStore") @observer
 class FeedNav extends React.Component { 
   constructor(props) {
     super(props)

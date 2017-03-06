@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, browserHistory } from 'react-router'
 import { Col, Row } from 'antd';
-import ReqAuth from './req-auth'
+import AuthView from './auth/auth-view'
 
-class HeaderNav extends React.Component {  
+class AppNav extends React.Component {  
   render() {
     console.log("params", browserHistory.getCurrentLocation())
     const isPost = this.props.location.pathname.startsWith("/posts") ? true : false
@@ -15,9 +15,9 @@ class HeaderNav extends React.Component {
               <h2><Link to="/posts">TIME</Link></h2>
             </Col>
             <Col span={2}>
-              <ReqAuth>
+              <AuthView>
                 <Link className="ca-u-btn" to="/items">Flow</Link>
-              </ReqAuth>
+              </AuthView>
             </Col>
           </Row>
         
@@ -29,4 +29,4 @@ class HeaderNav extends React.Component {
   }
 }
 
-export default HeaderNav 
+export default AppNav 

@@ -5,13 +5,13 @@ import { observer, inject } from 'mobx-react'
 import moment from 'moment';
 
 
-@inject(["AppStore"]) @observer
+@inject(["FeedStore"]) @observer
 class FeedItem extends React.Component {
   constructor(props) {
     super(props)
   }
   deleteItem(item) {
-    this.props.AppStore.deleteItem(deleteItem);
+    this.props.FeedStore.deleteItem(deleteItem);
   }
   
   render () {

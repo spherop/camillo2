@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Feed from './feed';
-import Posts from './posts';
-import Post from './post';
-import Item from './item';
-import HeaderNav from './header-nav';
-import AppStore from './app-store'
+import Feed from './feed/feed';
+import Posts from './posts/posts';
+import Post from './posts/post';
+import Item from './feed/item';
+import AppNav from './app-nav';
+import AppStore from '../stores/app-store'
+import PostStore from '../stores/post-store'
+import FeedStore from '../stores/feed-store'
 import { Provider } from 'mobx-react'
 import { message } from 'antd'
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
@@ -22,9 +24,9 @@ class App extends React.Component {
   
   render () {
     return (
-      <Provider AppStore={this.props.store}>
+      <Provider {...this.props.store}>
         <Router history={browserHistory}>
-          <Route path="/" component={HeaderNav}>
+          <Route path="/" component={AppNav}>
             <IndexRoute component={Posts} />
             <Route path="/posts" component={Posts}/>
             <Route path="/posts/:id" component={Post}/>
@@ -41,7 +43,7 @@ class App extends React.Component {
 
 $(document).ready(function() {
   ReactDOM.render(
-    <App store={ AppStore } />,
+    <App store={ { AppStore, PostStore, FeedStore }  } />,
     document.getElementById('app')
   );
 });

@@ -11,7 +11,7 @@ import {
 
 import { observer, inject } from 'mobx-react'
 
-@inject(["AppStore"]) @observer
+@inject(["PostStore"]) @observer
 class Post extends React.Component {
   constructor(props) {
     super(props)
@@ -20,51 +20,51 @@ class Post extends React.Component {
     };
   }
   onEditorStateChange = (editorState) => {
-    this.props.AppStore.contentDirty = true
-    this.props.AppStore.post.editorState = editorState
+    this.props.PostStore.contentDirty = true
+    this.props.PostStore.post.editorState = editorState
   }
   
   getPost = (postId) => {
-    this.props.AppStore.getPost(postId)
+    this.props.PostStore.getPost(postId)
   }  
   
   componentWillMount() {
     if (this.props.params.id === "new") {
-      this.props.AppStore.createPost()
+      this.props.PostStore.createPost()
     } else {
-      this.props.AppStore.getPost(this.props.params.id)
+      this.props.PostStore.getPost(this.props.params.id)
     }
-    this.props.AppStore.post.editMode = (this.props.params.mode === "edit") ? true : false
+    this.props.PostStore.post.editMode = (this.props.params.mode === "edit") ? true : false
   }
   
   savePost = () => {
     // todo turn into promise result from above async call
-    if (this.props.AppStore.savePost()) {
+    if (this.props.PostStore.savePost()) {
       message.success("Post saved")
-      this.props.AppStore.post.editMode = false
+      this.props.PostStore.post.editMode = false
     } else {
       message.error("Cannot save")
     }
   }
   
   editPost = () => { 
-    this.props.AppStore.post.editMode = true
+    this.props.PostStore.post.editMode = true
   }
   
   cancelEdit = () => { 
-    this.props.AppStore.post.editMode = false
+    this.props.PostStore.post.editMode = false
   }
   
   handleTitleChange = (e) => {
-    this.props.AppStore.contentDirty = true
-    this.props.AppStore.post.title = e.target.value
+    this.props.PostStore.contentDirty = true
+    this.props.PostStore.post.title = e.target.value
   }
   
   render () {
     const toolbar = { options: ['inline', 'fontSize', 'textAlign', 'list'], 
       inline: {inDropdown: true}, list: {inDropdown: true}, textAlign: { inDropdown: true }
     }
-    const post = this.props.AppStore.post
+    const post = this.props.PostStore.post
     let editorState = post.loading ? null : post.editorState
     if (!editorState) {
       editorState = createEditorState()

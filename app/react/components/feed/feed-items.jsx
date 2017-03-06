@@ -3,7 +3,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { observer, inject } from 'mobx-react'
 import FeedItem from './feed-item'
 
-@inject(["AppStore"]) @observer
+@inject(["FeedStore"]) @observer
 class FeedItems extends React.Component {
   
   constructor(props) {
@@ -11,7 +11,7 @@ class FeedItems extends React.Component {
   }
   
   render () {
-    const items = this.props.AppStore.items;
+    const items = this.props.FeedStore.items;
     return (    
       <div>
         <ReactCSSTransitionGroup

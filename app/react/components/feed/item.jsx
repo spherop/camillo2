@@ -18,7 +18,7 @@ import {
 
 import { observer, inject } from 'mobx-react'
 
-@inject(["AppStore"]) @observer
+@inject(["FeedStore"]) @observer
 class Item extends React.Component {
   constructor(props) {
     super(props)
@@ -60,7 +60,7 @@ class Item extends React.Component {
         contentState = ContentState.createFromBlockArray(contentBlocks);
       }
       const editorState = contentState ? EditorState.createWithContent(contentState) : null
-      this.props.AppStore.item = item
+      this.props.FeedStore.item = item
       this.setState({
         // item: item,
         editorState: editorState, 
@@ -80,12 +80,12 @@ class Item extends React.Component {
     $.ajax({
       method: "PUT",
       dataType: "json",
-      url: "/items/" + this.props.AppStore.item.id,
-      data: { item: { id: this.props.AppStore.item.id, notes: draftToHtml(this.state.editorContent, {}) } }
+      url: "/items/" + this.props.FeedStore.item.id,
+      data: { item: { id: this.props.FeedStore.item.id, notes: draftToHtml(this.state.editorContent, {}) } }
     })
     .done((item) => {
       message.success('Item saved');
-      this.props.AppStore.item = item
+      this.props.FeedStore.item = item
       this.setState({
         contentDirty: false
       })
@@ -112,7 +112,7 @@ class Item extends React.Component {
     const toolbar = { options: ['inline', 'fontSize', 'textAlign', 'list'], 
       inline: {inDropdown: true}, list: {inDropdown: true}, textAlign: { inDropdown: true }
     }
-    const item = this.props.AppStore.item
+    const item = this.props.FeedStore.item
     return (
       <Layout className="ca-layout">
         <Header>

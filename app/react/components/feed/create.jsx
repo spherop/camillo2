@@ -1,14 +1,13 @@
 import React from 'react';
 import { observer, inject } from 'mobx-react'
 import { Button, Icon, Row, Col, Form } from 'antd';
-import CreateForm from './form/create-form'
+import CreateForm from './create-form'
 
 
-@inject(["AppStore"]) @observer
+@inject("FeedStore", "AppStore") @observer
 class Create extends React.Component {
   state = {
     visible: false,
-    // itemType: "Idea",
   };
   showModal = (itemType) => {
     this.setState({ visible: true });
@@ -40,8 +39,8 @@ class Create extends React.Component {
     this.form = form;
   }
   render() {
-    const createTypeText = this.props.AppStore.createItemText
-    const itemType = this.props.AppStore.itemType
+    const createTypeText = this.props.FeedStore.createItemText
+    const itemType = this.props.FeedStore.itemType
     return (
       <div className="ca-create">
         <CreateForm
