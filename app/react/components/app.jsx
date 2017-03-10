@@ -13,8 +13,6 @@ import { message } from 'antd'
 import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
 
 class App extends React.Component {
-  
-  
   requireAuth = () => {
     if (!window.auth) {
       message.warning("Please signup")

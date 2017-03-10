@@ -12,11 +12,11 @@ class AppNav extends React.Component {
         <header className="ca-top-nav">
           <Row>
             <Col span={20} offset={1}>
-              <h2><Link to="/posts">TIME</Link></h2>
+              <h2><Link activeStyle={{ color: '#333' }} to="/posts">POSTS</Link></h2>
             </Col>
             <Col span={2}>
               <AuthView>
-                <Link className="ca-u-btn" to="/items">Flow</Link>
+                <Link className="ca-u-btn" activeStyle={{ color: '#333' }} to="/items">Flow</Link>
               </AuthView>
             </Col>
           </Row>

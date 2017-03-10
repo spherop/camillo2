@@ -37,6 +37,7 @@
     "http": "*",
     "httpdispatcher": "^1.0.0",
     "immutability-helper": "^2.1.2",
+    "lodash": "^4.17.4",
     "medium-draft": "^0.4.1",
     "mobx": "^3.1.0",
     "mobx-react": "^4.1.0",
