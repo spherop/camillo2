@@ -10,8 +10,33 @@ class FeedItems extends React.Component {
     super(props)
   }
   
+  _renderItems = () => {
+    
+    
+    console.log("store.items", store.items)
+    if (store.itemType !== "sources") {
+      return (
+        <div>
+          {store.feedItems.map((item, i) =>
+            <FeedItem key={i} item={item} />
+          )}
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          {store.sourceItems.map((item, i) =>
+            <SourceItem key={i} item={item} />
+          )}
+        </div>
+      )
+    }
+  }
+  
   render () {
     const items = this.props.FeedStore.items;
+    
+    
     return (    
       <div>
         <ReactCSSTransitionGroup
@@ -20,9 +45,11 @@ class FeedItems extends React.Component {
           transitionLeaveTimeout={150}
           transitionAppear={true}
           transitionAppearTimeout={50}>
-          {items.map((item, i) =>
-            <FeedItem key={i} item={item} />
-          )}
+          <div>
+            {items.map((item, i) =>
+              <FeedItem key={i} item={item} />
+            )}
+          </div>
         </ReactCSSTransitionGroup>
       </div>
     )

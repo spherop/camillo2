@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>Camillo</title>
-    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.5.5/css/tachyons.min.css"/>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/tachyons@4.5.5/css/tachyons.min.css"/> -->
     <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Crimson+Text:400,400i,700,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Crimson+Text:400,400i,700,700i|Roboto+Condensed|Raleway:400,700" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -17,6 +17,7 @@
         <script>
           window.auth = true
         </script>
+        <img src="/assets/man-user.svg" />
         <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "navbar-right") %>        
       <% else %>
         <script>

@@ -12,7 +12,6 @@ const CreateForm = Form.create()(
       <Form vertical>
         <Row>
           <Col span={23}>
-            <h3>Add</h3>
             <div>
               {getFieldDecorator('title', {
                 rules: [{ required: true, message: 'Input title' }],

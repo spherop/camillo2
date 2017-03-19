@@ -1,10 +1,10 @@
 class SourcesController < ApplicationController
   before_action :set_source, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /s
   # GET /s.json
   def index
-    @sources = Source.all
+    @sources = current_user.sources
   end
 
   # GET /s/1
@@ -24,15 +24,19 @@ class SourcesController < ApplicationController
   # POST /s
   # POST /s.json
   def create
-    @source = Source.new(source_params)
+    @source = current_user.sources.new(source_params)
 
     respond_to do |format|
       if @source.save
         format.html { redirect_to @source, notice: 'Source was successfully created.' }
         format.json { render :show, status: :created, location: @source }
       else
+        
         format.html { render :new }
-        format.json { render json: @source.errors, status: :unprocessable_entity }
+        format.json { 
+          binding.pry
+          render json: @source.errors, status: :unprocessable_entity 
+        }
       end
     end
   end

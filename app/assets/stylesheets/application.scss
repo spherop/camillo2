@@ -198,19 +198,74 @@ form {
 }
 
 .ca-nav {
-  background: #fff !important;
-  padding: 0 !important;
+  // background: #f3f3f3 !important;
+  margin-top: 15px;
+  padding: 0 25px !important;
   transition: all 100ms linear;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Roboto Condensed";
+  
+  .ca-all {
+    background: transparent !important;
+    padding: 1px;
+    width: 29px;
+    margin: 0 4px;
+    flex-grow: 0;
+    opacity: .6;
+    position: relative;
+    top: -2px;
+    &.selected {
+      opacity: 1;
+    }
+    img {
+      height: 31px;
+      vertical-align: middle;
+    }
+  }
+  $nav-border: 5px;
+  
+  .ca-n-1 {
+    border-right: $nav-border solid #876;
+  }
+  .ca-n-2 {
+    border-right: $nav-border solid #280;
+  }
+  .ca-n-3 {
+    border-right: $nav-border solid #1e4;
+  }
+  .ca-n-4 {
+    border-right: $nav-border solid #c57;
+  }
+  .ca-n-5 {
+    border-right: $nav-border solid #349;
+  }
+  .ca-n-6 {
+    border-right: $nav-border solid #d34;
+  }
+  .ca-n-7 {
+    border-right: $nav-border solid #a9f;
+  }
+  .ca-n-8 {
+    border-right: $nav-border solid #c33;
+  }
+  .ca-n-9 {
+    border-right: $nav-border solid #78a;
+  }
+  .ca-n-10 {
+    border-right: $nav-border solid #08d;
+  }
   a {
-    margin-right: 4px;
-    color: #666;
-    border-bottom: solid 1px #ccc;
-    padding-bottom: 2px;
-    background: #f3f3f3;
-    height: 46px;
-    line-height: 46px;
+    background: #45454a;
+    color: #efefef;
     display: block;
+    flex-grow: 1;
     font-size: 1rem;
+    height: 46px;
+    letter-spacing: .5px;
+    line-height: 46px;
+    margin-right: 6px;
+    padding: 0 21px;
     text-align: center;
     transition: all 120ms ease-in;
     &:hover {
@@ -219,14 +274,14 @@ form {
     }
   }
   .selected {
-    background: #fff !important;
+    background: #7d7d76;
     color: #000 !important;
   }
   &.dimmed {
     
     a {
       color: #ccc;
-      background: #fff;
+      // background: #fff;
       // transform: scale(.8);
     }
     .selected {
@@ -248,8 +303,9 @@ $btn-size: 42px;
   text-align: center;
 }
 .ca-u-btn {
-  border-bottom: solid 1px #999;
-  padding: 0 1px 6px;
+  // border-bottom: solid 1px #999;
+  // padding: 0 1px 6px;
+  text-transform: uppercase;
 }
 .ca-posts {
   font-family: $serif;
@@ -286,12 +342,14 @@ $btn-size: 42px;
   color: #aaa;
   a {
     margin: 0 10px;
+    color: #b54b4b;
   }
 }
 .ca-item-title {
-  font-family: $serif, serif;
+  font-family: Raleway, serif;
   color: #444 !important;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
+  // font-weight: bold;
 }
 .ca-item-time {
   font-size: .8rem;
@@ -314,7 +372,7 @@ $btn-size: 42px;
 }
 .ca-feed {
   font-size: 1.2rem;
-  margin-top: 10px;
+  margin-top: 0px;
   .ca-item-delete {
     cursor: pointer;
     float: right;
@@ -359,28 +417,43 @@ $btn-size: 42px;
 #ca-auth {
   position: absolute;
   right: 25px;
-  top: 25px;
+  top: 15px;
   text-transform: uppercase;
   z-index: 1;
+  img {
+    max-height: 21px;
+    opacity: .6;
+  }
   a {
     color: #bbb;
   }
 }
 .ca-layout-content {
   width: 1000px;
-  margin: 0 auto;
+  margin: 25px auto;
 }
 .ca-top-nav {
-  background: #fff;
-  box-shadow: 0 0 2px #aaa !important;
-  margin: 0;
-  padding: 8px 10px;
+  background: #716c6c;
+  box-shadow: 0 0 7px #aaa !important;
+  color: #888;
   height: 70px;
   line-height: 52px;
-  color: #888;
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  .ca-logo {
+    font-family: "Roboto Condensed";
+  }
+  .nav-icon {
+    width: 38px;
+    vertical-align: middle;
+    margin-right: 15px;
+    position: relative;
+    top: -3px;
+    opacity: .7;
+  }
   a {
-    color: #999;
-    text-transform: uppercase;
+    color: #dcd5d5;
+    // text-transform: uppercase;
   }
 }
 .ca-items-footer {
@@ -468,15 +541,6 @@ $btn-size: 42px;
     // clear: both;
     // margin-bottom: 14px;
   }
-}
-.ca-logo {
-  border-radius: 30px;
-  background: #afa2a2;
-  color: #6b0101;
-  padding: 3px 15px;
-  display: inline-block;
-  text-align: center;
-  margin-right: 20px;
 }
 .ca-center-nav {
   position: absolute;

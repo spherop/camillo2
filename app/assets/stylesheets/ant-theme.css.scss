@@ -57,11 +57,11 @@
 .ant-form input[type="text"], form input[type="url"], .ant-form input[type="number"] {
   padding: 29px 15px !important;
   background: #f9f9f9;
-  box-shadow: inset 0 0 3px #ddd;
-  border-radius: 4px;
+  box-shadow: inset 0 0 1px #a5a5a5;
+  font-weight: normal;
   &:focus {
     background: #fff;
-    border-bottom: solid 2px #c1c1c1;
+    border-bottom: solid 2px #eee;
     border-radius: 0;
   }
 }

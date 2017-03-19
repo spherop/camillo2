@@ -60,6 +60,7 @@ class feedStore {
   }
   
   getItems(itemType = null) {
+  
     this.loading = true
     if (itemType) {
       this.itemType = itemType
@@ -68,30 +69,35 @@ class feedStore {
     }
     $.getJSON('/' + this.plur(this.itemType))
     .done((data) => {
-      console.log("items", data)
+      console.log("data", data)
       this.items = data
       this.loading = false
     })
     .fail((result) => {
-      // TODO handle errors more gracefully
-      // alert(result);
       message.error(result.responseText)
     })
     .always(() => { });
   }
   
   @action createItem(values) {
-    console.log("CREATE", values)
-    values.item_type = this.sing(values.item_type)
+    let type
+    if (values.item_type) {
+      values.item_type = this.sing(values.item_type)
+      type = this.plur(values.item_type)
+      alert("WHAT")
+    } else if (values.source_type) {
+      type = "sources" 
+    }
+    
     $.ajax({
       method: "POST",
       dataType: "json",
-      url: `/${this.plur(values.item_type)}`,
-      data: { [values.item_type]: values }
+      url: `/${type}`,
+      data: { [this.sing(type)]: values }
     })
     .done((item) => {
       console.log("createdItem", item)
-      this.itemType = values.item_type
+      this.itemType = type
       this.items.unshift(item)
       Object.assign(this.item, item)
     })

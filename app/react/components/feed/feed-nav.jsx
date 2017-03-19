@@ -15,29 +15,20 @@ class FeedNav extends React.Component {
     const headerClass = classNames('ca-nav', { 'dimmed': this.props.AppStore.createHasFocus })
     return (
       <Header className={headerClass}>
-        <Row justify="center">
-          <Col span={1}>
-            <Link activeClassName="selected" to="/items"><Icon type="bars" /></Link>
-          </Col>
-          <Col span={4}>
-            <Link activeClassName="selected" to="/ideas">Ideas</Link>
-          </Col>
-          <Col span={4}>
-            <Link activeClassName="selected" to="/goals">Goals</Link>
-          </Col>
-          <Col span={4}>
-            <Link activeClassName="selected" to="/creative_actions">Creative Actions</Link>
-          </Col>
-          <Col span={4}>
-            <Link activeClassName="selected" to="/sources">Sources</Link>
-          </Col>  
-          <Col span={4}>
-            <Link activeClassName="selected" to="/next_steps">Next Steps</Link>
-          </Col>
-          <Col span={3}>
-            <Link activeClassName="selected" to="/learnings">Learnings</Link>
-          </Col>  
-        </Row>
+          
+        {/* <Link className="ca-all" style={{marginRight: 20}} activeClassName="selected" to="/items"><img src="/assets/center-alignment.svg" /></Link> */}
+        
+        <Link className="ca-n-1" activeClassName="selected" to="/creative_actions">Actions</Link>
+        <Link className="ca-n-2" activeClassName="selected" to="/ideas">Ideas</Link>
+        <Link className="ca-n-3" activeClassName="selected" to="/goals">Goals</Link>
+        <Link className="ca-n-4" activeClassName="selected" to="/assets">Assets</Link>
+        <Link className="ca-n-5" activeClassName="selected" to="/blockers">Blockers</Link>
+        <Link className="ca-n-6" activeClassName="selected" to="/sources">Sources</Link>
+        <Link className="ca-n-7" activeClassName="selected" to="/next_steps">Steps</Link>
+        <Link className="ca-n-8" activeClassName="selected" to="/learnings">Learnings</Link>
+        <Link className="ca-n-9" activeClassName="selected" to="/curiosities">Curiosities</Link>
+        <Link className="ca-n-10" activeClassName="selected" to="/observings">Observings</Link>
+        <Link className="ca-n-10" activeClassName="selected" to="/randoms">Randoms</Link>
       </Header>
     )
   }

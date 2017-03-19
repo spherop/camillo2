@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Feed from './feed/feed';
 import Posts from './posts/posts';
 import Post from './posts/post';
+import Journal from './journal/journal';
 import Item from './feed/item';
 import AppNav from './app-nav';
 import AppStore from '../stores/app-store'
@@ -28,7 +29,9 @@ class App extends React.Component {
             <IndexRoute component={Posts} />
             <Route path="/posts" component={Posts}/>
             <Route path="/posts/:id" component={Post}/>
+
             <Route path="/posts/:id/:mode" component={Post}/>
+                        <Route path="/journal" component={Journal}/>
             <Route path="/items" component={Feed} onEnter={this.requireAuth} />
             <Route path="/items/:id" component={Item} onEnter={this.requireAuth} />
             <Route path="/:type" component={Feed} onEnter={this.requireAuth} />

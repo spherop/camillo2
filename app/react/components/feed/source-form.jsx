@@ -22,7 +22,7 @@ const SourceForm = Form.create()(
             </div>
             <div>
               {getFieldDecorator('subtitle', {
-                rules: [{ required: true, message: 'Input subtitle' }],
+                rules: [{ message: 'Input subtitle' }],
               })(
                 <Input placeholder={`...subtitle`} onFocus={onFocus} autoComplete="off" />
               )}
@@ -51,7 +51,7 @@ const SourceForm = Form.create()(
           <Col span={4} offset={0}>
             <FormItem>
               {getFieldDecorator('source_type', { 
-                initialValue: props.itemType
+                initialValue: "book"
               })(
                 <Select placeholder="Source a type">
                   <Option value="book">Book</Option>

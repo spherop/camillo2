@@ -11,12 +11,13 @@ class AppNav extends React.Component {
       <div>
         <header className="ca-top-nav">
           <Row>
-            <Col span={20} offset={1}>
-              <h2><Link activeStyle={{ color: '#333' }} to="/posts">POSTS</Link></h2>
+            <Col span={12}>            
+              <Link className="ca-logo" style={{fontSize: 20, letterSpacing: 1}} activeStyle={{ color: '#333' }} to="/posts"><img className="nav-icon" src="/assets/steps.svg" /> Creative Steps</Link>
             </Col>
-            <Col span={2}>
+            <Col span={12}>
               <AuthView>
-                <Link className="ca-u-btn" activeStyle={{ color: '#333' }} to="/items">Flow</Link>
+                <Link className="ca-u-btn" activeClassName="selected" to="/journal"><img className="nav-icon" src="/assets/pencil-and-notebook.svg" /></Link>
+                <Link className="ca-u-btn" activeStyle={{ color: '#333' }} to="/items"><img className="nav-icon" src="/assets/levels.svg" /> Flow</Link>
               </AuthView>
             </Col>
           </Row>

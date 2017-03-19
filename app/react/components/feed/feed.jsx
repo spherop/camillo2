@@ -33,17 +33,12 @@ class Feed extends React.Component {
   
   render () {
     const items = this.props.FeedStore.items
-    
     return (
       <Layout className="ca-feed">
         {/* <DevTools /> */}
         <FeedNav />
         <Content className="ca-layout-content">
-          <Row>
-            <Col span={24}>
-              <Create handleCreateItem={this.createItem} />
-            </Col>
-          </Row>
+
           <Row>
             <Col span={24}>
               <div className="ca-feed">
@@ -51,7 +46,11 @@ class Feed extends React.Component {
               </div>
             </Col>
           </Row>
-          
+          <Row>
+            <Col span={24}>
+              <Create handleCreateItem={this.createItem} />
+            </Col>
+          </Row>
         </Content>
       </Layout>
     )
