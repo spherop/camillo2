@@ -223,7 +223,7 @@ form {
       vertical-align: middle;
     }
   }
-  $nav-border: 5px;
+  $nav-border: 0px;
   
   .ca-n-1 {
     border-right: $nav-border solid #876;
@@ -430,6 +430,7 @@ $btn-size: 42px;
 }
 .ca-layout-content {
   width: 1000px;
+  height: 93vh;
   margin: 25px auto;
 }
 .ca-top-nav {

@@ -16,7 +16,7 @@ const CreateForm = Form.create()(
               {getFieldDecorator('title', {
                 rules: [{ required: true, message: 'Input title' }],
               })(
-                <Input placeholder={`...${itemType}`} onPressEnter={onCreate} onFocus={onFocus} onBlur={onBlur} autoFocus={true} autoComplete="off" />
+                <Input placeholder={`...${itemType}`} onPressEnter={onCreate} onFocus={onFocus} onBlur={onBlur} autoComplete="off" />
               )}
             </div>
             <FormItem style={{display: "none"}}>
