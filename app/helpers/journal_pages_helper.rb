@@ -1,0 +1,2 @@
+module JournalPagesHelper
+end

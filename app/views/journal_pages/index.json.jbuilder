@@ -1,0 +1,1 @@
+json.array! @journal_pages, partial: 'journal_pages/journal_page', as: :journal_page

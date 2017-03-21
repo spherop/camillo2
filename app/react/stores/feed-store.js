@@ -13,7 +13,7 @@ class feedStore {
     editorState: EditorState.createEmpty()
   }
   @observable itemType = 'item'
-  @observable isLoading = true
+  @observable loading = true
   @observable isSaving = false
   
   sing(str) {
@@ -115,7 +115,7 @@ class feedStore {
       data: { item: { id: this.item.id, notes: notesHTML } }
     })
     .done((item) => {
-      message.success('Item saved');
+      // message.success('Item saved');
       Object.assign(this.item, item)
     })
     .fail(() => {

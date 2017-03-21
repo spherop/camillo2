@@ -35,10 +35,8 @@ class Feed extends React.Component {
     const items = this.props.FeedStore.items
     return (
       <Layout className="ca-feed">
-        {/* <DevTools /> */}
         <FeedNav />
         <Content className="ca-layout-content">
-
           <Row>
             <Col span={24}>
               <div className="ca-feed">

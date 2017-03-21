@@ -1,0 +1,2 @@
+class JournalPage < Item
+end

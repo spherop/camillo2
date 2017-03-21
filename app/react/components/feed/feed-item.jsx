@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 import { Button, Icon, Row, Col, Tag } from 'antd';
-import { observer, inject } from 'mobx-react'
+import { observer, inject } from 'mobx-react';
 import moment from 'moment';
 
 
@@ -17,7 +17,7 @@ class FeedItem extends React.Component {
   render () {
     const item = this.props.item;
     return (
-      <Row className="ca-item" key={item.id}>
+      <Row className="ca-feed-item" key={item.id}>
         <Col span={12}>
           <Link className="ca-item-title" to={`/items/${item.id}`}>{item.title}</Link>
         </Col>

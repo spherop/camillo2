@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :journal_pages
   resources :excerpts
   resources :sources
   get 'react_examples/component', to: 'react_examples#component', as: :component

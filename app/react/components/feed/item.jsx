@@ -1,8 +1,9 @@
-import React from 'react'
-import { Link, browserHistory } from 'react-router'
+require("./item.css.scss");
+import React from 'react';
+import { Link, browserHistory } from 'react-router';
 import { Layout, Col, Row, Tag, Icon, Button, message } from 'antd';
 const { Header, Content } = Layout;
-
+import Loading from "../common/loading";
 import moment from 'moment';
 
 import {
@@ -10,7 +11,7 @@ import {
   createEditorState,
 } from 'medium-draft';
 
-import { observer, inject } from 'mobx-react'
+import { observer, inject } from 'mobx-react';
 
 @inject(["FeedStore"]) @observer
 class Item extends React.Component {
@@ -41,7 +42,6 @@ class Item extends React.Component {
     this.saveItem()
   }
   
-  
   render () {
     // const { editorContent, contentState, editorState } = this.state;
     const item = this.props.FeedStore.item
@@ -49,23 +49,21 @@ class Item extends React.Component {
     if (!editorState) {
       editorState = createEditorState()
     }
+    if (item.loading) {
+      return (
+        <Loading />
+      )
+    }
     return (
-      <Layout className="ca-layout">
+      <Layout className="ca-layout ca-item">
         <Header>
           <Row>
-            <Col span={1} offset={6}>
-              <Link to="/items"><Icon type="bars" /></Link>
+            <Col className="ca-item-nav" span={14} offset={6}>
+              <Link to="/items"><img className="nav-icon" src="/assets/levels.svg" /></Link>
+              <Link to={"/" + item.item_type + "s"}>{item.item_type.replace("_", " ")}</Link>
+              <Button type="dashed" onClick={this.saveItem}>Save</Button>
             </Col>
-            <Col span={1}>
-              <Link to={"/" + item.item_type + "s"}>{item.item_type + "s"}</Link>
-            </Col>
-            <Col span={12}>
-              <Button>
-                <Link onClick={this.saveItem}>Save</Link>
-              </Button>
-            </Col>
-          </Row>
-          
+          </Row>  
         </Header>
         <Content>
           <Row>
@@ -74,7 +72,7 @@ class Item extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col span={12} offset={6}>
+            <Col span={12} offset={6} className="bd-t-1">
               <Editor
                 ref="editor"
                 editorState={editorState}
