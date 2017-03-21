@@ -11,7 +11,8 @@ import PostStore from '../stores/post-store'
 import FeedStore from '../stores/feed-store'
 import { Provider } from 'mobx-react'
 import { message } from 'antd'
-import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
+import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
+require("./app.css.scss");
 
 class App extends React.Component {
   requireAuth = () => {
@@ -29,9 +30,8 @@ class App extends React.Component {
             <IndexRoute component={Posts} />
             <Route path="/posts" component={Posts}/>
             <Route path="/posts/:id" component={Post}/>
-
             <Route path="/posts/:id/:mode" component={Post}/>
-                        <Route path="/journal" component={Journal}/>
+            <Route path="/journal" component={Journal}/>
             <Route path="/items" component={Feed} onEnter={this.requireAuth} />
             <Route path="/items/:id" component={Item} onEnter={this.requireAuth} />
             <Route path="/:type" component={Feed} onEnter={this.requireAuth} />
@@ -45,6 +45,6 @@ class App extends React.Component {
 $(document).ready(function() {
   ReactDOM.render(
     <App store={ { AppStore, PostStore, FeedStore }  } />,
-    document.getElementById('app')
+    document.getElementById('ca-app')
   );
 });

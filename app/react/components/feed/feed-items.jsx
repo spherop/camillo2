@@ -1,7 +1,8 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group' 
-import { observer, inject } from 'mobx-react'
-import FeedItem from './feed-item'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { observer, inject } from 'mobx-react';
+import FeedItem from './feed-item';
+import Loading from '../common/loading';
 
 @inject(["FeedStore"]) @observer
 class FeedItems extends React.Component {
@@ -35,8 +36,11 @@ class FeedItems extends React.Component {
   
   render () {
     const items = this.props.FeedStore.items;
-    
-    
+    if (this.props.FeedStore.loading) {
+      return (
+        <Loading />
+      )
+    }
     return (    
       <div>
         <ReactCSSTransitionGroup

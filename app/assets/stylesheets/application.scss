@@ -384,7 +384,7 @@ $btn-size: 42px;
   font-family: $serif;
   margin: $ca-pad;
   color: #aaa;
-  .ca-item {
+  .ca-feed-item {
     margin-bottom: 15px;
     a {
       margin-left: 20px;
@@ -433,30 +433,7 @@ $btn-size: 42px;
   height: 93vh;
   margin: 25px auto;
 }
-.ca-top-nav {
-  background: #716c6c;
-  box-shadow: 0 0 7px #aaa !important;
-  color: #888;
-  height: 70px;
-  line-height: 52px;
-  margin: 0 0 10px;
-  padding: 8px 10px;
-  .ca-logo {
-    font-family: "Roboto Condensed";
-  }
-  .nav-icon {
-    width: 38px;
-    vertical-align: middle;
-    margin-right: 15px;
-    position: relative;
-    top: -3px;
-    opacity: .7;
-  }
-  a {
-    color: #dcd5d5;
-    // text-transform: uppercase;
-  }
-}
+
 .ca-items-footer {
   text-align: center;
   margin: $ca-pad 0 20px;

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, browserHistory } from 'react-router'
 import { Col, Row } from 'antd';
 import AuthView from './auth/auth-view'
+require("./app-nav.css.scss")
 
 class AppNav extends React.Component {  
   render() {
@@ -9,7 +10,7 @@ class AppNav extends React.Component {
     const isPost = this.props.location.pathname.startsWith("/posts") ? true : false
     return (
       <div>
-        <header className="ca-top-nav">
+        <header className="ca-app-nav">
           <Row>
             <Col span={12}>            
               <Link className="ca-logo" style={{fontSize: 20, letterSpacing: 1}} activeStyle={{ color: '#333' }} to="/posts"><img className="nav-icon" src="/assets/steps.svg" /> Creative Steps</Link>
