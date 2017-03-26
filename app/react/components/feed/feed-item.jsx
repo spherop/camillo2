@@ -32,7 +32,7 @@ class FeedItem extends React.Component {
           </span>
         </Col>
         <Col span={4}>
-          <Icon onClick={this.deleteItem.bind(this, item)} className="ca-item-delete" type="close-circle" />
+          <Icon onClick={this.deleteItem.bind(this, item)} className="ca-item-delete" type="close" />
         </Col>
       </Row>
     )

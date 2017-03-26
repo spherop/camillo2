@@ -3,6 +3,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { observer, inject } from 'mobx-react';
 import FeedItem from './feed-item';
 import Loading from '../common/loading';
+require('./feed-items.css.scss')
 
 @inject(["FeedStore"]) @observer
 class FeedItems extends React.Component {
@@ -42,7 +43,8 @@ class FeedItems extends React.Component {
       )
     }
     return (    
-      <div>
+      <div className="ca-feed-items bd-bd-1 pd-b-4">
+        <div className="ca-header bd-bd-1">{this.props.FeedStore.itemType.replace("_", " ")}</div>
         <ReactCSSTransitionGroup
           transitionName="ca-list"
           transitionEnterTimeout={50}

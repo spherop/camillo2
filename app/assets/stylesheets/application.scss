@@ -342,7 +342,10 @@ $btn-size: 42px;
   color: #aaa;
   a {
     margin: 0 10px;
-    color: #b54b4b;
+    color: #ccc;
+    &:hover {
+      color: #444;
+    }
   }
 }
 .ca-item-title {

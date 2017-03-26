@@ -84,7 +84,6 @@ class feedStore {
     if (values.item_type) {
       values.item_type = this.sing(values.item_type)
       type = this.plur(values.item_type)
-      alert("WHAT")
     } else if (values.source_type) {
       type = "sources" 
     }

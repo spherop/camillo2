@@ -18,7 +18,8 @@ class AppNav extends React.Component {
             <Col span={12}>
               <AuthView>
                 <Link className="ca-u-btn" activeClassName="selected" to="/journal"><img className="nav-icon" src="/assets/pencil-and-notebook.svg" /></Link>
-                <Link className="ca-u-btn" activeStyle={{ color: '#333' }} to="/items"><img className="nav-icon" src="/assets/levels.svg" /> Flow</Link>
+                <Link className="ca-u-btn" activeStyle={{ color: '#333' }} to="/items"> Notebook</Link>
+                {/* <img className="nav-icon" src="/assets/levels.svg" /> */}
               </AuthView>
             </Col>
           </Row>

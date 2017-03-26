@@ -74,11 +74,11 @@ class Post extends React.Component {
             <Col span={2}>
               {post.editMode &&
                 <div>
-                  <Button>
-                    <Link onClick={this.savePost}>Save</Link>
+                  <Button type="dashed" onClick={this.savePost}>
+                    Save
                   </Button>
-                  <Button>
-                    <Link onClick={this.cancelEdit}>Cancel</Link>
+                  <Button type="dashed" onClick={this.cancelEdit}>
+                    Cancel
                   </Button>
                 </div>
               }
@@ -86,20 +86,16 @@ class Post extends React.Component {
           </Row>
         </Header>
         <Content className="ca-post">
-          {!post.editMode &&
-            <Row>
-              <Col className="text-center" span={10} offset={7}>
-                <Col span={1} offset={23}>
-                  {!post.editMode &&
-                    <Button>
-                      <Link onClick={this.editPost}>Edit</Link>
-                    </Button>
-                  }
-                </Col>
-              </Col>
-
-            </Row>
-          }
+          <Row>
+            <Col className="text-center pd-b-4" span={10} offset={7}>
+              <Link className="pd-r-2" to="/">Posts</Link>
+              {!post.editMode &&
+                <Button type="dashed" onClick={this.editPost}>
+                  Edit
+                </Button>
+              }
+            </Col>
+          </Row>
           <Row>
             <Col span={14} offset={5}>
               {!post.editMode &&

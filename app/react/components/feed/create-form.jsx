@@ -12,11 +12,11 @@ const CreateForm = Form.create()(
       <Form vertical>
         <Row>
           <Col span={23}>
-            <div>
+            <div className="pd-t-4">
               {getFieldDecorator('title', {
                 rules: [{ required: true, message: 'Input title' }],
               })(
-                <Input placeholder={`...${itemType.replace("_", " ")}`} onPressEnter={onCreate} onFocus={onFocus} onBlur={onBlur} autoComplete="off" />
+                <Input placeholder={`+ ${itemType.replace("_", " ")}`} onPressEnter={onCreate} onFocus={onFocus} onBlur={onBlur} autoComplete="off" />
               )}
             </div>
             <FormItem style={{display: "none"}}>
