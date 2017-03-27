@@ -8,7 +8,7 @@ gem 'simple_form', '~> 3.2'
 
 # gem 'react-rails'
 gem 'devise'
-gem 'jquery-turbolinks'
+# gem 'jquery-turbolinks'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'administrate'
 gem 'bourbon' # for administrate https://github.com/thoughtbot/administrate/issues/615  

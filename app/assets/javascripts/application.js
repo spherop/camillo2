@@ -11,10 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
+// require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
-//= require turbolinks-compatibility
+// require turbolinks
+// require turbolinks-compatibility
 //= require react_integration
 //= require react_bundle
 //= require_tree .
