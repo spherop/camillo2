@@ -62,7 +62,10 @@
     "rwr-node-server": "forever -o log/rwr-server-out.log -e log/rwr-server-err.log forever/production.json",
     "start": "webpack -w --config webpack/dev.config.js",
     "start-hot-dev": "webpack-dev-server --hot --inline --config webpack/hot-dev.config.js",
-    "test": "karma start"
+    "test": "karma start",
+    "start": "webpack -w --config webpack/dev.config.js",
+    "build": "webpack -p --config webpack/production.config.js",
+    "postinstall": "webpack -p --config webpack/production.config.js"
   },
   "license": "",
   "engines": {
