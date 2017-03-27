@@ -14,4 +14,15 @@ class User < ApplicationRecord
   has_many :goals, :dependent => :nullify
   has_many :next_steps, :dependent => :nullify
   
+  after_create :update_access_token!  
+
+
+  private
+
+  def update_access_token!
+    self.access_token = "#{self.id}:#{Devise.friendly_token}"
+    save
+  end
+
+  
 end

@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
-  resources :posts
+  resource :login, only: [:create], controller: :sessions
+  # namespace :v1, defaults: { format: :json } do
+  #   
+  # end
   
   resources :elements
   
