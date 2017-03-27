@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  
   def index
     @items = current_user.items.all
 		respond_to do |format|
