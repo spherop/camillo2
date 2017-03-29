@@ -13,10 +13,11 @@
 //= require jquery
 // require jquery.turbolinks
 //= require jquery_ujs
+//= require react_bundle
 // require turbolinks
 // require turbolinks-compatibility
 //= require react_integration
-//= require react_bundle
+
 //= require_tree .
 
 // app specific stuff
