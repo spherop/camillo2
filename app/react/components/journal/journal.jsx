@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, browserHistory } from 'react-router'
-import BigCalendar from 'react-big-calendar';
-require("react-big-calendar/lib/css/react-big-calendar.css")
+// import BigCalendar from 'react-big-calendar';
+// require("react-big-calendar/lib/css/react-big-calendar.css")
 
 import moment from 'moment';
 
