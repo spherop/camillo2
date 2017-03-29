@@ -16,11 +16,7 @@ class Journal extends React.Component {
     return (
       <Layout className="ca-feed ca-journal">
         <Content className="ca-layout-content">
-          <BigCalendar
-            events={[]}
-            startAccessor='startDate'
-            endAccessor='endDate'
-          />
+          BOO
         </Content>
         
       </Layout>
