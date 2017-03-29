@@ -10,13 +10,13 @@ const { Header, Content } = Layout;
 import FeedNav from '../feed/feed-nav'
 
 
-BigCalendar.momentLocalizer(moment); // or globalizeLocalizer
+// BigCalendar.momentLocalizer(moment); // or globalizeLocalizer
 class Journal extends React.Component {
   render() {
     return (
       <Layout className="ca-feed ca-journal">
         <Content className="ca-layout-content">
-          BOO
+          bootstrap-sprockets
         </Content>
         
       </Layout>
