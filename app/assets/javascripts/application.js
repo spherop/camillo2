@@ -24,5 +24,3 @@
 // require summernote
 //= require medium-editor
 
-//= require react_integration
-//= require react_bundle
