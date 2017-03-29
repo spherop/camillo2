@@ -17,11 +17,7 @@
 // require turbolinks
 // require turbolinks-compatibility
 //= require react_integration
-
+//= require medium-editor
 //= require_tree .
 
-// app specific stuff
-// require bootstrap-sprockets
-// require summernote
-//= require medium-editor
 
