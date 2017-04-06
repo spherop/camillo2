@@ -1,0 +1,36 @@
+@import "../palette.css.scss";
+.ca-feed-item {
+  border: solid 1px #fff;
+  padding: 12px 31px;
+  background: #eee;
+  border-radius: 32px;
+  margin-bottom: 7px;
+  &:hover {
+    border-bottom: solid 1px #eee;
+    .ca-item-delete {
+      opacity: 1;
+    }
+  }
+  .ca-item-title {
+    font-family: Raleway, serif;
+    color: #444 !important;
+    font-size: 1.5rem;
+    display: block;
+    &:hover {
+      color: $ElecBlue !important;
+    }
+    // font-weight: bold;
+  }
+  .ca-item-type {
+    font-size: .9rem;
+    color: #777;
+  }
+  .ca-item-time {
+    font-size: .8rem;
+    color: #999;
+  }
+  .ca-item-delete {
+    opacity: 0;
+    cursor: pointer;
+  }
+}

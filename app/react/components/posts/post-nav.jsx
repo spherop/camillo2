@@ -5,7 +5,7 @@ class PostNav extends React.Component {
   render() {
     return (
       <div className="ca-post-nav">
-        <Link to={"/resistance"}>Resistance</Link>
+        {/*<Link to={"/resistance"}>Resistance</Link>
         &bull;
         <Link to={"/constraints"}>Constraints</Link>
         &bull;
@@ -17,7 +17,7 @@ class PostNav extends React.Component {
         &bull;
         <Link to={"/loop"}>Loop</Link>
         &bull;
-        <Link to={"/multiplicity"}>Multiplicity</Link>
+        <Link to={"/multiplicity"}>Multiplicity</Link>*/}
       </div>
     )
   }

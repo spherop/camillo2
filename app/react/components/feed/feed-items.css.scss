@@ -1,10 +1,13 @@
 .ca-feed-items {
   .ca-header {
-    font-size: .8rem;
+    color: #231b1b;
+    font-family: Roboto Condensed;
+    font-size: 0.9rem;
     font-weight: bold;
-    text-align: center;
+    letter-spacing: 0px;
     margin: 0px 0 45px;
-    color: #aaa;
-    padding-bottom: 25px;
+    padding: 3px 0px 0;
+    text-align: center;
+    text-transform: capitalize;
   }
 }

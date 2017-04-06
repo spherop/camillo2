@@ -1,7 +1,7 @@
 require("./item.css.scss");
 import React from 'react';
 import { Link, browserHistory } from 'react-router';
-import { Layout, Col, Row, Tag, Icon, Button, message } from 'antd';
+import { Layout, Col, Row, Tag, Icon, Button, message, Input } from 'antd';
 const { Header, Content } = Layout;
 import Loading from "../common/loading";
 import moment from 'moment';
@@ -18,6 +18,7 @@ class Item extends React.Component {
   constructor(props) {
     super(props)
     this.saveItem = this.saveItem.bind(this);
+    this.onTitleChange = this.onTitleChange.bind(this);
   }
     
   onEditorStateChange = (editorState) => {
@@ -40,6 +41,10 @@ class Item extends React.Component {
   
   componentWillUnmount() {
     this.saveItem()
+  }
+  
+  onTitleChange(e) {
+    this.props.FeedStore.item.title = e.target.value;
   }
   
   render () {
@@ -68,11 +73,11 @@ class Item extends React.Component {
         <Content>
           <Row>
             <Col span={11} offset={6}>
-              <h1>{item.title}</h1>
+              <Input onChange={this.onTitleChange} value={item.title} placeholder="..." />
             </Col>
           </Row>
           <Row>
-            <Col span={12} offset={6} className="bd-t-1">
+            <Col span={12} offset={6}>
               <Editor
                 ref="editor"
                 editorState={editorState}

@@ -1,11 +1,13 @@
 import 'antd/dist/antd.css';
 import React from 'react';
 import PostNav from './post-nav'
-
-import { Layout, Icon, Row, Col } from 'antd';
+import AuthView from '../auth/auth-view';
+import { Layout, Icon, Row, Col, Modal } from 'antd';
+const confirm = Modal.confirm;
 const { Header, Content } = Layout;
 import { Link, browserHistory } from 'react-router'
-import { observer, inject } from 'mobx-react'
+import { observer, inject } from 'mobx-react';
+require("./posts.css.scss")
 
 
 @inject(["PostStore"]) @observer
@@ -25,12 +27,29 @@ class Posts extends React.Component {
     }
   }
   
+  deletePost (post) {
+    var postStore =  this.props.PostStore;
+    var post = post;
+    confirm({
+      title: 'Want to delete this post?',
+      okText: "Yes",
+      cancelText: "Cancel",
+      onOk() { 
+        postStore.deletePost(post.id);
+      },
+      onCancel() {
+        console.log('Cancel');
+      },
+    });
+    
+  }
+  
   render () {
     const posts = this.props.PostStore.posts
-    
+    console.log(posts.splice())
     return (
       <Layout className="ca-feed">
-        {/* <DevTools /> */}
+        
         <Content className="ca-layout-content">
           <Row>
             <Col span={24}>
@@ -38,11 +57,24 @@ class Posts extends React.Component {
               <hr />
               <div className="ca-posts">
                 {posts.map((post, i) =>
-                  <Row key={i}>
-                    <h1><Link to={"/posts/" + post.id}>{post.title}</Link></h1>
-                    <p dangerouslySetInnerHTML={{__html: post.summary}}>
-                    </p>
-                  </Row>
+                  <div>
+                    <Row key={i}>
+                      <Col span={22}>
+                        <h1>
+                          <Link to={"/posts/" + post.id}>{post.title}</Link>
+                        </h1>
+                      </Col>
+                      <Col span={2}>
+                        <AuthView shownToId={post.user_id}>
+                          <Icon onClick={this.deletePost.bind(this, post)} type="close" />
+                        </AuthView>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <p dangerouslySetInnerHTML={{__html: post.summary}}>
+                      </p>
+                    </Row>
+                  </div>
                 )}
               </div>
             </Col>

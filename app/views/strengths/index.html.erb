@@ -1,0 +1,9 @@
+<summary>
+  Ideation is a form of art. So many ideas get lost because we feel we cannot spend the time to work on them fully. Instead of shunning them or throwing them away, 
+  if we flip the script we can approach idea creation as a creative process that need not lead to a stalemate around what to do with all of these gems.
+  Let em go. Or take the best and figure out which will be the focal point.
+</summary>
+<%= render partial: "partials/items", locals: {items: @strengths, item_type: "Strength"} %>
+<div class="ca-items-footer">
+  <%= link_to 'New Strength', new_strength_path, class: "ca-button grow"  %>
+</div>

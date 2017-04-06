@@ -34,7 +34,9 @@ class App extends React.Component {
             <Route path="/journal" component={Journal}/>
             <Route path="/items" component={Feed} onEnter={this.requireAuth} />
             <Route path="/items/:id" component={Item} onEnter={this.requireAuth} />
+            <Route path="/notes/:type" component={Feed} onEnter={this.requireAuth} />
             <Route path="/:type" component={Feed} onEnter={this.requireAuth} />
+            
           </Route>
         </Router>
       </Provider>

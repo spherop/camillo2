@@ -13,7 +13,7 @@ class Post < ApplicationRecord
   end
   
   def create_summary
-    return if !self.body
+    return if !self.body or destroyed?
     stripped = ActionController::Base.helpers.strip_tags(self.body.gsub!('><', '> <'))
     if stripped
       self.summary = stripped.truncate(200) 

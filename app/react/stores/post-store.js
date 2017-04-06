@@ -112,6 +112,24 @@ class postStore {
     return true
   }
   
+  @action deletePost(postId) {
+    $.ajax({
+      method: "DELETE",
+      dataType: "json",
+      url: `/posts/${postId}`
+    })
+    .done((data) => {
+      message.success("Post deleted")
+      const remainder = this.posts.filter((post) => {
+        if(post.id !== postId) return post;
+      });
+      this.posts = remainder
+    })
+    .fail(() => {
+      alert("nope")
+    });
+  }
+  
 }
 
 const PostStore = new postStore();

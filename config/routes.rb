@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :items
   resources :posts
   resources :creative_actions
+  resources :strengths
   resources :actions
   resources :ideas
   resources :questions

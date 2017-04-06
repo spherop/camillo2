@@ -16,7 +16,6 @@ class IdeasController < ApplicationController
   # GET /ideas/new
   def new
     @idea = Idea.new
-    @ideas = current_user.ideas
   end
 
   # GET /ideas/1/edit

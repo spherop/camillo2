@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :posts, :dependent => :nullify
   has_many :items, :dependent => :nullify
   has_many :ideas, :dependent => :nullify
+  has_many :strengths, :dependent => :nullify
   has_many :excerpts, :dependent => :nullify
   has_many :sources, :dependent => :nullify
   

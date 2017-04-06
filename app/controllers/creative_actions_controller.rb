@@ -5,7 +5,7 @@ class CreativeActionsController < ApplicationController
   # GET /creative_actions
   # GET /creative_actions.json
   def index
-    @creative_actions = CreativeAction.all
+    @creative_actions = current_user.creative_actions.all
   end
 
   # GET /creative_actions/1

@@ -17,7 +17,7 @@ class feedStore {
   @observable isSaving = false
   
   sing(str) {
-    if (str.slice(-1) === "s") {
+    if (str && str.slice(-1) === "s") {
       str = str.slice(0, -1)
     }
     return str
@@ -106,12 +106,15 @@ class feedStore {
   }
   
   @action saveItem() {
+    if (!this.item.editorState) {
+      return
+    }
     const notesHTML = mediumDraftExporter(this.item.editorState.getCurrentContent());
     $.ajax({
       method: "PUT",
       dataType: "json",
       url: "/items/" + this.item.id,
-      data: { item: { id: this.item.id, notes: notesHTML } }
+      data: { item: { id: this.item.id, notes: notesHTML, title: this.item.title } }
     })
     .done((item) => {
       // message.success('Item saved');

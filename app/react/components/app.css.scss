@@ -1,4 +1,10 @@
 #ca-app {
+  .tr {
+    text-align: right;
+  }
+  .tl {
+    text-align: left;
+  }
   .bd-t-1 {
     border-top: solid 1px #aaa;
   }
@@ -6,10 +12,10 @@
     border-bottom: solid 1px #aaa;
   }
   .bd-td-1 {
-    border-top: dashed 1px #aaa;
+    border-top: dashed 1px #dadada;
   }
   .bd-bd-1 {
-    border-bottom: dashed 1px #aaa;
+    border-bottom: dashed 1px #dadada;
   }
   .pd-b-1 {
     padding-bottom: 5px;

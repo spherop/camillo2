@@ -1,5 +1,6 @@
+@import "./palette.css.scss";
 .ca-app-nav {
-  background: #716c6c;
+  background: #304152;
   box-shadow: 0 0 7px #aaa !important;
   color: #888;
   height: 70px;
@@ -20,8 +21,18 @@
     vertical-align: middle;
     width: 38px;
   }
+  .ca-nav-link {
+    &:hover {
+      color: $ElecBlue;
+      .ca-nav-icon {
+        background: #e3e600;
+      }
+    }
+    &.active {
+      color: $ElecBlue;
+    }
+  }
   a {
     color: #dcd5d5;
-    // text-transform: uppercase;
   }
 }

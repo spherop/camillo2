@@ -1,3 +1,4 @@
+@import "../palette.css.scss";
 .ca-item {
   margin-top: 45px;
   img {
@@ -12,5 +13,18 @@
   }
   .nav-icon {
     width: 40px;
+  }
+  input[type="text"] {
+    font-size: 36px;
+    border: none;
+    border-bottom: dashed 1px #999;
+    height: 60px;
+    padding: 0 0 15px;
+    &:hover {
+      box-shadow: none;
+    }
+    &:focus {
+      box-shadow: none;
+    }
   }
 }

@@ -3,7 +3,8 @@
   <head>
     <title>Camillo</title>
     <%= csrf_meta_tags %>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Crimson+Text:400,400i,700,700i|Roboto+Condensed|Raleway:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Multi|Crimson+Text:400,400i,700,700i|Roboto+Condensed|Raleway:400,700" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/glacial-indifference" type="text/css"/>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -13,13 +14,15 @@
     <div id="ca-auth">
       <% if user_signed_in? %>
         <script>
-          window.auth = true
+          window.auth = true;
+          window.user = { id: <%= current_user.id %>, email: '<%= current_user.email %>' };
         </script>
         <img src="/assets/man-user.svg" />
         <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "navbar-right") %>        
       <% else %>
         <script>
           window.auth = false
+          window.user = { user_id: undefined }
         </script>
         <%= link_to('Login', new_user_session_path, class: "navbar-right")  %>  
       <% end %>
