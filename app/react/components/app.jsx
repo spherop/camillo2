@@ -6,7 +6,7 @@ import Post from './posts/post';
 import Journal from './journal/journal';
 import Item from './feed/item';
 import AppNav from './app-nav';
-import AppStore from '../stores/app-store'
+import UiStore from '../stores/ui-store'
 import PostStore from '../stores/post-store'
 import FeedStore from '../stores/feed-store'
 import { Provider } from 'mobx-react'
@@ -46,7 +46,7 @@ class App extends React.Component {
 
 $(document).ready(function() {
   ReactDOM.render(
-    <App store={ { AppStore, PostStore, FeedStore }  } />,
+    <App store={ { UiStore, PostStore, FeedStore }  } />,
     document.getElementById('ca-app')
   );
 });

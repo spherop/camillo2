@@ -1,12 +1,11 @@
 @import "../palette.css.scss";
 .ca-feed-item {
   border: solid 1px #fff;
-  padding: 12px 31px;
-  background: #eee;
-  border-radius: 32px;
+  padding: 7px 0;
   margin-bottom: 7px;
+  border-bottom: dotted 1px #eee;
   &:hover {
-    border-bottom: solid 1px #eee;
+    border-bottom: solid 1px #ddd;
     .ca-item-delete {
       opacity: 1;
     }
@@ -19,7 +18,6 @@
     &:hover {
       color: $ElecBlue !important;
     }
-    // font-weight: bold;
   }
   .ca-item-type {
     font-size: .9rem;

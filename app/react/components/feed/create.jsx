@@ -6,7 +6,7 @@ import CreateForm from './create-form'
 import SourceForm from './source-form'
 
 
-@inject("FeedStore", "AppStore") @observer
+@inject("FeedStore", "UiStore") @observer
 class Create extends React.Component {
   state = {
     visible: false,
@@ -15,10 +15,10 @@ class Create extends React.Component {
     this.setState({ visible: false });
   }
   handleFocus = () => {
-    this.props.AppStore.createHasFocus = true;
+    this.props.UiStore.createHasFocus = true;
   }
   handleBlur = () => {
-    this.props.AppStore.createHasFocus = false;
+    this.props.UiStore.createHasFocus = false;
   }
   componentWillMount() {
     // console.log("create", browserHistory.getCurrentLocation().pathname)

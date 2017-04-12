@@ -6,6 +6,7 @@ import { Link, browserHistory } from 'react-router';
 import { observer, inject } from 'mobx-react';
 import FeedNav from './feed-nav';
 import FeedItems from './feed-items';
+require("./feed.css.scss")
 
 
 @inject(["FeedStore"]) @observer
@@ -20,7 +21,6 @@ class Feed extends React.Component {
     this.props.FeedStore.getItems(itemPath);
   }
   
-  
   componentWillReceiveProps(nextProps) {
     if (this.props != nextProps) {
       this.props.FeedStore.getItems(nextProps.params.type);
@@ -29,12 +29,13 @@ class Feed extends React.Component {
   
   render () {
     const items = this.props.FeedStore.items;
+    const leftOffset = 7;
     return (
       <Layout className="ca-feed">
-        {/*<FeedNav />*/}
-        <Content className="ca-layout-content">
+        <FeedNav />
+        <Content>
           <Row>
-            <Col span={24}>
+            <Col span={10} offset={leftOffset}>
               <div className="ca-feed">
                 <FeedItems items={items} />
               </div>

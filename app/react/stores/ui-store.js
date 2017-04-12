@@ -4,10 +4,15 @@ import mediumDraftExporter from 'medium-draft/lib/exporter';
 import { message } from 'antd';
 
 // Store for the general UI
-class appStore {
+class uiStore {
   @observable createHasFocus = false; 
+  @observable feedNavVisible = false; 
+  
+  @action toggleFeedNav() {
+    this.feedNavVisible = !this.feedNavVisible;
+  }
   
 }
-const AppStore = new appStore();
-export default AppStore;
-window.AppStore = AppStore;
+const UiStore = new uiStore();
+export default UiStore;
+window.UiStore = UiStore;

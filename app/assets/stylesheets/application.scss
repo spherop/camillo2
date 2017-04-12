@@ -198,102 +198,6 @@ form {
     padding: 7px 10px;
   }
 }
-
-.ca-nav {
-  // background: #f3f3f3 !important;
-  margin-top: 15px;
-  padding: 0 25px !important;
-  transition: all 100ms linear;
-  display: flex;
-  justify-content: space-between;
-  font-family: "Roboto Condensed";
-  
-  .ca-all {
-    background: transparent !important;
-    padding: 1px;
-    width: 29px;
-    margin: 0 4px;
-    flex-grow: 0;
-    opacity: .6;
-    position: relative;
-    top: -2px;
-    &.selected {
-      opacity: 1;
-    }
-    img {
-      height: 31px;
-      vertical-align: middle;
-    }
-  }
-  $nav-border: 0px;
-  
-  .ca-n-1 {
-    border-right: $nav-border solid #876;
-  }
-  .ca-n-2 {
-    border-right: $nav-border solid #280;
-  }
-  .ca-n-3 {
-    border-right: $nav-border solid #1e4;
-  }
-  .ca-n-4 {
-    border-right: $nav-border solid #c57;
-  }
-  .ca-n-5 {
-    border-right: $nav-border solid #349;
-  }
-  .ca-n-6 {
-    border-right: $nav-border solid #d34;
-  }
-  .ca-n-7 {
-    border-right: $nav-border solid #a9f;
-  }
-  .ca-n-8 {
-    border-right: $nav-border solid #c33;
-  }
-  .ca-n-9 {
-    border-right: $nav-border solid #78a;
-  }
-  .ca-n-10 {
-    border-right: $nav-border solid #08d;
-  }
-  a {
-    // background: #fff;
-    color: #6a6a6a;
-    display: block;
-    flex-grow: 1;
-    font-size: 1rem;
-    height: 46px;
-    letter-spacing: .5px;
-    line-height: 46px;
-    margin-right: 6px;
-    padding: 0 21px;
-    text-align: center;
-    transition: all 120ms ease-in;
-    &:hover {
-      transform: scale(1.02);
-      color: #14477d !important;
-    }
-  }
-  .selected {
-    // background: #969696;
-    color: #000 !important;
-    border-bottom: solid 2px #333;
-  }
-  &.dimmed {
-    
-    a {
-      color: #ccc;
-      // background: #fff;
-      // transform: scale(.8);
-    }
-    .selected {
-      opacity: 1;
-      transform: scale(1);
-    }
-    
-  }
-}
 $btn-size: 42px;
 .ca-rnd-btn {
   width: $btn-size;
@@ -393,11 +297,11 @@ $btn-size: 42px;
     color: #bbb;
   }
 }
-.ca-layout-content {
-  width: 720px;
-  height: 93vh;
-  margin: 25px auto;
-}
+// .ca-layout-content {
+//   width: 720px;
+//   height: 93vh;
+//   margin: 25px auto;
+// }
 
 .ca-items-footer {
   text-align: center;

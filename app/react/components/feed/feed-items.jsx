@@ -10,7 +10,7 @@ require('./feed-items.css.scss');
 
 
 
-@inject(["FeedStore"]) @observer
+@inject("FeedStore", "UiStore") @observer
 class FeedItems extends React.Component {
   
   constructor(props) {
@@ -21,6 +21,7 @@ class FeedItems extends React.Component {
         <Menu.Item key="/goals">Goals</Menu.Item>
         <Menu.Item key="/ideas">Ideas</Menu.Item>
         <Menu.Item key="/creative_actions">Actions</Menu.Item>
+        <Menu.Item key="/sources">Sources</Menu.Item>
       </Menu>
     );
   }
@@ -58,6 +59,7 @@ class FeedItems extends React.Component {
   }
   
   render () {
+    console.log("rendering feed items")
     const items = this.props.FeedStore.items;
     if (this.props.FeedStore.loading) {
       return (
@@ -66,17 +68,19 @@ class FeedItems extends React.Component {
     }
     return (    
       <div className="ca-feed-items pd-b-4">
-        <Row className="ca-header bd-bd-1">
-          <Col span={24}>
-            
-            <Dropdown overlay={this.menu} trigger={['click']}>
-              <a className="ant-dropdown-link" href="#">
-                {this.props.FeedStore.itemType.replace("_", " ")}
-                <Icon className="pd-l-1" type="down" />
-              </a>
-            </Dropdown>
-          </Col>
-        </Row>
+        {!this.props.UiStore.feedNavVisible &&
+          <Row className="ca-header bd-bd-1">
+            <Col span={24}>
+              <Dropdown overlay={this.menu} trigger={['click']}>
+                <a className="ant-dropdown-link" href="#">
+                  {this.props.FeedStore.itemType.replace("_", " ")}
+                  <Icon className="pd-l-1" type="down" />
+                </a>
+              </Dropdown>
+            </Col>
+          </Row>
+        }
+        
         <Create handleCreateItem={this.createItem} />
         <ReactCSSTransitionGroup
           transitionName="ca-list"

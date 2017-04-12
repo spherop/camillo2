@@ -5,6 +5,9 @@ import { Layout, Col, Row, Tag, Icon, Button, message, Input } from 'antd';
 const { Header, Content } = Layout;
 import Loading from "../common/loading";
 import moment from 'moment';
+import _ from 'lodash';
+_.mixin(require("lodash-inflection"));
+
 
 import {
   Editor,
@@ -48,11 +51,11 @@ class Item extends React.Component {
   }
   
   render () {
-    // const { editorContent, contentState, editorState } = this.state;
-    const item = this.props.FeedStore.item
-    let editorState = item.loading ? null : item.editorState
+    const item = this.props.FeedStore.item;
+    let editorState = item.loading ? null : item.editorState;
+    const leftOffset = 7;
     if (!editorState) {
-      editorState = createEditorState()
+      editorState = createEditorState();
     }
     if (item.loading) {
       return (
@@ -63,21 +66,24 @@ class Item extends React.Component {
       <Layout className="ca-layout ca-item">
         <Header>
           <Row>
-            <Col className="ca-item-nav" span={14} offset={6}>
-              <Link to="/items"><img className="nav-icon" src="/assets/levels.svg" /></Link>
-              <Link to={"/" + item.item_type + "s"}>{item.item_type.replace("_", " ")}</Link>
+            <Col className="fs tt-uc" span={10} offset={leftOffset}>
+              {/*<Link to="/items"><img className="nav-icon" src="/assets/levels.svg" /></Link>*/}
+              <Link to={"/" + _.pluralize(item.item_type)}><Icon type="double-left"></Icon> {_.pluralize(item.item_type.replace("_", " "))}</Link>
+              
+            </Col>
+            <Col span={1} className="tr">
               <Button type="dashed" onClick={this.saveItem}>Save</Button>
             </Col>
           </Row>  
         </Header>
         <Content>
           <Row>
-            <Col span={11} offset={6}>
+            <Col span={11} offset={leftOffset}>
               <Input onChange={this.onTitleChange} value={item.title} placeholder="..." />
             </Col>
           </Row>
           <Row>
-            <Col span={12} offset={6}>
+            <Col span={11} offset={leftOffset}>
               <Editor
                 ref="editor"
                 editorState={editorState}
@@ -90,4 +96,4 @@ class Item extends React.Component {
   }
 }
 
-export default Item
+export default Item;
