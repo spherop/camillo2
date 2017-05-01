@@ -54,32 +54,32 @@
   font-size: 1.2rem !important;
   color: #ccc;
 }
-.ant-form input[type="text"], form input[type="url"], .ant-form input[type="number"] {
-  padding: 19px 0px !important;
-  background: #fff;
-  // border-bottom: solid 1px #333;
-  font-size: 21px;
-  font-weight: normal;
-  font-family: Raleway;
-  &:focus {
-    background: #fff;
-    border-bottom: solid 2px #eee;
-    border-radius: 0;
-  }
-}
-.ant-form textarea {
-  border-radius: 0 !important;
-  font-size: 1.3rem;
-  &:focus {
-    border: none !important;
-    border-bottom: solid 1px #ddd;
-    // box-shadow: none !important;
-  }
-  &:hover {
-    border: none !important;
-    // box-shadow: none !important;
-  }
-}
+// .ant-form input[type="text"], form input[type="url"], .ant-form input[type="number"] {
+//   padding: 19px 0px !important;
+//   background: #fff;
+//   // border-bottom: solid 1px #333;
+//   font-size: 21px;
+//   font-weight: normal;
+//   font-family: Raleway;
+//   &:focus {
+//     background: #fff;
+//     border-bottom: solid 2px #eee;
+//     border-radius: 0;
+//   }
+// }
+// .ant-form textarea {
+//   border-radius: 0 !important;
+//   font-size: 1.3rem;
+//   &:focus {
+//     border: none !important;
+//     border-bottom: solid 1px #ddd;
+//     // box-shadow: none !important;
+//   }
+//   &:hover {
+//     border: none !important;
+//     // box-shadow: none !important;
+//   }
+// }
 .ant-form .ant-select-selection {
   border-radius: 0 !important;
 }

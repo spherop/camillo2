@@ -82,18 +82,20 @@ class FeedItems extends React.Component {
         }
         
         <Create handleCreateItem={this.createItem} />
-        <ReactCSSTransitionGroup
-          transitionName="ca-list"
-          transitionEnterTimeout={50}
-          transitionLeaveTimeout={150}
-          transitionAppear={true}
-          transitionAppearTimeout={50}>
-          <div>
-            {items.map((item, i) =>
-              <FeedItem key={i} item={item} />
-            )}
-          </div>
-        </ReactCSSTransitionGroup>
+        { !this.props.UiStore.createHasFocus &&
+          <ReactCSSTransitionGroup
+            transitionName="ca-list"
+            transitionEnterTimeout={50}
+            transitionLeaveTimeout={150}
+            transitionAppear={true}
+            transitionAppearTimeout={50}>
+            <div>
+              {items.map((item, i) =>
+                <FeedItem key={i} item={item} />
+              )}
+            </div>
+          </ReactCSSTransitionGroup>
+        }
       </div>
     )
   }

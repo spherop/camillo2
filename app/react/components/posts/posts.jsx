@@ -52,9 +52,12 @@ class Posts extends React.Component {
         
         <Content className="ca-layout-content">
           <Row>
-            <Col span={24}>
-              <PostNav />
-              <hr />
+            <Col className="ca-info" span={4}>
+              TEST
+            </Col>
+            <Col span={16}>
+
+            
               <div className="ca-posts">
                 {posts.map((post, i) =>
                   <div>

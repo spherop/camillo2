@@ -11,18 +11,29 @@ class Create extends React.Component {
   state = {
     visible: false,
   };
+  
   handleCancel = () => {
     this.setState({ visible: false });
   }
+  
   handleFocus = () => {
-    this.props.UiStore.createHasFocus = true;
+    this.props.UiStore.setCreateHasFocus(true);
+    // this.props.UiStore.createHasFocus = true;
   }
+  
   handleBlur = () => {
-    this.props.UiStore.createHasFocus = false;
+    this.props.UiStore.setCreateHasFocus(false);
+    // this.props.UiStore.createHasFocus = false;
   }
+  
   componentWillMount() {
     // console.log("create", browserHistory.getCurrentLocation().pathname)
     
+  }
+  
+  onEditorStateChange = (editorState) => {
+    this.props.FeedStore.contentDirty = true
+    this.props.FeedStore.item.editorState = editorState
   }
 
   handleCreate = () => {
@@ -37,13 +48,15 @@ class Create extends React.Component {
       this.props.handleCreateItem(values);
     });
   }
+  
   saveFormRef = (form) => {
     this.form = form;
   }
+  
   render() {
     const createTypeText = this.props.FeedStore.createItemText
     const itemType = this.props.FeedStore.itemType
-    console.log("feedStore", this.props.FeedStore.itemType)
+    // console.log("feedStore", this.props.FeedStore.itemType)
     const isSource = (this.props.FeedStore.itemType == "sources")
     if (!isSource) {
       return (
@@ -51,12 +64,15 @@ class Create extends React.Component {
           <CreateForm
             ref={this.saveFormRef}
             itemType={itemType}
+            item={this.props.FeedStore.item}
             visible={this.state.visible}
             onCancel={this.handleCancel}
             onCreate={this.handleCreate}
             onSelect={this.handleSelect}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
+            showEditor={this.props.UiStore.createHasFocus}
+            onEditorStateChange={this.onEditorStateChange}
           />
         </div>
       )

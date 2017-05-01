@@ -13,7 +13,7 @@ class AppNav extends React.Component {
         <header className="ca-app-nav">
           <Row>
             <Col span={12}>            
-              <Link className="ca-logo ca-nav-link" style={{fontSize: 20, letterSpacing: 1}} activeClassName="active" to="/posts">
+              <Link className="ca-logo ca-nav-link" style={{fontSize: 18, letterSpacing: 1}} activeClassName="active" to="/posts">
                 <img className="ca-nav-icon" src="/assets/levels.svg" /> Creative Flow
               </Link>
             </Col>

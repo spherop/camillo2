@@ -11,7 +11,7 @@ class FeedNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showNav: false
+      showNav: true
     }
   }
   
@@ -21,7 +21,7 @@ class FeedNav extends React.Component {
   
   renderNavItems() {
     return (
-      <Header className="ca-nav">
+      <Header>
         <Link className="ca-n-1" activeClassName="selected" to="/creative_actions">Actions</Link>
         <Link className="ca-n-2" activeClassName="selected" to="/ideas">Ideas</Link>
         <Link className="ca-n-3" activeClassName="selected" to="/goals">Goals</Link>
@@ -42,14 +42,14 @@ class FeedNav extends React.Component {
     const toggleType = visible ? "down" : "right";
     // extra spans are here as a hack to prevent selection of elements on clicks of toggle
     return (
-      <span>
-        <span>
+      <div className={this.props.className}>
+        {/*<span>
           <Icon className="ca-feed-toggle" onClick={this.toggleNav} type={toggleType}></Icon>
-        </span>
+        </span>*/}
         <span>
           {visible && this.renderNavItems()}
         </span>
-      </span>
+      </div>
 
     )
   }

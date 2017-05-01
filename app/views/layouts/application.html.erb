@@ -17,7 +17,7 @@
           window.auth = true;
           window.user = { id: <%= current_user.id %>, email: '<%= current_user.email %>' };
         </script>
-        <img src="/assets/man-user.svg" />
+        <img class="ca-nav-icon" src="/assets/man-user.svg" />
         <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "navbar-right") %>        
       <% else %>
         <script>

@@ -3,11 +3,17 @@ import { Button, Form, Input, Select, Row, Col } from 'antd';
 import _ from 'lodash';
 _.mixin(require("lodash-inflection"));
 
+import {
+  Editor,
+  createEditorState,
+} from 'medium-draft';
+
 const FormItem = Form.Item;
 require("./create-form.css.scss");
 
 const CreateForm = Form.create()(
   (props) => {
+    let editorState = props.item.loading ? null : props.item.editorState;
     const { visible, onCancel, onCreate, onSelect, form, itemType, onFocus, onBlur } = props;
     const { getFieldDecorator } = form;
     const Option = Select.Option;
@@ -19,7 +25,12 @@ const CreateForm = Form.create()(
               {getFieldDecorator('title', {
                 rules: [{ required: true, message: 'Input title' }],
               })(
-                <Input className="ca-create-input" placeholder={`+ new ${_.singularize(props.itemType)}`} onPressEnter={onCreate} onFocus={onFocus} onBlur={onBlur} autoComplete="off" />
+                <Input className="ca-create-input" 
+                  placeholder={`+ new ${_.singularize(props.itemType)}`} 
+                  onPressEnter={onCreate} 
+                  onFocus={onFocus} 
+                  onBlur={onBlur} 
+                  autoComplete="off" />
               )}
             </div>
           </Col>
@@ -32,6 +43,18 @@ const CreateForm = Form.create()(
             <Button className="ca-create-button" onClick={onCreate}>+</Button>
           </Col>
         </Row>
+        { props.showEditor &&
+          <Row>
+            <Col span={21}>
+              <Editor
+                ref="editor"
+                editorState={editorState}
+                onFocus={onFocus} 
+                onBlur={onBlur} 
+                onChange={props.onEditorStateChange} />
+            </Col>
+          </Row>
+        }
       </Form>
     );
   }

@@ -6,7 +6,12 @@ import { message } from 'antd';
 // Store for the general UI
 class uiStore {
   @observable createHasFocus = false; 
-  @observable feedNavVisible = false; 
+  @observable feedNavVisible = true; 
+  
+  @action setCreateHasFocus(bool) {
+    // alert(bool)
+    this.createHasFocus = bool;
+  }
   
   @action toggleFeedNav() {
     this.feedNavVisible = !this.feedNavVisible;

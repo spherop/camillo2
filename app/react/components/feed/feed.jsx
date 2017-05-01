@@ -29,13 +29,15 @@ class Feed extends React.Component {
   
   render () {
     const items = this.props.FeedStore.items;
-    const leftOffset = 7;
+    // const leftOffset = 7;
     return (
       <Layout className="ca-feed">
-        <FeedNav />
         <Content>
-          <Row>
-            <Col span={10} offset={leftOffset}>
+          <Row gutter={50}>
+            <Col span={7}>
+              <FeedNav className="ca-nav-vert" />
+            </Col>
+            <Col span={10}>
               <div className="ca-feed">
                 <FeedItems items={items} />
               </div>

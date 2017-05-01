@@ -1,3 +1,28 @@
 .ca-create-form {
-  margin-bottom: 15px;
+  input[type="text"], form input[type="url"], .ant-form input[type="number"] {
+    padding: 32px 0px !important;
+    background: #fff;
+    border: solid 1px #f9f9f9;
+    font-size: 21px;
+    font-weight: normal;
+    font-family: Raleway;
+    &:focus {
+      background: #fff;
+      border-bottom: solid 2px #eee;
+      border-radius: 0;
+    }
+  }
+  textarea {
+    border-radius: 0 !important;
+    font-size: 1.3rem;
+    &:focus {
+      border: none !important;
+      border-bottom: solid 1px #ddd;
+      // box-shadow: none !important;
+    }
+    &:hover {
+      border: none !important;
+      // box-shadow: none !important;
+    }
+  }
 }
